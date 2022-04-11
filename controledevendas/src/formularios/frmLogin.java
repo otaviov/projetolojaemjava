@@ -4,7 +4,9 @@
  */
 package formularios;
 
+//Importações
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -15,10 +17,15 @@ public class frmLogin extends javax.swing.JFrame {
     /**
      * Creates new form jfmLogin
      */
+        
     public frmLogin() {
         initComponents();
         
+        //Criando metodo do icone do jFrame
         setIcon();
+        
+        
+        
     }
 
     /**
