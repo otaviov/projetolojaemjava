@@ -4,6 +4,8 @@
  */
 package formularios;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author amand
@@ -15,6 +17,8 @@ public class frmLogin extends javax.swing.JFrame {
      */
     public frmLogin() {
         initComponents();
+        
+        setIcon();
     }
 
     /**
@@ -188,4 +192,10 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
-}
+
+    
+    // Trocar icone do desktop (icone do café):
+    private void setIcon() {
+       this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/nix1.png")));
+    }
+} // fim da troca de icone
