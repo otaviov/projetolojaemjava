@@ -4,6 +4,8 @@
  */
 package classes;
 
+import formularios.frmLogin;
+
 /**
  *
  * @author amand
@@ -15,7 +17,8 @@ public class Controledevendas {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        frmLogin login = new frmLogin();
+        login.setVisible(true);
         
     }
     
