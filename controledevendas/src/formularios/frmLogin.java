@@ -5,8 +5,12 @@
 package formularios;
 
 //Importações
+import classes.Dados;
 import java.awt.Toolkit;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -79,6 +83,11 @@ public class frmLogin extends javax.swing.JFrame {
 
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEntrar.setText("Entrar");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
 
         btnSair.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnSair.setText(" Sair ");
@@ -163,6 +172,21 @@ public class frmLogin extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        // chamando a classe Dados para verificar usuario: 
+        Dados verificarUser = new Dados();
+        if(verificarUser.validarUsuario(txtUsuario.getText(), 
+                new String (txtSenha.getPassword()))){
+            //Icon figura = new ImageIcon (getToolkit().createImage(getClass().getResource("/icones/senha-incorreta.png"))); 
+            JOptionPane.showMessageDialog(rootPane, "Usuario e senha incorretos", 
+                    "ATENÇÂO", HEIGHT, new ImageIcon("/icones/senha-incorreta.png"));
+            txtUsuario.setText("");
+            txtSenha.setText("");
+            txtUsuario.requestFocusInWindow();
+            return;
+        }
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
      * @param args the command line arguments
