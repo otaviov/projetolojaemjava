@@ -179,8 +179,8 @@ public class frmLogin extends javax.swing.JFrame {
         if(verificarUser.validarUsuario(txtUsuario.getText(), 
                 new String (txtSenha.getPassword()))){
             //Adicionando icone no JOPtionPane
-            Icon figura = new ImageIcon (getToolkit().createImage(getClass().getResource("/icones/senha-incorreta.png"))); 
-            JOptionPane.showMessageDialog(rootPane, "Usuario e senha incorretos", 
+            Icon figura = new ImageIcon (getToolkit().createImage(getClass().getResource("/icones/atencao.png"))); 
+            JOptionPane.showMessageDialog(rootPane, "Usuário e senha incorretos", 
                     "ATENÇÂO", HEIGHT, figura);
             txtUsuario.setText("");
             txtSenha.setText("");
