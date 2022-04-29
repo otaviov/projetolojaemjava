@@ -9,6 +9,7 @@ import classes.Dados;
 import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -187,7 +188,9 @@ public class frmLogin extends javax.swing.JFrame {
             return;
         }
         frmPrincipal telaPrincipal = new frmPrincipal();
-                telaPrincipal.setVisible(true);
+        this.setVisible(false);
+        telaPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        telaPrincipal.setVisible(true);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
