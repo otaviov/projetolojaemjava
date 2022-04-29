@@ -47,6 +47,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuArquivos.setText("Arquivos");
         mnuArquivos.setToolTipText("");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/cliente.png"))); // NOI18N
         jMenuItem1.setText("Clientes");
         jMenuItem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +58,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuArquivos.add(jMenuItem1);
 
         jMenuItem2.setText("Produtos");
+        jMenuItem2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -65,17 +67,21 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuArquivos.add(jMenuItem2);
 
         jMenuItem3.setText("Usuários");
+        jMenuItem3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivos.add(jMenuItem3);
         mnuArquivos.add(jSeparator1);
 
         jMenuItem4.setText("Trocar senha");
+        jMenuItem4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivos.add(jMenuItem4);
 
         jMenuItem5.setText("Editar usuário");
+        jMenuItem5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivos.add(jMenuItem5);
         mnuArquivos.add(jSeparator2);
 
         jMenuItem6.setText("Sair");
+        jMenuItem6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivos.add(jMenuItem6);
 
         jMenuBar1.add(mnuArquivos);
