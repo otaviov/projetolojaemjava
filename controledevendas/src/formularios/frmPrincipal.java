@@ -26,18 +26,37 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        mnuArquivos = new javax.swing.JMenu();
+        mnuMovimentos = new javax.swing.JMenu();
+        mnuAjuda = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Vendas");
+
+        jMenuBar1.setAutoscrolls(true);
+
+        mnuArquivos.setText("Arquivos");
+        mnuArquivos.setToolTipText("");
+        jMenuBar1.add(mnuArquivos);
+
+        mnuMovimentos.setText("Movimentos");
+        jMenuBar1.add(mnuMovimentos);
+
+        mnuAjuda.setText("Ajuda");
+        jMenuBar1.add(mnuAjuda);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 819, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 473, Short.MAX_VALUE)
         );
 
         pack();
@@ -79,5 +98,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu mnuAjuda;
+    private javax.swing.JMenu mnuArquivos;
+    private javax.swing.JMenu mnuMovimentos;
     // End of variables declaration//GEN-END:variables
 }
