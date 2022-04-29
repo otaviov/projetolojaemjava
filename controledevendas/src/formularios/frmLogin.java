@@ -9,7 +9,6 @@ import classes.Dados;
 import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
 import javax.swing.JOptionPane;
 
 /**
