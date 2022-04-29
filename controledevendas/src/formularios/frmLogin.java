@@ -176,7 +176,7 @@ public class frmLogin extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // chamando a classe Dados para verificar usuario: 
         Dados verificarUser = new Dados();
-        if(verificarUser.validarUsuario(txtUsuario.getText(), 
+        if (verificarUser.validarUsuario(txtUsuario.getText(), 
                 new String (txtSenha.getPassword()))){
             //Adicionando icone no JOPtionPane
             Icon figura = new ImageIcon (getToolkit().createImage(getClass().getResource("/icones/atencao.png"))); 
@@ -187,6 +187,8 @@ public class frmLogin extends javax.swing.JFrame {
             txtUsuario.requestFocusInWindow();
             return;
         }
+        frmPrincipal telaPrincipal = new frmPrincipal();
+                telaPrincipal.setVisible(true);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
