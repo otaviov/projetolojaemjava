@@ -28,6 +28,14 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivos = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem6 = new javax.swing.JMenuItem();
         mnuMovimentos = new javax.swing.JMenu();
         mnuAjuda = new javax.swing.JMenu();
 
@@ -38,6 +46,38 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mnuArquivos.setText("Arquivos");
         mnuArquivos.setToolTipText("");
+
+        jMenuItem1.setText("Clientes");
+        jMenuItem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        mnuArquivos.add(jMenuItem1);
+
+        jMenuItem2.setText("Produtos");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        mnuArquivos.add(jMenuItem2);
+
+        jMenuItem3.setText("Usuários");
+        mnuArquivos.add(jMenuItem3);
+        mnuArquivos.add(jSeparator1);
+
+        jMenuItem4.setText("Trocar senha");
+        mnuArquivos.add(jMenuItem4);
+
+        jMenuItem5.setText("Editar usuário");
+        mnuArquivos.add(jMenuItem5);
+        mnuArquivos.add(jSeparator2);
+
+        jMenuItem6.setText("Sair");
+        mnuArquivos.add(jMenuItem6);
+
         jMenuBar1.add(mnuArquivos);
 
         mnuMovimentos.setText("Movimentos");
@@ -61,6 +101,14 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -99,6 +147,14 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenu mnuAjuda;
     private javax.swing.JMenu mnuArquivos;
     private javax.swing.JMenu mnuMovimentos;
