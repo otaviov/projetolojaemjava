@@ -39,11 +39,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         mnuArquivosSair = new javax.swing.JMenuItem();
         mnuMovimentos = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mnuMovimentosnovaVenda = new javax.swing.JMenuItem();
+        mnuMovimentosRelatorioVenda = new javax.swing.JMenuItem();
         mnuAjuda = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mnuAjudaSobre = new javax.swing.JMenuItem();
+        mnuAjudaAjuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Vendas");
@@ -104,21 +104,21 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mnuMovimentos.setText("Movimentos");
 
-        jMenuItem1.setText("Nova Venda");
-        mnuMovimentos.add(jMenuItem1);
+        mnuMovimentosnovaVenda.setText("Nova Venda");
+        mnuMovimentos.add(mnuMovimentosnovaVenda);
 
-        jMenuItem2.setText("Relatorio de vendas");
-        mnuMovimentos.add(jMenuItem2);
+        mnuMovimentosRelatorioVenda.setText("Relatorio de vendas");
+        mnuMovimentos.add(mnuMovimentosRelatorioVenda);
 
         jMenuBar1.add(mnuMovimentos);
 
         mnuAjuda.setText("Ajuda");
 
-        jMenuItem3.setText("Sobre");
-        mnuAjuda.add(jMenuItem3);
+        mnuAjudaSobre.setText("Sobre");
+        mnuAjuda.add(mnuAjudaSobre);
 
-        jMenuItem4.setText("Ajuda");
-        mnuAjuda.add(jMenuItem4);
+        mnuAjudaAjuda.setText("Ajuda");
+        mnuAjuda.add(mnuAjudaAjuda);
 
         jMenuBar1.add(mnuAjuda);
 
@@ -189,13 +189,11 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenu mnuAjuda;
+    private javax.swing.JMenuItem mnuAjudaAjuda;
+    private javax.swing.JMenuItem mnuAjudaSobre;
     private javax.swing.JMenu mnuArquivos;
     private javax.swing.JMenuItem mnuArquivosCliente;
     private javax.swing.JMenuItem mnuArquivosProdutos;
@@ -204,6 +202,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuArquivosUsuarios;
     private javax.swing.JMenuItem mnuArquivostUsuario;
     private javax.swing.JMenu mnuMovimentos;
+    private javax.swing.JMenuItem mnuMovimentosRelatorioVenda;
+    private javax.swing.JMenuItem mnuMovimentosnovaVenda;
     // End of variables declaration//GEN-END:variables
 
 
