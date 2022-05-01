@@ -39,7 +39,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         mnuArquivosSair = new javax.swing.JMenuItem();
         mnuMovimentos = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         mnuAjuda = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Vendas");
@@ -99,9 +103,23 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(mnuArquivos);
 
         mnuMovimentos.setText("Movimentos");
+
+        jMenuItem1.setText("Nova Venda");
+        mnuMovimentos.add(jMenuItem1);
+
+        jMenuItem2.setText("Relatorio de vendas");
+        mnuMovimentos.add(jMenuItem2);
+
         jMenuBar1.add(mnuMovimentos);
 
         mnuAjuda.setText("Ajuda");
+
+        jMenuItem3.setText("Sobre");
+        mnuAjuda.add(jMenuItem3);
+
+        jMenuItem4.setText("Ajuda");
+        mnuAjuda.add(jMenuItem4);
+
         jMenuBar1.add(mnuAjuda);
 
         setJMenuBar(jMenuBar1);
@@ -171,6 +189,10 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenu mnuAjuda;
