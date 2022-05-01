@@ -49,11 +49,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         setTitle("Sistema de Vendas");
 
         jMenuBar1.setAutoscrolls(true);
+        jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
         mnuArquivos.setText("Arquivos");
         mnuArquivos.setToolTipText("");
+        mnuArquivos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        mnuArquivosCliente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuArquivosCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivosCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/cliente.png"))); // NOI18N
         mnuArquivosCliente.setText("Clientes");
         mnuArquivosCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -64,7 +66,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
         mnuArquivos.add(mnuArquivosCliente);
 
-        mnuArquivosProdutos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuArquivosProdutos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivosProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/produtos.png"))); // NOI18N
         mnuArquivosProdutos.setText("Produtos");
         mnuArquivosProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -75,27 +77,27 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
         mnuArquivos.add(mnuArquivosProdutos);
 
-        mnuArquivosUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuArquivosUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivosUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user.png"))); // NOI18N
         mnuArquivosUsuarios.setText("Usuários");
         mnuArquivosUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivos.add(mnuArquivosUsuarios);
         mnuArquivos.add(jSeparator1);
 
-        mnuArquivosSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuArquivosSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivosSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/senha.png"))); // NOI18N
         mnuArquivosSenha.setText("Trocar senha");
         mnuArquivosSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivos.add(mnuArquivosSenha);
 
-        mnuArquivostUsuario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuArquivostUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivostUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user2.png"))); // NOI18N
         mnuArquivostUsuario.setText("Editar usuário");
         mnuArquivostUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivos.add(mnuArquivostUsuario);
         mnuArquivos.add(jSeparator2);
 
-        mnuArquivosSair.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuArquivosSair.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivosSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/sair.png"))); // NOI18N
         mnuArquivosSair.setText("Sair");
         mnuArquivosSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -109,25 +111,35 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(mnuArquivos);
 
         mnuMovimentos.setText("Movimentos");
+        mnuMovimentos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        mnuMovimentosnovaVenda.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuMovimentosnovaVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        mnuMovimentosnovaVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/nova-venda.png"))); // NOI18N
         mnuMovimentosnovaVenda.setText("Nova Venda");
+        mnuMovimentosnovaVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuMovimentos.add(mnuMovimentosnovaVenda);
 
-        mnuMovimentosRelatorioVenda.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuMovimentosRelatorioVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        mnuMovimentosRelatorioVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/relatorio-de-vendas.png"))); // NOI18N
         mnuMovimentosRelatorioVenda.setText("Relatorio de vendas");
+        mnuMovimentosRelatorioVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuMovimentos.add(mnuMovimentosRelatorioVenda);
 
         jMenuBar1.add(mnuMovimentos);
 
         mnuAjuda.setText("Ajuda");
+        mnuAjuda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        mnuAjudaSobre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuAjudaSobre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        mnuAjudaSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/sobre.png"))); // NOI18N
         mnuAjudaSobre.setText("Sobre");
+        mnuAjudaSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuAjuda.add(mnuAjudaSobre);
 
-        mnuAjudaAjuda.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuAjudaAjuda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        mnuAjudaAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/ajuda.png"))); // NOI18N
         mnuAjudaAjuda.setText("Ajuda");
+        mnuAjudaAjuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuAjuda.add(mnuAjudaAjuda);
 
         jMenuBar1.add(mnuAjuda);
@@ -142,7 +154,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 473, Short.MAX_VALUE)
+            .addGap(0, 469, Short.MAX_VALUE)
         );
 
         pack();
