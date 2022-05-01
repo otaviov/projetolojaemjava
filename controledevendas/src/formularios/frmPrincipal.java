@@ -53,6 +53,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuArquivos.setText("Arquivos");
         mnuArquivos.setToolTipText("");
 
+        mnuArquivosCliente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mnuArquivosCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/cliente.png"))); // NOI18N
         mnuArquivosCliente.setText("Clientes");
         mnuArquivosCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -63,6 +64,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
         mnuArquivos.add(mnuArquivosCliente);
 
+        mnuArquivosProdutos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mnuArquivosProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/produtos.png"))); // NOI18N
         mnuArquivosProdutos.setText("Produtos");
         mnuArquivosProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -73,23 +75,27 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
         mnuArquivos.add(mnuArquivosProdutos);
 
+        mnuArquivosUsuarios.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mnuArquivosUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user.png"))); // NOI18N
         mnuArquivosUsuarios.setText("Usuários");
         mnuArquivosUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivos.add(mnuArquivosUsuarios);
         mnuArquivos.add(jSeparator1);
 
+        mnuArquivosSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mnuArquivosSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/senha.png"))); // NOI18N
         mnuArquivosSenha.setText("Trocar senha");
         mnuArquivosSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivos.add(mnuArquivosSenha);
 
+        mnuArquivostUsuario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mnuArquivostUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user2.png"))); // NOI18N
         mnuArquivostUsuario.setText("Editar usuário");
         mnuArquivostUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivos.add(mnuArquivostUsuario);
         mnuArquivos.add(jSeparator2);
 
+        mnuArquivosSair.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mnuArquivosSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/sair.png"))); // NOI18N
         mnuArquivosSair.setText("Sair");
         mnuArquivosSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -104,9 +110,11 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mnuMovimentos.setText("Movimentos");
 
+        mnuMovimentosnovaVenda.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mnuMovimentosnovaVenda.setText("Nova Venda");
         mnuMovimentos.add(mnuMovimentosnovaVenda);
 
+        mnuMovimentosRelatorioVenda.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mnuMovimentosRelatorioVenda.setText("Relatorio de vendas");
         mnuMovimentos.add(mnuMovimentosRelatorioVenda);
 
@@ -114,9 +122,11 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mnuAjuda.setText("Ajuda");
 
+        mnuAjudaSobre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mnuAjudaSobre.setText("Sobre");
         mnuAjuda.add(mnuAjudaSobre);
 
+        mnuAjudaAjuda.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         mnuAjudaAjuda.setText("Ajuda");
         mnuAjuda.add(mnuAjudaAjuda);
 
