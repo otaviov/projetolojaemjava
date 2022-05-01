@@ -35,7 +35,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuArquivosUsuarios = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnuArquivosSenha = new javax.swing.JMenuItem();
-        mnuArquivosUsuario = new javax.swing.JMenuItem();
+        mnuArquivostUsuario = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         mnuArquivosSair = new javax.swing.JMenuItem();
         mnuMovimentos = new javax.swing.JMenu();
@@ -80,10 +80,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuArquivosSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivos.add(mnuArquivosSenha);
 
-        mnuArquivosUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user2.png"))); // NOI18N
-        mnuArquivosUsuario.setText("Editar usuário");
-        mnuArquivosUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuArquivos.add(mnuArquivosUsuario);
+        mnuArquivostUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user2.png"))); // NOI18N
+        mnuArquivostUsuario.setText("Editar usuário");
+        mnuArquivostUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuArquivos.add(mnuArquivostUsuario);
         mnuArquivos.add(jSeparator2);
 
         mnuArquivosSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/sair.png"))); // NOI18N
@@ -179,8 +179,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuArquivosProdutos;
     private javax.swing.JMenuItem mnuArquivosSair;
     private javax.swing.JMenuItem mnuArquivosSenha;
-    private javax.swing.JMenuItem mnuArquivosUsuario;
     private javax.swing.JMenuItem mnuArquivosUsuarios;
+    private javax.swing.JMenuItem mnuArquivostUsuario;
     private javax.swing.JMenu mnuMovimentos;
     // End of variables declaration//GEN-END:variables
 
