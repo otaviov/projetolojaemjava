@@ -12,10 +12,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author amand
- */
 public class frmLogin extends javax.swing.JFrame {
 
     /**

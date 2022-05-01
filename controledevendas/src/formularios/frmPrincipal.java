@@ -4,10 +4,9 @@
  */
 package formularios;
 
-/**
- *
- * @author amand
- */
+import java.awt.Toolkit;
+
+
 public class frmPrincipal extends javax.swing.JFrame {
 
     /**
@@ -15,6 +14,9 @@ public class frmPrincipal extends javax.swing.JFrame {
      */
     public frmPrincipal() {
         initComponents();
+        
+         //Criando metodo do icone do jFrame
+        setIcon();
     }
 
     /**
@@ -28,14 +30,14 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivos = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        mnuArquivosCliente = new javax.swing.JMenuItem();
+        mnuArquivosProdutos = new javax.swing.JMenuItem();
+        mnuArquivosUsuarios = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        mnuArquivosSenha = new javax.swing.JMenuItem();
+        mnuArquivosUsuario = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        mnuArquivosSair = new javax.swing.JMenuItem();
         mnuMovimentos = new javax.swing.JMenu();
         mnuAjuda = new javax.swing.JMenu();
 
@@ -44,51 +46,55 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.setAutoscrolls(true);
 
-        mnuArquivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/produtos.png"))); // NOI18N
         mnuArquivos.setText("Arquivos");
         mnuArquivos.setToolTipText("");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/cliente.png"))); // NOI18N
-        jMenuItem1.setText("Clientes");
-        jMenuItem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mnuArquivosCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/cliente.png"))); // NOI18N
+        mnuArquivosCliente.setText("Clientes");
+        mnuArquivosCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuArquivosCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mnuArquivosClienteActionPerformed(evt);
             }
         });
-        mnuArquivos.add(jMenuItem1);
+        mnuArquivos.add(mnuArquivosCliente);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/produtos.png"))); // NOI18N
-        jMenuItem2.setText("Produtos");
-        jMenuItem2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        mnuArquivosProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/produtos.png"))); // NOI18N
+        mnuArquivosProdutos.setText("Produtos");
+        mnuArquivosProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuArquivosProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                mnuArquivosProdutosActionPerformed(evt);
             }
         });
-        mnuArquivos.add(jMenuItem2);
+        mnuArquivos.add(mnuArquivosProdutos);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user.png"))); // NOI18N
-        jMenuItem3.setText("Usuários");
-        jMenuItem3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuArquivos.add(jMenuItem3);
+        mnuArquivosUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user.png"))); // NOI18N
+        mnuArquivosUsuarios.setText("Usuários");
+        mnuArquivosUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuArquivos.add(mnuArquivosUsuarios);
         mnuArquivos.add(jSeparator1);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/senha.png"))); // NOI18N
-        jMenuItem4.setText("Trocar senha");
-        jMenuItem4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuArquivos.add(jMenuItem4);
+        mnuArquivosSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/senha.png"))); // NOI18N
+        mnuArquivosSenha.setText("Trocar senha");
+        mnuArquivosSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuArquivos.add(mnuArquivosSenha);
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user2.png"))); // NOI18N
-        jMenuItem5.setText("Editar usuário");
-        jMenuItem5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuArquivos.add(jMenuItem5);
+        mnuArquivosUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user2.png"))); // NOI18N
+        mnuArquivosUsuario.setText("Editar usuário");
+        mnuArquivosUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuArquivos.add(mnuArquivosUsuario);
         mnuArquivos.add(jSeparator2);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/sair.png"))); // NOI18N
-        jMenuItem6.setText("Sair");
-        jMenuItem6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuArquivos.add(jMenuItem6);
+        mnuArquivosSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/sair.png"))); // NOI18N
+        mnuArquivosSair.setText("Sair");
+        mnuArquivosSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuArquivosSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuArquivosSairActionPerformed(evt);
+            }
+        });
+        mnuArquivos.add(mnuArquivosSair);
 
         jMenuBar1.add(mnuArquivos);
 
@@ -114,13 +120,19 @@ public class frmPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mnuArquivosClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivosClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mnuArquivosClienteActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void mnuArquivosProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivosProdutosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_mnuArquivosProdutosActionPerformed
+
+    private void mnuArquivosSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivosSairActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_mnuArquivosSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,16 +171,23 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenu mnuAjuda;
     private javax.swing.JMenu mnuArquivos;
+    private javax.swing.JMenuItem mnuArquivosCliente;
+    private javax.swing.JMenuItem mnuArquivosProdutos;
+    private javax.swing.JMenuItem mnuArquivosSair;
+    private javax.swing.JMenuItem mnuArquivosSenha;
+    private javax.swing.JMenuItem mnuArquivosUsuario;
+    private javax.swing.JMenuItem mnuArquivosUsuarios;
     private javax.swing.JMenu mnuMovimentos;
     // End of variables declaration//GEN-END:variables
+
+
+        // Trocar icone do desktop (icone do café):
+    private void setIcon() {
+       this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/nix1.png")));
+    
+    }
 }
