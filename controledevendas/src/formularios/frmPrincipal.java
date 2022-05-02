@@ -28,7 +28,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textArea1 = new java.awt.TextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivos = new javax.swing.JMenu();
         mnuArquivosCliente = new javax.swing.JMenuItem();
@@ -49,9 +48,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Vendas");
 
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 153)));
         jMenuBar1.setAutoscrolls(true);
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
+        mnuArquivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/arquivo.png"))); // NOI18N
         mnuArquivos.setText("Arquivos");
         mnuArquivos.setToolTipText("");
         mnuArquivos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -111,6 +112,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(mnuArquivos);
 
+        mnuMovimentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/movimentos.png"))); // NOI18N
         mnuMovimentos.setText("Movimentos");
         mnuMovimentos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -128,6 +130,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(mnuMovimentos);
 
+        mnuAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/ajuda.png"))); // NOI18N
         mnuAjuda.setText("Ajuda");
         mnuAjuda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -151,17 +154,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+            .addGap(0, 854, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+            .addGap(0, 520, Short.MAX_VALUE)
         );
 
         pack();
@@ -234,7 +231,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu mnuMovimentos;
     private javax.swing.JMenuItem mnuMovimentosRelatorioVenda;
     private javax.swing.JMenuItem mnuMovimentosnovaVenda;
-    private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
 
 
