@@ -204,7 +204,7 @@
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icones/ajuda.png"/>
+                  <Image iconType="3" name="/icones/ajuda-sub-menu.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ajuda"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

@@ -158,7 +158,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuAjuda.add(mnuAjudaSobre);
 
         mnuAjudaAjuda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        mnuAjudaAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/ajuda.png"))); // NOI18N
+        mnuAjudaAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/ajuda-sub-menu.png"))); // NOI18N
         mnuAjudaAjuda.setText("Ajuda");
         mnuAjudaAjuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuAjuda.add(mnuAjudaAjuda);
