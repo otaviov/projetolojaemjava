@@ -106,14 +106,21 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mnuArquivosSenha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivosSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/senha.png"))); // NOI18N
-        mnuArquivosSenha.setText("Trocar senha");
+        mnuArquivosSenha.setText("Trocar Senha");
+        mnuArquivosSenha.setActionCommand("Trocar Senha");
         mnuArquivosSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivos.add(mnuArquivosSenha);
 
         mnuArquivostUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivostUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user2.png"))); // NOI18N
         mnuArquivostUsuario.setText("Editar usuário");
+        mnuArquivostUsuario.setActionCommand("Trocar Usuário");
         mnuArquivostUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuArquivostUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuArquivostUsuarioActionPerformed(evt);
+            }
+        });
         mnuArquivos.add(mnuArquivostUsuario);
         mnuArquivos.add(jSeparator2);
 
@@ -142,7 +149,8 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mnuMovimentosRelatorioVenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuMovimentosRelatorioVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/relatorio-de-vendas.png"))); // NOI18N
-        mnuMovimentosRelatorioVenda.setText("Relatorio de vendas");
+        mnuMovimentosRelatorioVenda.setText("Relatorio de Vendas");
+        mnuMovimentosRelatorioVenda.setActionCommand("Relatorio de Vendas");
         mnuMovimentosRelatorioVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuMovimentos.add(mnuMovimentosRelatorioVenda);
 
@@ -211,6 +219,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_mnuArquivosUsuariosActionPerformed
+
+    private void mnuArquivostUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivostUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuArquivostUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

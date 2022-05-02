@@ -91,7 +91,8 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icones/senha.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Trocar senha"/>
+                <Property name="text" type="java.lang.String" value="Trocar Senha"/>
+                <Property name="actionCommand" type="java.lang.String" value="Trocar Senha"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
@@ -106,10 +107,14 @@
                   <Image iconType="3" name="/icones/user2.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Editar usu&#xe1;rio"/>
+                <Property name="actionCommand" type="java.lang.String" value="Trocar Usu&#xe1;rio"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuArquivostUsuarioActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
             </MenuItem>
@@ -165,7 +170,8 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icones/relatorio-de-vendas.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Relatorio de vendas"/>
+                <Property name="text" type="java.lang.String" value="Relatorio de Vendas"/>
+                <Property name="actionCommand" type="java.lang.String" value="Relatorio de Vendas"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
