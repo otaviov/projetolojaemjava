@@ -6,7 +6,7 @@ package formularios;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import javax.swing.JInternalFrame;
+
 
 public class frmPrincipal extends javax.swing.JFrame {
 
@@ -16,8 +16,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     public frmPrincipal() {
         initComponents();
 
-        //Criando metodo do icone do jFrame
-        setIcon();
+        //Criando metodo do icone do jFrame -- fim do codigo, linha 271
+        setIcon(); // fim
     }
 
     /**
@@ -201,13 +201,15 @@ public class frmPrincipal extends javax.swing.JFrame {
         // chamando o formulario de usuarios:
         frmUsuarios telaUsuarios = new frmUsuarios();
         dpnDesk.add(telaUsuarios);
-        telaUsuarios.show();
-
-      
+        telaUsuarios.show(); //fim
+        
+        //Centralizando o JInternalJFrame (frmUsuarios -- nome da variarial: telaUsuarios) 
         Dimension desktopSize = dpnDesk.getSize();
         Dimension FrameSize = telaUsuarios.getSize();
         telaUsuarios.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-        telaUsuarios.show();
+        telaUsuarios.show(); //fim
+        
+        
     }//GEN-LAST:event_mnuArquivosUsuariosActionPerformed
 
     /**
@@ -265,12 +267,10 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuMovimentosnovaVenda;
     // End of variables declaration//GEN-END:variables
 
-    // Trocar icone do desktop (icone do café):
+    // Trocar icone do desktop (icone do café): -- inicio do codigo, linha 20
     private void setIcon() {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/nix1.png")));
-
-    }
+    } //fim
 
     
-
 }

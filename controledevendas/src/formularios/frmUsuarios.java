@@ -5,6 +5,7 @@
 package formularios;
 
 import java.awt.Dimension;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 
 /**
@@ -322,7 +323,11 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+      
+        // Chamando a tela frmSobreUsuarios
+        frmSobreUsuarios SobreUser = new frmSobreUsuarios();
+        SobreUser.setVisible(true); //fim 
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
