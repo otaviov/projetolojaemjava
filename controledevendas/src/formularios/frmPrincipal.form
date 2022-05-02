@@ -252,6 +252,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="dpnDesk">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="frmPrincipal_dpnDesk"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
