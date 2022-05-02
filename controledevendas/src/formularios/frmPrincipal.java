@@ -28,6 +28,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dpnDesk = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivos = new javax.swing.JMenu();
         mnuArquivosCliente = new javax.swing.JMenuItem();
@@ -48,7 +49,18 @@ public class frmPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Vendas");
 
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 153)));
+        javax.swing.GroupLayout dpnDeskLayout = new javax.swing.GroupLayout(dpnDesk);
+        dpnDesk.setLayout(dpnDeskLayout);
+        dpnDeskLayout.setHorizontalGroup(
+            dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 854, Short.MAX_VALUE)
+        );
+        dpnDeskLayout.setVerticalGroup(
+            dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 518, Short.MAX_VALUE)
+        );
+
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenuBar1.setAutoscrolls(true);
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
@@ -83,6 +95,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuArquivosUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user.png"))); // NOI18N
         mnuArquivosUsuarios.setText("Usuários");
         mnuArquivosUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuArquivosUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuArquivosUsuariosActionPerformed(evt);
+            }
+        });
         mnuArquivos.add(mnuArquivosUsuarios);
         mnuArquivos.add(jSeparator1);
 
@@ -154,11 +171,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 854, Short.MAX_VALUE)
+            .addComponent(dpnDesk)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addComponent(dpnDesk)
         );
 
         pack();
@@ -178,6 +195,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_mnuArquivosSairActionPerformed
+
+    private void mnuArquivosUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivosUsuariosActionPerformed
+        // chamando o formulario de usuarios:
+        frmUsuarios telaUsuarios = new frmUsuarios();
+        dpnDesk.add(telaUsuarios);
+        telaUsuarios.show();
+    }//GEN-LAST:event_mnuArquivosUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,6 +239,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane dpnDesk;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
