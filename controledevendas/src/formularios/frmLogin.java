@@ -168,23 +168,28 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // chamando a classe Dados para verificar usuario: 
+        // 1 chamando a classe Dados para verificar usuario: 
         Dados verificarUser = new Dados();
         if (!verificarUser.validarUsuario(txtUsuario.getText(), 
                 new String (txtSenha.getPassword()))){
-            //Adicionando icone no JOPtionPane
+            // 2 Adicionando icone no JOPtionPane
             Icon figura = new ImageIcon (getToolkit().createImage(getClass().getResource("/icones/atencao.png"))); 
             JOptionPane.showMessageDialog(rootPane, "Usuário e senha incorretos", 
-                    "ATENÇÂO", HEIGHT, figura);
+                    "ATENÇÂO", HEIGHT, figura); //fim do 2
             txtUsuario.setText("");
             txtSenha.setText("");
             txtUsuario.requestFocusInWindow();
             return;
-        }
+        }//fim do 1
+        
+        // 3 chamando a tela frmPrincipal assim que o login for autorizado 
         frmPrincipal telaPrincipal = new frmPrincipal();
         this.setVisible(false);
-        telaPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        telaPrincipal.setVisible(true);
+        //4 abrindo a tela do frmPrincipal maximizada
+        telaPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);//fim do 4
+        telaPrincipal.setVisible(true); //fim do 3
+        
+        
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
