@@ -21,10 +21,8 @@ public class frmLogin extends javax.swing.JFrame {
     public frmLogin() {
         initComponents();
         
-        //Criando metodo do icone do jFrame
-        setIcon();
-        
-        
+        //Criando metodo do icone do jFrame -- fim do codigo, linha 241
+        setIcon(); //fim
         
     }
 
@@ -237,8 +235,10 @@ public class frmLogin extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
-    // Trocar icone do desktop (icone do café):
+    // Trocar icone do desktop (icone do café): -- inicio do codigo, linha 25
     private void setIcon() {
        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/nix1.png")));
-    }
-} // fim da troca de icone
+    } //fim
+    
+    
+}
