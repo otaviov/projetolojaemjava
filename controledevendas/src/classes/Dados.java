@@ -2,12 +2,32 @@ package classes;
 
 public class Dados {
 
-    public boolean validarUsuario(String usuario, String senha) {
-        if (usuario.equals("") && senha.equals("")) {
-            return true;
+    // Criando usuarios
+    private Usuario msUsuarios[] = new Usuario[50];
+    private int conUsu = 0;
 
-        } else {
-            return false;
-        }
+    public Dados() {
+
+        Usuario mUsuario = new Usuario("adm1", "adm", "adm2", "123", "1");
+        msUsuarios[conUsu] = mUsuario;
+        conUsu++;
     }
+    
+    public Usuario[] getUsuarios() {
+        return msUsuarios;
+    }
+    
+    public boolean validarUsuario(String usuario, String senha) {
+
+        boolean aux = false;
+        for(int i = 0; i < conUsu; i++) {
+            if (msUsuarios[i].getIdUsuario().equals(usuario)
+                    && msUsuarios[i].getSenha().equals(senha)) {
+                return true;
+            }
+        }
+        return false;
+    } 
+
 }
+

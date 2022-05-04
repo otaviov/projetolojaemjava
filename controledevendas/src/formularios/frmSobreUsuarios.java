@@ -5,6 +5,8 @@
 
 package formularios;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author amand
@@ -14,6 +16,9 @@ public class frmSobreUsuarios extends javax.swing.JFrame {
     /** Creates new form frmSobreUsuarios */
     public frmSobreUsuarios() {
         initComponents();
+        
+        //Criando metodo do icone do jFrame -- fim do codigo, linha 106
+        setIcon(); //fim
     }
 
     /** This method is called from within the constructor to
@@ -26,6 +31,7 @@ public class frmSobreUsuarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sobre");
@@ -34,7 +40,9 @@ public class frmSobreUsuarios extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Aqui ficará um guia sobre o menu de cadastro e edição de usuario");
+        jLabel1.setText("Aqui ficará um guia sobre o menu de cadastro e edição de usuário");
+
+        jLabel2.setText("https://www.flaticon.com/br/packs/files-and-folders-18");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -44,13 +52,19 @@ public class frmSobreUsuarios extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(127, 127, 127)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -86,6 +100,7 @@ public class frmSobreUsuarios extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new frmSobreUsuarios().setVisible(true);
             }
@@ -94,6 +109,13 @@ public class frmSobreUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
+
+    
+     // Trocar icone do desktop (icone do café): -- inicio do codigo, linha 21
+    private void setIcon() {
+         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/ajuda-usuario.png")));
+    }//fim
 
 }
