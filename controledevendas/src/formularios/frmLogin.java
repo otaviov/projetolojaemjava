@@ -4,7 +4,6 @@ package formularios;
 
 import classes.Dados;
 import java.awt.Toolkit;
-
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -12,7 +11,8 @@ import javax.swing.JOptionPane;
 
 public class frmLogin extends javax.swing.JFrame {
 
-    Dados msDados;
+    //private Dados msDados;
+    Dados msDados = new Dados();
     
 
     public void setDados(Dados msDados) {
