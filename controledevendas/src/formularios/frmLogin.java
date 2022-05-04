@@ -165,7 +165,7 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // 1 chamando a classe Dados para verificar usuario:
-        
+        Dados msDados = new Dados();
         if (!msDados.validarUsuario(txtUsuario.getText(),
                 new String(txtSenha.getPassword()))) {
 
@@ -174,8 +174,8 @@ public class frmLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Usuário e senha incorretas",
                     "ATENÇÂO", HEIGHT, figura); //fim do 2
 
-            txtUsuario.setText("adm");
-            txtSenha.setText("123");
+            txtUsuario.setText("");
+            txtSenha.setText("");
             txtUsuario.requestFocusInWindow();
             return;
             //fim do 1

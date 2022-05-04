@@ -8,7 +8,7 @@ public class Dados {
 
     public Dados() {
 
-        Usuario mUsuario = new Usuario("adm1", "adm", "adm2", "123", "1");
+        Usuario mUsuario = new Usuario("adm", "adm1", "adm2", "123", "1");
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
     }
