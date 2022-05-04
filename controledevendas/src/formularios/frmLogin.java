@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class frmLogin extends javax.swing.JFrame {
 
-    private Dados msDados;
+    Dados msDados;
     
 
     public void setDados(Dados msDados) {
@@ -165,7 +165,7 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // 1 chamando a classe Dados para verificar usuario:
-        Dados msDados = new Dados();
+        
         if (!msDados.validarUsuario(txtUsuario.getText(),
                 new String(txtSenha.getPassword()))) {
 

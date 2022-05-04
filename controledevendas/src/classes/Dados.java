@@ -17,7 +17,7 @@ public class Dados {
         return msUsuarios;
     }
     
-    public boolean validarUsuario(String usuario, String senha) {
+    public boolean validarUsuario( String usuario, String senha) {
 
         boolean aux = false;
         for(int i = 0; i < conUsu; i++) {
