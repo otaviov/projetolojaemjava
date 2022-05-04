@@ -1,7 +1,6 @@
 package formularios;
 
 //Importações
-
 import classes.Dados;
 import java.awt.Toolkit;
 import javax.swing.Icon;
@@ -13,7 +12,6 @@ public class frmLogin extends javax.swing.JFrame {
 
     //private Dados msDados;
     Dados msDados = new Dados();
-    
 
     public void setDados(Dados msDados) {
         this.msDados = msDados;
@@ -165,7 +163,7 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // 1 chamando a classe Dados para verificar usuario:
-        
+
         if (!msDados.validarUsuario(txtUsuario.getText(),
                 new String(txtSenha.getPassword()))) {
 
@@ -180,8 +178,7 @@ public class frmLogin extends javax.swing.JFrame {
             return;
             //fim do 1
 
-        
-    }
+        }
         // 2 chamando a tela frmPrincipal assim que o login for autorizado 
         frmPrincipal mPrincipal = new frmPrincipal();
         this.setVisible(false);
@@ -190,10 +187,8 @@ public class frmLogin extends javax.swing.JFrame {
         mPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);//fim do 3
         mPrincipal.setVisible(true); //fim do 2
 
-
     }//GEN-LAST:event_btnEntrarActionPerformed
 
- 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -244,5 +239,4 @@ public class frmLogin extends javax.swing.JFrame {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/nix1.png")));
     } //fim
 
-    
 }

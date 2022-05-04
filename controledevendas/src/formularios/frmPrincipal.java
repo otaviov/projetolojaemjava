@@ -221,7 +221,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         
         
 
-        // 3 Centralizando o JInternalJFrame (frmUsuarios -- nome da variarial: telaUsuarios) 
+        // 3 Centralizando o JInternalJFrame (frmUsuarios -- nome da variarial: mUsuarios) 
         Dimension desktopSize = dpnDesk.getSize();
         Dimension FrameSize = mUsuarios.getSize();
         mUsuarios.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);

@@ -1,20 +1,19 @@
 
 package classes;
 
-
 public class Usuario {
     private String idUsuario;
     private String nome;
     private String snome;
     private String senha;
-    private String perfil;
+    private int perfil;
 
-    public Usuario(String idUsuario, String nome, String sobrenome, String senha, String tipoacesso) {
+    public Usuario(String idUsuario, String nome, String snome, String senha, int perfil) {
         this.idUsuario = idUsuario;
         this.nome = nome;
-        this.snome = sobrenome;
+        this.snome = snome;
         this.senha = senha;
-        this.perfil = tipoacesso;
+        this.perfil = perfil;
     }
 
     public String getIdUsuario() {
@@ -33,12 +32,12 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public String getSobrenome() {
+    public String getSnome() {
         return snome;
     }
 
-    public void setSobrenome(String sobrenome) {
-        this.snome = sobrenome;
+    public void setSnome(String snome) {
+        this.snome = snome;
     }
 
     public String getSenha() {
@@ -49,13 +48,12 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public String getTipoacesso() {
+    public int getPerfil() {
         return perfil;
     }
 
-    public void setTipoacesso(String tipoacesso) {
-        this.perfil = tipoacesso;
+    public void setPerfil(int perfil) {
+        this.perfil = perfil;
     }
-    
     
 }
