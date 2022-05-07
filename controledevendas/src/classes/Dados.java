@@ -32,16 +32,15 @@ public class Dados {
     }
 
 
-public boolean existeUsuario( String usuario ) {
+public int posicao( String usuario ) {
 
-        boolean aux = false;
         for(int i = 0; i < conUsu; i++) {
             if (msUsuarios[i].getIdUsuario().equals(usuario)) {
-                return true;
+                return i;
             }
             
         }
-        return false;
+        return -1;
         
     }
 
