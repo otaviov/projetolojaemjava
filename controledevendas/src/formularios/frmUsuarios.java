@@ -469,6 +469,26 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             return;
         }
 
+        int pos = msDados.posicaoUsuario(txtIDUsuario.getText());
+        if (novo) {
+            if (pos != -1) {
+                Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
+                JOptionPane.showMessageDialog(rootPane, "Este usuário já existe)",
+                        "ATENÇÂO", HEIGHT, figura);
+                txtIDUsuario.requestFocusInWindow();
+                return;
+            }
+
+        } else {
+            if (pos == -1) {
+                Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
+                JOptionPane.showMessageDialog(rootPane, "Ok",
+                        "ATENÇÂO", HEIGHT, figura);
+                txtIDUsuario.requestFocusInWindow();
+                return;
+            }
+        }
+
         // 1 Desabilitar o Salvar e Cancelar e habilitar botões
         btnPrimeiro.setEnabled(true);
         btnAnterior.setEnabled(true);
