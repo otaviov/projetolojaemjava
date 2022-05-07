@@ -1,12 +1,9 @@
-
 package formularios;
 
 import classes.Dados;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
-
 
 public class frmUsuarios extends javax.swing.JInternalFrame {
 
@@ -15,17 +12,15 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private int usuAtual = 0;
     //cadastro de novos usuarios
     private boolean novo = false;
-    
-    public void setDados(Dados msDados){
+
+    public void setDados(Dados msDados) {
         this.msDados = msDados;
     }
-    
-    
+
     public frmUsuarios() {
         initComponents();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -337,8 +332,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cmbPerfilActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        
-        
+
         // 1 Desabilitar botões e habilitar o Salvar e Cancelar
         btnPrimeiro.setEnabled(false);
         btnAnterior.setEnabled(false);
@@ -350,29 +344,28 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         btnExcluir.setEnabled(false);
         btnCancelar.setEnabled(true);
         btnPesquisar.setEnabled(false); //fim 1
-        
+
         // 2 Habilitar as caixas de texto
-        
         cmbPerfil.setEnabled(true);
         txtNome.setEnabled(true);
         txtsnome.setEnabled(true);
         txtSenhaUsuario.setEnabled(true);
         txtConfSenhaUsuario.setEnabled(true); //fim  2
-        
+
         //bloqueando o adiconar novos usuarios
         novo = false;
-        
+
         // 3 Adicionando foco ao campo Nome
         txtNome.requestFocus(); // fim 3
-        
+
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
+
         // Chamando a tela frmSobreUsuarios
         frmSobreUsuarios SobreUser = new frmSobreUsuarios();
         SobreUser.setVisible(true); //fim 
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
@@ -387,7 +380,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         btnExcluir.setEnabled(false);
         btnCancelar.setEnabled(true);
         btnPesquisar.setEnabled(false); //fim 1
-        
+
         // 2 Habilitar as caixas de texto
         txtIDUsuario.setEnabled(true);
         cmbPerfil.setEnabled(true);
@@ -395,7 +388,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         txtsnome.setEnabled(true);
         txtSenhaUsuario.setEnabled(true);
         txtConfSenhaUsuario.setEnabled(true); //fim  2
-        
+
         // 3 Limpar caixa de textos
         txtIDUsuario.setText("");
         cmbPerfil.setSelectedIndex(0);
@@ -403,19 +396,19 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         txtsnome.setText("");
         txtSenhaUsuario.setText("");
         txtConfSenhaUsuario.setText(""); //fim  3
-        
-         //adicionar novos usuarios
+
+        //adicionar novos usuarios
         novo = true;
-        
+
         // 4 Adicionando foco ao campo ID
         txtIDUsuario.requestFocus(); // fim 4
-        
-       
+
+
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // validar se o campo de ID foi preenchido
-        if(txtIDUsuario.getText().equals("")){
+        if (txtIDUsuario.getText().equals("")) {
             Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
             JOptionPane.showMessageDialog(rootPane, "Inserir o número de ID",
                     "ATENÇÂO", HEIGHT, figura);
@@ -423,43 +416,59 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             return;
         }
         // Validar se o campo de Perfil foi preenchido
-        if(cmbPerfil.getSelectedIndex()==0){
+        if (cmbPerfil.getSelectedIndex() == 0) {
             Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
             JOptionPane.showMessageDialog(rootPane, "Selecionar o tipo de usuário",
                     "ATENÇÂO", HEIGHT, figura);
             cmbPerfil.requestFocusInWindow();
             return;
         }
-        // Validar se o campo de Perfil foi preenchido
-        if(txtNome.getText().equals("")){
+        // Validar se o campo de nome foi preenchido
+        if (txtNome.getText().equals("")) {
             Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
             JOptionPane.showMessageDialog(rootPane, "Inserir nome do usuário",
                     "ATENÇÂO", HEIGHT, figura);
             txtNome.requestFocusInWindow();
             return;
         }
-        if(txtsnome.getText().equals("")){
+        // Validar se o campo de Sobrenome foi preenchido
+        if (txtsnome.getText().equals("")) {
             Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
             JOptionPane.showMessageDialog(rootPane, "Inserir nome do usuário",
                     "ATENÇÂO", HEIGHT, figura);
             txtsnome.requestFocusInWindow();
             return;
         }
-        if(new String (txtSenhaUsuario.getPassword()).equals("")){
+
+        //verificar se senha e confirmação de senha está igual
+        String senha = new String(txtSenhaUsuario.getPassword());
+        String confirmar = new String(txtConfSenhaUsuario.getPassword());
+
+        // Validar se o campo de senha foi preenchido
+        if (senha.equals("")) {
             Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
             JOptionPane.showMessageDialog(rootPane, "Selecionar o tipo de usuário",
                     "ATENÇÂO", HEIGHT, figura);
             txtSenhaUsuario.requestFocusInWindow();
             return;
         }
-         if(new String (txtConfSenhaUsuario.getPassword()).equals("")){
+        // Validar se o campo de confirmação de senha foi preenchido
+        if (confirmar.equals("")) {
             Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
             JOptionPane.showMessageDialog(rootPane, "Selecionar o tipo de usuário",
                     "ATENÇÂO", HEIGHT, figura);
             txtConfSenhaUsuario.requestFocusInWindow();
             return;
         }
-        
+        // Avisar que senha e confirmação estão diferentes
+        if (!senha.equals(confirmar)) {
+            Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
+            JOptionPane.showMessageDialog(rootPane, "Você digitou senhas diferentes :)",
+                    "ATENÇÂO", HEIGHT, figura);
+            txtConfSenhaUsuario.requestFocusInWindow();
+            return;
+        }
+
         // 1 Desabilitar o Salvar e Cancelar e habilitar botões
         btnPrimeiro.setEnabled(true);
         btnAnterior.setEnabled(true);
@@ -471,7 +480,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         btnExcluir.setEnabled(true);
         btnCancelar.setEnabled(false);
         btnPesquisar.setEnabled(true); //fim 1
-        
+
         // 2 desabilitar as caixas de texto
         txtIDUsuario.setEnabled(false);
         cmbPerfil.setEnabled(false);
@@ -479,7 +488,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         txtsnome.setEnabled(false);
         txtSenhaUsuario.setEnabled(false);
         txtConfSenhaUsuario.setEnabled(false); //fim  2
-        
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -494,7 +503,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         btnExcluir.setEnabled(true);
         btnCancelar.setEnabled(false);
         btnPesquisar.setEnabled(true); //fim 1
-        
+
         // 2 Desabilitar as caixas de texto
         txtIDUsuario.setEnabled(false);
         cmbPerfil.setEnabled(false);
@@ -502,7 +511,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         txtsnome.setEnabled(false);
         txtSenhaUsuario.setEnabled(false);
         txtConfSenhaUsuario.setEnabled(false); //fim  2
-        
+
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
@@ -513,7 +522,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         txtSenhaUsuario.setText(msDados.getUsuarios()[usuAtual].getSenha());
         txtConfSenhaUsuario.setText(msDados.getUsuarios()[usuAtual].getSenha());
         cmbPerfil.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
-        
+
     }//GEN-LAST:event_formInternalFrameOpened
 
 
@@ -544,7 +553,3 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtsnome;
     // End of variables declaration//GEN-END:variables
 }
-
-
-
-

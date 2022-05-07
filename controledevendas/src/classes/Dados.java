@@ -12,24 +12,37 @@ public class Dados {
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
     }
-    
+
     public Usuario[] getUsuarios() {
         return msUsuarios;
     }
-    
-    public boolean validarUsuario( String usuario, String senha) {
+
+    public boolean validarUsuario(String usuario, String senha) {
+
+        boolean aux = false;
+        for (int i = 0; i < conUsu; i++) {
+            if (msUsuarios[i].getIdUsuario().equals(usuario)
+                    && msUsuarios[i].getSenha().equals(senha)) {
+                return true;
+            }
+
+        }
+        return false;
+
+    }
+
+
+public boolean existeUsuario( String usuario ) {
 
         boolean aux = false;
         for(int i = 0; i < conUsu; i++) {
-            if (msUsuarios[i].getIdUsuario().equals(usuario)
-                    && msUsuarios[i].getSenha().equals(senha)) {
+            if (msUsuarios[i].getIdUsuario().equals(usuario)) {
                 return true;
             }
             
         }
         return false;
         
-    } 
+    }
 
 }
-
