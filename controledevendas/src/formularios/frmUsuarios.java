@@ -473,7 +473,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         if (novo) {
             if (pos != -1) {
                 Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
-                JOptionPane.showMessageDialog(rootPane, "Este usuário já existe)",
+                JOptionPane.showMessageDialog(rootPane, "Este usuário já existe",
                         "ATENÇÂO", HEIGHT, figura);
                 txtIDUsuario.requestFocusInWindow();
                 return;

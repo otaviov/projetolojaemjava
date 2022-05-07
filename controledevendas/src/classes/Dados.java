@@ -1,9 +1,10 @@
 package classes;
 
 public class Dados {
+    private int maxUsu = 50;
 
     // Criando usuarios
-    private Usuario msUsuarios[] = new Usuario[50];
+    private Usuario msUsuarios[] = new Usuario[maxUsu];
     private int conUsu = 0;
 
     public Dados() {
@@ -21,8 +22,8 @@ public class Dados {
 
         boolean aux = false;
         for (int i = 0; i < conUsu; i++) {
-            if (msUsuarios[i].getIdUsuario().equals(usuario)
-                    && msUsuarios[i].getSenha().equals(senha)) {
+            if (msUsuarios[i].getIdUsuario().equals(usuario)&& 
+                    msUsuarios[i].getSenha().equals(senha)) {
                 return true;
             }
 
