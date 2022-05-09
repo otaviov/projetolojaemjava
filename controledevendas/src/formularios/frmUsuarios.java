@@ -617,6 +617,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void mostrarRegistro(){
+        //metodo para mostrar os registros de usuarios na tela
         txtIDUsuario.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
         txtNome.setText(msDados.getUsuarios()[usuAtual].getNome());
         txtsnome.setText(msDados.getUsuarios()[usuAtual].getSnome());
