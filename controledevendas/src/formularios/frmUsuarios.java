@@ -468,7 +468,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             txtConfSenhaUsuario.requestFocusInWindow();
             return;
         }
-
+        
+        // Verificar se o usuário já existe
         int pos = msDados.posicaoUsuario(txtIDUsuario.getText());
         if (novo) {
             if (pos != -1) {
@@ -479,7 +480,9 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                 return;
             }
 
-        } else {
+        } 
+        // Se o usuário não existe
+        else {
             if (pos == -1) {
                 Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
                 JOptionPane.showMessageDialog(rootPane, "Ok",
