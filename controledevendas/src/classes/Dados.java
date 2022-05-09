@@ -1,6 +1,7 @@
 package classes;
 
 public class Dados {
+
     private int maxUsu = 50;
 
     // Criando usuarios
@@ -22,8 +23,8 @@ public class Dados {
 
         boolean aux = false;
         for (int i = 0; i < conUsu; i++) {
-            if (msUsuarios[i].getIdUsuario().equals(usuario)&& 
-                    msUsuarios[i].getSenha().equals(senha)) {
+            if (msUsuarios[i].getIdUsuario().equals(usuario)
+                    && msUsuarios[i].getSenha().equals(senha)) {
                 return true;
             }
 
@@ -32,17 +33,26 @@ public class Dados {
 
     }
 
+    public int posicaoUsuario(String usuario) {
 
-public int posicaoUsuario( String usuario ) {
-
-        for(int i = 0; i < conUsu; i++) {
+        for (int i = 0; i < conUsu; i++) {
             if (msUsuarios[i].getIdUsuario().equals(usuario)) {
                 return i;
             }
-            
+
         }
         return -1;
+
+    }
+
+    public String adicionarUsuario(Usuario msUsuario) {
+        if (conUsu == maxUsu) {
+            return "Não é possível cadastrar mais usuarios (Número Máximo atingido)";
+        }
         
+        msUsuarios[conUsu] = msUsuario;
+        conUsu++;
+        return "Usuário cadastrado com sucesso";
     }
 
 }
