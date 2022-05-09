@@ -229,6 +229,11 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         });
 
         txtSenhaUsuario.setEnabled(false);
+        txtSenhaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaUsuarioActionPerformed(evt);
+            }
+        });
 
         txtConfSenhaUsuario.setEnabled(false);
 
@@ -380,6 +385,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         // 3 Adicionando foco ao campo Nome
         txtNome.requestFocus(); // fim 3
 
+
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -487,7 +493,9 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
             JOptionPane.showMessageDialog(rootPane, "Você digitou senhas diferentes :)",
                     "ATENÇÂO", HEIGHT, figura);
-            txtConfSenhaUsuario.requestFocusInWindow();
+            txtSenhaUsuario.setText("");
+            txtConfSenhaUsuario.setText("");
+            txtSenhaUsuario.requestFocusInWindow();
             return;
         }
 
@@ -507,8 +515,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                 txtSenhaUsuario.setText("");
                 txtConfSenhaUsuario.setText(""); //fim  3
                 return;
-                
-                
 
             }
 
@@ -523,17 +529,26 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             }
         }
 
-        Usuario msUsuario = new Usuario(
+        Usuario mUsuario = new Usuario(
                 txtIDUsuario.getText(),
                 txtNome.getText(),
                 txtsnome.getText(),
                 senha,
                 cmbPerfil.getSelectedIndex());
-        String msg = msDados.adicionarUsuario(msUsuario);
-        Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
-        JOptionPane.showMessageDialog(rootPane, msg,
-                "ATENÇÂO", HEIGHT, figura);
 
+        String msg;
+
+        if (novo) {
+            msg = msDados.editarUsuario(mUsuario);
+
+        } else {
+            msg = msDados.editarUsuario(mUsuario, pos);
+            
+        }
+            Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
+            JOptionPane.showMessageDialog(rootPane, msg,
+                    "ATENÇÂO", HEIGHT, figura);
+        
         // 1 Desabilitar o Salvar e Cancelar e habilitar botões
         btnPrimeiro.setEnabled(true);
         btnAnterior.setEnabled(true);
@@ -580,7 +595,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-       
+
         // Chamar os registros dos usuarios
         mostrarRegistro();
 
@@ -594,14 +609,14 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
         // Chamando o ultimo usuario cadastrado
-        usuAtual = msDados.numeroUsuarios()-1;
+        usuAtual = msDados.numeroUsuarios() - 1;
         mostrarRegistro();
     }//GEN-LAST:event_btnUltimoActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
         // Chamando o proximo usuario cadastrado
         usuAtual++;
-        if(usuAtual == msDados.numeroUsuarios()){
+        if (usuAtual == msDados.numeroUsuarios()) {
             usuAtual = 0;
         }
         mostrarRegistro();
@@ -609,14 +624,18 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         // Chamando o usuario anterior cadastrado
-        usuAtual --;
-        if(usuAtual == -1){
-            usuAtual = msDados.numeroUsuarios() -1;
+        usuAtual--;
+        if (usuAtual == -1) {
+            usuAtual = msDados.numeroUsuarios() - 1;
         }
         mostrarRegistro();
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
-    private void mostrarRegistro(){
+    private void txtSenhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaUsuarioActionPerformed
+
+    private void mostrarRegistro() {
         //metodo para mostrar os registros de usuarios na tela
         txtIDUsuario.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
         txtNome.setText(msDados.getUsuarios()[usuAtual].getNome());

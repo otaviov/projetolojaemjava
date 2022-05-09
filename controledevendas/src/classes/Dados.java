@@ -8,12 +8,27 @@ public class Dados {
     private int conUsu = 0;
 
     public Dados() {
-        Usuario mUsuario = new Usuario("adm", "adm1", "adm2", "123", 1);
+        //Criando usuarios manuais
+        Usuario mUsuario;
+        mUsuario = new Usuario("adm", "adm1", "adm2", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
+        
+        mUsuario = new Usuario("adm1", "adm1", "adm2", "123", 2);
+        msUsuarios[conUsu] = mUsuario;
+        conUsu++;
+        
+        mUsuario = new Usuario("adm2", "adm1", "adm2", "123", 2);
+        msUsuarios[conUsu] = mUsuario;
+        conUsu++;
+        
+        mUsuario = new Usuario("adm3", "adm1", "adm2", "123", 1);
+        msUsuarios[conUsu] = mUsuario;
+        conUsu++;
+        
     }
-    
-    public int numeroUsuarios(){
+
+    public int numeroUsuarios() {
         return conUsu;
     }
 
@@ -47,14 +62,30 @@ public class Dados {
 
     }
 
-    public String adicionarUsuario(Usuario msUsuario) {
+    public String adicionarUsuario(Usuario mUsuario) {
         if (conUsu == maxUsu) {
             return "Não é possível cadastrar mais usuarios (Número Máximo atingido)";
         }
 
-        msUsuarios[conUsu] = msUsuario;
+        msUsuarios[conUsu] = mUsuario;
         conUsu++;
         return "Usuário cadastrado com sucesso";
     }
 
+    public String editarUsuario(Usuario mUsuario, int pos) {
+        msUsuarios[pos].setNome(mUsuario.getNome());
+        msUsuarios[pos].setSnome(mUsuario.getSnome());
+        msUsuarios[pos].setPerfil(mUsuario.getPerfil());
+        msUsuarios[pos].setSenha(mUsuario.getSenha());
+
+        return "Usuario editado com sucesso";
+    }
+
+    public String adicionarUsuario(Usuario mUsuario, int pos) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public String editarUsuario(Usuario mUsuario) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
