@@ -11,7 +11,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private Dados msDados;
     //Dados msDados = new Dados();
     // para gravar os usuarios
-    private final int usuAtual = 0;
+    private int usuAtual = 0;
     //cadastro de novos usuarios
     private boolean novo = false;
 
@@ -142,18 +142,38 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/usuario-anterior.png"))); // NOI18N
         btnAnterior.setToolTipText("Ir para o Usuário Anterior");
         btnAnterior.setAlignmentX(0.5F);
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnteriorActionPerformed(evt);
+            }
+        });
 
         btnPrimeiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/primeiro-usuario.png"))); // NOI18N
         btnPrimeiro.setToolTipText("Ir para o Primeiro Usuário");
         btnPrimeiro.setAlignmentX(0.5F);
+        btnPrimeiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrimeiroActionPerformed(evt);
+            }
+        });
 
         btnProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/proximo-usuario.png"))); // NOI18N
         btnProximo.setToolTipText("Ir para o Próximo Usuário");
         btnProximo.setAlignmentX(0.5F);
+        btnProximo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProximoActionPerformed(evt);
+            }
+        });
 
         btnUltimo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/ultimo-usuario.png"))); // NOI18N
         btnUltimo.setToolTipText("Ir para o Ultimo Usuário");
         btnUltimo.setAlignmentX(0.5F);
+        btnUltimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUltimoActionPerformed(evt);
+            }
+        });
 
         btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar-usuario.png"))); // NOI18N
         btnNovo.setToolTipText("Adicionar um Novo Usuário");
@@ -562,10 +582,39 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
        
         // Chamar os registros dos usuarios
-        
         mostrarRegistro();
 
     }//GEN-LAST:event_formInternalFrameOpened
+
+    private void btnPrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeiroActionPerformed
+        // Chamando o primeiro usuario cadastrado
+        usuAtual = 0;
+        mostrarRegistro();
+    }//GEN-LAST:event_btnPrimeiroActionPerformed
+
+    private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
+        // Chamando o ultimo usuario cadastrado
+        usuAtual = msDados.numeroUsuarios()-1;
+        mostrarRegistro();
+    }//GEN-LAST:event_btnUltimoActionPerformed
+
+    private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
+        // Chamando o proximo usuario cadastrado
+        usuAtual++;
+        if(usuAtual == msDados.numeroUsuarios()){
+            usuAtual = 0;
+        }
+        mostrarRegistro();
+    }//GEN-LAST:event_btnProximoActionPerformed
+
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
+        // Chamando o usuario anterior cadastrado
+        usuAtual --;
+        if(usuAtual == -1){
+            usuAtual = msDados.numeroUsuarios() -1;
+        }
+        mostrarRegistro();
+    }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void mostrarRegistro(){
         txtIDUsuario.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());

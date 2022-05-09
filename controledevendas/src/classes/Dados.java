@@ -3,16 +3,18 @@ package classes;
 public class Dados {
 
     private int maxUsu = 50;
-
     // Criando usuarios
     private Usuario msUsuarios[] = new Usuario[maxUsu];
     private int conUsu = 0;
 
     public Dados() {
-
         Usuario mUsuario = new Usuario("adm", "adm1", "adm2", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
+    }
+    
+    public int numeroUsuarios(){
+        return conUsu;
     }
 
     public Usuario[] getUsuarios() {
@@ -49,7 +51,7 @@ public class Dados {
         if (conUsu == maxUsu) {
             return "Não é possível cadastrar mais usuarios (Número Máximo atingido)";
         }
-        
+
         msUsuarios[conUsu] = msUsuario;
         conUsu++;
         return "Usuário cadastrado com sucesso";

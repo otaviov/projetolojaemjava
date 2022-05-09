@@ -267,6 +267,9 @@
         <Property name="toolTipText" type="java.lang.String" value="Ir para o Usu&#xe1;rio Anterior"/>
         <Property name="alignmentX" type="float" value="0.5"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnteriorActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnPrimeiro">
       <Properties>
@@ -276,6 +279,9 @@
         <Property name="toolTipText" type="java.lang.String" value="Ir para o Primeiro Usu&#xe1;rio"/>
         <Property name="alignmentX" type="float" value="0.5"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrimeiroActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnProximo">
       <Properties>
@@ -285,6 +291,9 @@
         <Property name="toolTipText" type="java.lang.String" value="Ir para o Pr&#xf3;ximo Usu&#xe1;rio"/>
         <Property name="alignmentX" type="float" value="0.5"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProximoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnUltimo">
       <Properties>
@@ -294,6 +303,9 @@
         <Property name="toolTipText" type="java.lang.String" value="Ir para o Ultimo Usu&#xe1;rio"/>
         <Property name="alignmentX" type="float" value="0.5"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUltimoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnNovo">
       <Properties>
