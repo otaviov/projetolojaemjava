@@ -9,8 +9,9 @@ import javax.swing.JOptionPane;
 public class frmUsuarios extends javax.swing.JInternalFrame {
 
     private Dados msDados;
+    //Dados msDados = new Dados();
     // para gravar os usuarios
-    private int usuAtual = 0;
+    private final int usuAtual = 0;
     //cadastro de novos usuarios
     private boolean novo = false;
 
@@ -435,7 +436,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         // Validar se o campo de Sobrenome foi preenchido
         if (txtsnome.getText().equals("")) {
             Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
-            JOptionPane.showMessageDialog(rootPane, "Inserir nome do usuário",
+            JOptionPane.showMessageDialog(rootPane, "Inserir Sobrenome do usuário",
                     "ATENÇÂO", HEIGHT, figura);
             txtsnome.requestFocusInWindow();
             return;
@@ -448,7 +449,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         // Validar se o campo de senha foi preenchido
         if (senha.equals("")) {
             Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
-            JOptionPane.showMessageDialog(rootPane, "Selecionar o tipo de usuário",
+            JOptionPane.showMessageDialog(rootPane, "Inserir senha",
                     "ATENÇÂO", HEIGHT, figura);
             txtSenhaUsuario.requestFocusInWindow();
             return;
@@ -456,7 +457,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         // Validar se o campo de confirmação de senha foi preenchido
         if (confirmar.equals("")) {
             Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
-            JOptionPane.showMessageDialog(rootPane, "Selecionar o tipo de usuário",
+            JOptionPane.showMessageDialog(rootPane, "Confirmar senha do usuário",
                     "ATENÇÂO", HEIGHT, figura);
             txtConfSenhaUsuario.requestFocusInWindow();
             return;
@@ -478,7 +479,17 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(rootPane, "Este usuário já existe",
                         "ATENÇÂO", HEIGHT, figura);
                 txtIDUsuario.requestFocusInWindow();
+                // 3 Limpar caixa de textos
+                txtIDUsuario.setText("");
+                cmbPerfil.setSelectedIndex(0);
+                txtNome.setText("");
+                txtsnome.setText("");
+                txtSenhaUsuario.setText("");
+                txtConfSenhaUsuario.setText(""); //fim  3
                 return;
+                
+                
+
             }
 
         } // Se o usuário não existe
@@ -549,16 +560,21 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        // TODO add your handling code here:
+       
+        // Chamar os registros dos usuarios
+        
+        mostrarRegistro();
+
+    }//GEN-LAST:event_formInternalFrameOpened
+
+    private void mostrarRegistro(){
         txtIDUsuario.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
         txtNome.setText(msDados.getUsuarios()[usuAtual].getNome());
         txtsnome.setText(msDados.getUsuarios()[usuAtual].getSnome());
         txtSenhaUsuario.setText(msDados.getUsuarios()[usuAtual].getSenha());
         txtConfSenhaUsuario.setText(msDados.getUsuarios()[usuAtual].getSenha());
         cmbPerfil.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
-
-    }//GEN-LAST:event_formInternalFrameOpened
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
