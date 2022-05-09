@@ -1,6 +1,7 @@
 package formularios;
 
 import classes.Dados;
+import classes.Usuario;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -468,7 +469,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             txtConfSenhaUsuario.requestFocusInWindow();
             return;
         }
-        
+
         // Verificar se o usuário já existe
         int pos = msDados.posicaoUsuario(txtIDUsuario.getText());
         if (novo) {
@@ -480,8 +481,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                 return;
             }
 
-        } 
-        // Se o usuário não existe
+        } // Se o usuário não existe
         else {
             if (pos == -1) {
                 Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
@@ -491,6 +491,17 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                 return;
             }
         }
+
+        Usuario msUsuario = new Usuario(
+                txtIDUsuario.getText(),
+                txtNome.getText(),
+                txtsnome.getText(),
+                senha,
+                cmbPerfil.getSelectedIndex());
+        String msg = msDados.adicionarUsuario(msUsuario);
+        Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
+        JOptionPane.showMessageDialog(rootPane, msg,
+                "ATENÇÂO", HEIGHT, figura);
 
         // 1 Desabilitar o Salvar e Cancelar e habilitar botões
         btnPrimeiro.setEnabled(true);
