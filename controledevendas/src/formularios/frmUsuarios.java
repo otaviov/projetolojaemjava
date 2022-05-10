@@ -275,6 +275,11 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         ));
         tblTabela.setFocusable(false);
         tblTabela.getTableHeader().setReorderingAllowed(false);
+        tblTabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblTabelaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblTabela);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -716,9 +721,17 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             return;
         }
         usuAtual = pos;
+
         mostrarRegistro();
-        
+
+
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void tblTabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTabelaMouseClicked
+        // Evento será usado para setar os campos da tabela
+        // clicando com o botao do mouse
+        setar_campos();
+    }//GEN-LAST:event_tblTabelaMouseClicked
 
     private void mostrarRegistro() {
         //metodo para mostrar os registros de usuarios na tela
@@ -731,11 +744,11 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }
 
     private void preencherTabela() {
-        
+
         String titulos[] = {"Usuário", "Nome", "Sobrenome", "Tipo de Acesso"};
         String registro[] = new String[4];
         mTabela = new DefaultTableModel(null, titulos);
-        
+
         for (int i = 0; i < msDados.numeroUsuarios(); i++) {
             registro[0] = msDados.getUsuarios()[i].getIdUsuario();
             registro[1] = msDados.getUsuarios()[i].getNome();
@@ -745,13 +758,23 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             mTabela.addRow(registro);
 
         }
-        
+
         tblTabela.setModel(mTabela);
 
     }
 
-
-
+    // Método para setar os campos do formulário com o conteúdo da tabela
+    public void setar_campos(){
+        
+        
+        int setar = tblTabela.getSelectedRow();
+        txtIDUsuario.setText(""+ tblTabela.getModel().getValueAt(setar, 0));
+        txtNome.setText(tblTabela.getModel().getValueAt(setar, 1).toString());
+        txtsnome.setText("" + tblTabela.getModel().getValueAt(setar, 2));
+        cmbPerfil.setSelectedItem(tblTabela.getModel().getValueAt(setar,3));
+        
+        
+    }
 
     private String perfil(int idPerfil) {
         if (idPerfil == 1) {

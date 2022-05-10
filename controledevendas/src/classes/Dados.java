@@ -13,21 +13,50 @@ public class Dados {
     public Dados() {
         //Criando usuarios manuais
         Usuario mUsuario;
-        mUsuario = new Usuario("adm", "adm1", "adm2", "123", 1);
+        mUsuario = new Usuario("adm", "Otavio", "Oliveira", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
 
-        mUsuario = new Usuario("adm1", "adm1", "adm2", "123", 2);
+        mUsuario = new Usuario("momo", "Emilia", "Santos", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
 
-        mUsuario = new Usuario("adm2", "adm1", "adm2", "123", 2);
+        mUsuario = new Usuario("prinxexa", "Joaquina", "Oliveira", "123", 2);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
 
-        mUsuario = new Usuario("adm3", "adm1", "adm2", "123", 1);
+        mUsuario = new Usuario("neneco", "Inacio", "Silva", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
+        
+        mUsuario = new Usuario("nenem", "Jose", "Januario", "123", 2);
+        msUsuarios[conUsu] = mUsuario;
+        conUsu++;
+        
+        mUsuario = new Usuario("negao", "Black", "Caetano", "123", 1);
+        msUsuarios[conUsu] = mUsuario;
+        conUsu++;
+        
+        mUsuario = new Usuario("bola", "Jose", "Vitorio", "123", 2);
+        msUsuarios[conUsu] = mUsuario;
+        conUsu++;
+        
+        mUsuario = new Usuario("pleta", "Milu", "Maria", "123", 1);
+        msUsuarios[conUsu] = mUsuario;
+        conUsu++;
+        
+        mUsuario = new Usuario("memegan", "Megan", "Maria", "123", 2);
+        msUsuarios[conUsu] = mUsuario;
+        conUsu++; 
+        
+        mUsuario = new Usuario("cleitin", "Cleiton", "Jose", "123", 2);
+        msUsuarios[conUsu] = mUsuario;
+        conUsu++;
+        
+        mUsuario = new Usuario("rodolfo", "Rodolfo", "Jose", "123", 1);
+        msUsuarios[conUsu] = mUsuario;
+        conUsu++;
+        
 
     }
 
