@@ -92,7 +92,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("ID Usuário:");
+        jLabel1.setText("Usuário:");
         jLabel1.setAlignmentX(0.5F);
 
         txtIDUsuario.setEnabled(false);
@@ -257,6 +257,11 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
         txtConfSenhaUsuario.setEnabled(false);
 
+        tblTabela = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tblTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -265,9 +270,11 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Usuário", "Nome", "Sobrenome", "Tipo de Acesso"
             }
         ));
+        tblTabela.setFocusable(false);
+        tblTabela.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblTabela);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -689,7 +696,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        
+
         // Chamar os registros dos usuarios
         mostrarRegistro();
 
@@ -710,6 +717,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         }
         usuAtual = pos;
         mostrarRegistro();
+        
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void mostrarRegistro() {
@@ -723,19 +731,27 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     }
 
     private void preencherTabela() {
-        String titulos[] = {"ID Usuario", "Nome", "Sobrenome", "Tipo de Acesso"};
+        
+        String titulos[] = {"Usuário", "Nome", "Sobrenome", "Tipo de Acesso"};
         String registro[] = new String[4];
         mTabela = new DefaultTableModel(null, titulos);
+        
         for (int i = 0; i < msDados.numeroUsuarios(); i++) {
             registro[0] = msDados.getUsuarios()[i].getIdUsuario();
             registro[1] = msDados.getUsuarios()[i].getNome();
             registro[2] = msDados.getUsuarios()[i].getSnome();
             registro[3] = perfil(msDados.getUsuarios()[i].getPerfil());
+
             mTabela.addRow(registro);
+
         }
+        
         tblTabela.setModel(mTabela);
 
     }
+
+
+
 
     private String perfil(int idPerfil) {
         if (idPerfil == 1) {
