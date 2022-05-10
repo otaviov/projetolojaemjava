@@ -1,7 +1,10 @@
 package classes;
 
-public class Dados {
+import javax.swing.JOptionPane;
 
+
+public class Dados {
+    
     private int maxUsu = 50;
     // Criando usuarios
     private Usuario msUsuarios[] = new Usuario[maxUsu];
@@ -13,19 +16,19 @@ public class Dados {
         mUsuario = new Usuario("adm", "adm1", "adm2", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        
+
         mUsuario = new Usuario("adm1", "adm1", "adm2", "123", 2);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        
+
         mUsuario = new Usuario("adm2", "adm1", "adm2", "123", 2);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        
+
         mUsuario = new Usuario("adm3", "adm1", "adm2", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        
+
     }
 
     public int numeroUsuarios() {
@@ -69,7 +72,7 @@ public class Dados {
 
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        return "Usuário cadastrado com sucesso";
+        return "Usuário cadastrado com sucesso" ;
     }
 
     public String editarUsuario(Usuario mUsuario, int pos) {
@@ -81,11 +84,13 @@ public class Dados {
         return "Usuario editado com sucesso";
     }
 
-    public String adicionarUsuario(Usuario mUsuario, int pos) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
-    public String editarUsuario(Usuario mUsuario) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String deletarUsuario(int pos) {
+        for (int i = pos; i < conUsu - 1; i++) {
+            msUsuarios[i] = msUsuarios[i + 1];
+        }
+        conUsu--;
+        
+        return "Usuário deletado com sucesso";
     }
 }
