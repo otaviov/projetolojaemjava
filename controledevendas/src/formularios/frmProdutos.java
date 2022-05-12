@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
-public class frmUsuarios extends javax.swing.JInternalFrame {
+public class frmProdutos extends javax.swing.JInternalFrame {
 
     Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
 
@@ -27,7 +27,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         this.msDados = msDados;
     }
 
-    public frmUsuarios() {
+    public frmProdutos() {
         initComponents();
     }
 
