@@ -76,6 +76,11 @@ public class frmLogin extends javax.swing.JFrame {
                 btnEntrarActionPerformed(evt);
             }
         });
+        btnEntrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnEntrarKeyPressed(evt);
+            }
+        });
 
         btnSair.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnSair.setText(" Sair ");
@@ -179,15 +184,25 @@ public class frmLogin extends javax.swing.JFrame {
             //fim do 1
 
         }
-        // 2 chamando a tela frmPrincipal assim que o login for autorizado 
-        frmPrincipal mPrincipal = new frmPrincipal();
+        //  chamando a tela frmPrincipal assim que o login for autorizado 
+        
         this.setVisible(false);
-        mPrincipal.setDados(msDados);
-        //4 abrindo a tela do frmPrincipal maximizada
-        mPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);//fim do 3
-        mPrincipal.setVisible(true); //fim do 2
+        
+        telaUsuario();
+   
 
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+
+    private void btnEntrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnEntrarKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == evt.VK_ENTER) {
+
+            dispose();
+            
+            telaUsuario();
+        }
+    }//GEN-LAST:event_btnEntrarKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -221,6 +236,15 @@ public class frmLogin extends javax.swing.JFrame {
                 new frmLogin().setVisible(true);
             }
         });
+    }
+
+    //metodo para chamar tela principal
+    public void telaUsuario() {
+        frmPrincipal mPrincipal = new frmPrincipal();
+        mPrincipal.setDados(msDados);
+        //4abrindo a tela do frmPrincipal maximizada
+        mPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        mPrincipal.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

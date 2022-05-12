@@ -6,6 +6,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
 
 public class frmUsuarios extends javax.swing.JInternalFrame {
 
@@ -280,6 +281,14 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                 tblTabelaMouseClicked(evt);
             }
         });
+        tblTabela.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tblTabelaKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tblTabelaKeyReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblTabela);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -385,8 +394,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -713,7 +722,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String usuario = JOptionPane.showInputDialog("Inserir o usuário");
         if (usuario.equals("")) {
-            return;
+            mostrarRegistro();
+            return ;
         }
         int pos = msDados.posicaoUsuario(usuario);
         if (pos == -1) {
@@ -732,6 +742,16 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         // clicando com o botao do mouse
         setar_campos();
     }//GEN-LAST:event_tblTabelaMouseClicked
+
+    private void tblTabelaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblTabelaKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tblTabelaKeyPressed
+
+    private void tblTabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblTabelaKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tblTabelaKeyReleased
 
     private void mostrarRegistro() {
         //metodo para mostrar os registros de usuarios na tela
@@ -768,7 +788,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         
         
         int setar = tblTabela.getSelectedRow();
-        txtIDUsuario.setText(""+ tblTabela.getModel().getValueAt(setar, 0));
+        txtIDUsuario.setText("" + tblTabela.getModel().getValueAt(setar, 0));
         txtNome.setText(tblTabela.getModel().getValueAt(setar, 1).toString());
         txtsnome.setText("" + tblTabela.getModel().getValueAt(setar, 2));
         cmbPerfil.setSelectedItem(tblTabela.getModel().getValueAt(setar,3));
@@ -783,6 +803,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             return "Comum";
         }
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
