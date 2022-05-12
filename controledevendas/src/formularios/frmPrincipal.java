@@ -202,7 +202,11 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuArquivoClienteActionPerformed
 
     private void mnuArquivoProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoProdutosActionPerformed
-        // TODO add your handling code here:
+        // Chamando tela produtos (frmProdutos)
+        frmProdutos msProdutos = new frmProdutos();
+        msProdutos.setDados(msDados);
+        dpnDesk.add(msProdutos);
+        msProdutos.show();
     }//GEN-LAST:event_mnuArquivoProdutosActionPerformed
 
     private void mnuArquivoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoSairActionPerformed

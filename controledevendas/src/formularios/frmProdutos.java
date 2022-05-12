@@ -6,7 +6,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
 
 public class frmProdutos extends javax.swing.JInternalFrame {
 
@@ -16,7 +15,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     //Dados msDados = new Dados();
 
     // para gravar os usuarios
-    private int usuAtual = 0;
+    private int proAtual = 0;
 
     //cadastro de novos usuarios
     private boolean novo = false;
@@ -36,13 +35,13 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtIDUsuario = new javax.swing.JTextField();
+        txtIDProduto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        cmbPerfil = new javax.swing.JComboBox<>();
+        cmbImposto = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
+        txtDescricao = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtsnome = new javax.swing.JTextField();
+        txtPreco = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnAnterior = new javax.swing.JButton();
         btnPrimeiro = new javax.swing.JButton();
@@ -59,7 +58,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         tblTabela = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtAnotacao = new javax.swing.JTextArea();
 
         setClosable(true);
         setIconifiable(true);
@@ -96,10 +95,10 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         jLabel1.setToolTipText("");
         jLabel1.setAlignmentX(0.5F);
 
-        txtIDUsuario.setEnabled(false);
-        txtIDUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtIDProduto.setEnabled(false);
+        txtIDProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDUsuarioActionPerformed(evt);
+                txtIDProdutoActionPerformed(evt);
             }
         });
 
@@ -107,12 +106,12 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         jLabel2.setText("Imposto:");
         jLabel2.setAlignmentX(0.5F);
 
-        cmbPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0%", "10%", "15%", "20%", "25%" }));
-        cmbPerfil.setToolTipText("Selecione o tipo de acesso");
-        cmbPerfil.setEnabled(false);
-        cmbPerfil.addActionListener(new java.awt.event.ActionListener() {
+        cmbImposto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0%", "10%", "15%", "20%", "25%" }));
+        cmbImposto.setToolTipText("Selecione o tipo de acesso");
+        cmbImposto.setEnabled(false);
+        cmbImposto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbPerfilActionPerformed(evt);
+                cmbImpostoActionPerformed(evt);
             }
         });
 
@@ -120,10 +119,10 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         jLabel3.setText("Descrição:");
         jLabel3.setAlignmentX(0.5F);
 
-        txtNome.setEnabled(false);
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
+        txtDescricao.setEnabled(false);
+        txtDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
+                txtDescricaoActionPerformed(evt);
             }
         });
 
@@ -131,10 +130,10 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         jLabel5.setText("Preço:");
         jLabel5.setAlignmentX(0.5F);
 
-        txtsnome.setEnabled(false);
-        txtsnome.addActionListener(new java.awt.event.ActionListener() {
+        txtPreco.setEnabled(false);
+        txtPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtsnomeActionPerformed(evt);
+                txtPrecoActionPerformed(evt);
             }
         });
 
@@ -277,9 +276,9 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         jLabel8.setText("Anotação:");
         jLabel8.setAlignmentX(0.5F);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        txtAnotacao.setColumns(20);
+        txtAnotacao.setRows(5);
+        jScrollPane2.setViewportView(txtAnotacao);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -299,14 +298,14 @@ public class frmProdutos extends javax.swing.JInternalFrame {
                             .addComponent(jLabel1))
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNome)
-                            .addComponent(txtIDUsuario)
+                            .addComponent(txtDescricao)
+                            .addComponent(txtIDProduto)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtsnome, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(cmbPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbImposto, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 2, Short.MAX_VALUE))
                             .addComponent(jScrollPane2))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,7 +348,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(txtIDUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtIDProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -361,14 +360,14 @@ public class frmProdutos extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(cmbPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbImposto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtsnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel4))
@@ -392,21 +391,21 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtIDUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDUsuarioActionPerformed
+    private void txtIDProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDUsuarioActionPerformed
+    }//GEN-LAST:event_txtIDProdutoActionPerformed
 
-    private void txtsnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsnomeActionPerformed
+    private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtsnomeActionPerformed
+    }//GEN-LAST:event_txtPrecoActionPerformed
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+    private void txtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
+    }//GEN-LAST:event_txtDescricaoActionPerformed
 
-    private void cmbPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPerfilActionPerformed
+    private void cmbImpostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbImpostoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbPerfilActionPerformed
+    }//GEN-LAST:event_cmbImpostoActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
 
@@ -423,17 +422,16 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         btnPesquisar.setEnabled(false); //fim 1
 
         // 2 Habilitar as caixas de texto
-        cmbPerfil.setEnabled(true);
-        txtNome.setEnabled(true);
-        txtsnome.setEnabled(true);
-        txtSenhaUsuario.setEnabled(true);
-        txtConfSenhaUsuario.setEnabled(true); //fim  2
-
+        cmbImposto.setEnabled(true);
+        txtDescricao.setEnabled(true);
+        txtPreco.setEnabled(true);
+        txtAnotacao.setEditable(true);
+        
         //bloqueando o adiconar novos usuarios
         novo = false;
 
         // 3 Adicionando foco ao campo Nome
-        txtNome.requestFocus(); // fim 3
+        txtDescricao.requestFocus(); // fim 3
 
 
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -460,58 +458,56 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         btnPesquisar.setEnabled(false); //fim 1
 
         // 2 Habilitar as caixas de texto
-        txtIDUsuario.setEnabled(true);
-        cmbPerfil.setEnabled(true);
-        txtNome.setEnabled(true);
-        txtsnome.setEnabled(true);
-        txtSenhaUsuario.setEnabled(true);
-        txtConfSenhaUsuario.setEnabled(true); //fim  2
+        txtIDProduto.setEnabled(true);
+        cmbImposto.setEnabled(true);
+        txtDescricao.setEnabled(true);
+        txtPreco.setEnabled(true);
+        txtAnotacao.setEditable(true);//fim  2
 
         // 3 Limpar caixa de textos
-        txtIDUsuario.setText("");
-        cmbPerfil.setSelectedIndex(0);
-        txtNome.setText("");
-        txtsnome.setText("");
-        txtSenhaUsuario.setText("");
-        txtConfSenhaUsuario.setText(""); //fim  3
+        txtIDProduto.setText("");
+        cmbImposto.setSelectedIndex(0);
+        txtDescricao.setText("");
+        txtPreco.setText("");
+        txtAnotacao.setEditable(true);
 
         //adicionar novos usuarios
         novo = true;
 
         // 4 Adicionando foco ao campo ID
-        txtIDUsuario.requestFocus(); // fim 4
+        txtIDProduto.requestFocus(); // fim 4
 
 
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // validar se o campo de ID foi preenchido
-        if (txtIDUsuario.getText().equals("")) {
+        // validar se o campo de produto foi preenchido
+        if (txtIDProduto.getText().equals("")) {
 
-            JOptionPane.showMessageDialog(rootPane, "Inserir o número de ID",
+            JOptionPane.showMessageDialog(rootPane, "Inserir o nome do produto",
                     "ATENÇÂO", HEIGHT, figura);
-            txtIDUsuario.requestFocusInWindow();
+            txtIDProduto.requestFocusInWindow();
             return;
         }
-        // Validar se o campo de Perfil foi preenchido
-        if (cmbPerfil.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(rootPane, "Selecionar o tipo de usuário",
+        // Validar se o campo de imposto foi preenchido
+        if (cmbImposto.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Selecionar o valor de imposto (taxa)",
                     "ATENÇÂO", HEIGHT, figura);
-            cmbPerfil.requestFocusInWindow();
+            cmbImposto.requestFocusInWindow();
             return;
         }
-        // Validar se o campo de nome foi preenchido
-        if (txtNome.getText().equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Inserir nome do usuário",
+        // Validar se o campo de descrição foi preenchido
+        if (txtDescricao.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Inserir uma descrição do produto",
                     "ATENÇÂO", HEIGHT, figura);
-            txtNome.requestFocusInWindow();
+            txtDescricao.requestFocusInWindow();
             return;
         }
-        // Validar se o campo de Sobrenome foi preenchido
-        if (txtsnome.getText().equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Inserir Sobrenome do usuário",
+        // Validar se o campo de preco foi preenchido
+        if (txtPreco.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Inserir preço do produto",
                     "ATENÇÂO", HEIGHT, figura);
-            txtsnome.requestFocusInWindow();
+            txtPreco.requestFocusInWindow();
             return;
         }
 
@@ -544,17 +540,17 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         }
 
         // Verificar se o usuário já existe
-        int pos = msDados.posicaoUsuario(txtIDUsuario.getText());
+        int pos = msDados.posicaoUsuario(txtIDProduto.getText());
         if (novo) {
             if (pos != -1) {
                 JOptionPane.showMessageDialog(rootPane, "Este usuário já existe",
                         "ATENÇÂO", HEIGHT, figura);
-                txtIDUsuario.requestFocusInWindow();
+                txtIDProduto.requestFocusInWindow();
                 // 3 Limpar caixa de textos
-                txtIDUsuario.setText("");
-                cmbPerfil.setSelectedIndex(0);
-                txtNome.setText("");
-                txtsnome.setText("");
+                txtIDProduto.setText("");
+                cmbImposto.setSelectedIndex(0);
+                txtDescricao.setText("");
+                txtPreco.setText("");
                 txtSenhaUsuario.setText("");
                 txtConfSenhaUsuario.setText(""); //fim  3
                 return;
@@ -566,17 +562,17 @@ public class frmProdutos extends javax.swing.JInternalFrame {
             if (pos == -1) {
                 JOptionPane.showMessageDialog(rootPane, "Ok",
                         "ATENÇÂO", HEIGHT, figura);
-                txtIDUsuario.requestFocusInWindow();
+                txtIDProduto.requestFocusInWindow();
                 return;
             }
         }
 
         Usuario mUsuario = new Usuario(
-                txtIDUsuario.getText(),
-                txtNome.getText(),
-                txtsnome.getText(),
+                txtIDProduto.getText(),
+                txtDescricao.getText(),
+                txtPreco.getText(),
                 senha,
-                cmbPerfil.getSelectedIndex());
+                cmbImposto.getSelectedIndex());
 
         String msg;
 
@@ -603,10 +599,10 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         btnPesquisar.setEnabled(true); //fim 1
 
         // 2 desabilitar as caixas de texto
-        txtIDUsuario.setEnabled(false);
-        cmbPerfil.setEnabled(false);
-        txtNome.setEnabled(false);
-        txtsnome.setEnabled(false);
+        txtIDProduto.setEnabled(false);
+        cmbImposto.setEnabled(false);
+        txtDescricao.setEnabled(false);
+        txtPreco.setEnabled(false);
         txtSenhaUsuario.setEnabled(false);
         txtConfSenhaUsuario.setEnabled(false); //fim  2
 
@@ -627,10 +623,10 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         btnPesquisar.setEnabled(true); //fim 1
 
         // 2 Desabilitar as caixas de texto
-        txtIDUsuario.setEnabled(false);
-        cmbPerfil.setEnabled(false);
-        txtNome.setEnabled(false);
-        txtsnome.setEnabled(false);
+        txtIDProduto.setEnabled(false);
+        cmbImposto.setEnabled(false);
+        txtDescricao.setEnabled(false);
+        txtPreco.setEnabled(false);
         txtSenhaUsuario.setEnabled(false);
         txtConfSenhaUsuario.setEnabled(false); //fim  2
 
@@ -744,12 +740,12 @@ public class frmProdutos extends javax.swing.JInternalFrame {
 
     private void mostrarRegistro() {
         //metodo para mostrar os registros de usuarios na tela
-        txtIDUsuario.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
-        txtNome.setText(msDados.getUsuarios()[usuAtual].getNome());
-        txtsnome.setText(msDados.getUsuarios()[usuAtual].getSnome());
+        txtIDProduto.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
+        txtDescricao.setText(msDados.getUsuarios()[usuAtual].getNome());
+        txtPreco.setText(msDados.getUsuarios()[usuAtual].getSnome());
         txtSenhaUsuario.setText(msDados.getUsuarios()[usuAtual].getSenha());
         txtConfSenhaUsuario.setText(msDados.getUsuarios()[usuAtual].getSenha());
-        cmbPerfil.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
+        cmbImposto.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
     }
 
     private void preencherTabela() {
@@ -777,10 +773,10 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         
         
         int setar = tblTabela.getSelectedRow();
-        txtIDUsuario.setText("" + tblTabela.getModel().getValueAt(setar, 0));
-        txtNome.setText(tblTabela.getModel().getValueAt(setar, 1).toString());
-        txtsnome.setText("" + tblTabela.getModel().getValueAt(setar, 2));
-        cmbPerfil.setSelectedItem(tblTabela.getModel().getValueAt(setar,3));
+        txtIDProduto.setText("" + tblTabela.getModel().getValueAt(setar, 0));
+        txtDescricao.setText(tblTabela.getModel().getValueAt(setar, 1).toString());
+        txtPreco.setText("" + tblTabela.getModel().getValueAt(setar, 2));
+        cmbImposto.setSelectedItem(tblTabela.getModel().getValueAt(setar,3));
         
         
     }
@@ -808,7 +804,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnProximo;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnUltimo;
-    private javax.swing.JComboBox<String> cmbPerfil;
+    private javax.swing.JComboBox<String> cmbImposto;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -818,10 +814,10 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTable tblTabela;
-    private javax.swing.JTextField txtIDUsuario;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtsnome;
+    private javax.swing.JTextArea txtAnotacao;
+    private javax.swing.JTextField txtDescricao;
+    private javax.swing.JTextField txtIDProduto;
+    private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
 }
