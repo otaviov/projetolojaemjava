@@ -707,6 +707,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
         mostrarRegistro();
         preencherTabela();
+        
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
@@ -750,6 +751,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
     private void tblTabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblTabelaKeyReleased
         // TODO add your handling code here:
+        
         
     }//GEN-LAST:event_tblTabelaKeyReleased
 
