@@ -1,7 +1,9 @@
 package formularios;
 
 import classes.Dados;
-import classes.Usuario;
+import classes.Produto;
+import classes.Ultilidades;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -426,7 +428,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         txtDescricao.setEnabled(true);
         txtPreco.setEnabled(true);
         txtAnotacao.setEditable(true);
-        
+
         //bloqueando o adiconar novos usuarios
         novo = false;
 
@@ -510,37 +512,24 @@ public class frmProdutos extends javax.swing.JInternalFrame {
             txtPreco.requestFocusInWindow();
             return;
         }
-
-        //verificar se senha e confirmação de senha está igual
-        String senha = new String(txtSenhaUsuario.getPassword());
-        String confirmar = new String(txtConfSenhaUsuario.getPassword());
-
-        // Validar se o campo de senha foi preenchido
-        if (senha.equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Inserir uma senha",
+        //Verificar se foi digitado apenas numeros
+        if (!Ultilidades.isNumeric(txtPreco.getText())) {
+            JOptionPane.showMessageDialog(rootPane, "Campo preço aceita apenas numeros",
                     "ATENÇÂO", HEIGHT, figura);
-            txtSenhaUsuario.requestFocusInWindow();
+            txtPreco.requestFocusInWindow();
             return;
         }
-        // Validar se o campo de confirmação de senha foi preenchido
-        if (confirmar.equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Confirmar senha do usuário",
+        // Validar para o usuario não digitar valor abaixo de zero
+        int preco = Integer.parseInt((txtPreco.getText()));
+        if (preco <= 0) {
+            JOptionPane.showMessageDialog(rootPane, "Campo preço não aceita valores 0 ou abaixo de 0",
                     "ATENÇÂO", HEIGHT, figura);
-            txtConfSenhaUsuario.requestFocusInWindow();
-            return;
-        }
-        // Avisar que senha e confirmação estão diferentes
-        if (!senha.equals(confirmar)) {
-            JOptionPane.showMessageDialog(rootPane, "Você digitou senhas diferentes",
-                    "ATENÇÂO", HEIGHT, figura);
-            txtSenhaUsuario.setText("");
-            txtConfSenhaUsuario.setText("");
-            txtSenhaUsuario.requestFocusInWindow();
+            txtPreco.requestFocusInWindow();
             return;
         }
 
         // Verificar se o usuário já existe
-        int pos = msDados.posicaoUsuario(txtIDProduto.getText());
+        int pos = msDados.posicaoProduto(txtIDProduto.getText());
         if (novo) {
             if (pos != -1) {
                 JOptionPane.showMessageDialog(rootPane, "Este usuário já existe",
@@ -551,8 +540,8 @@ public class frmProdutos extends javax.swing.JInternalFrame {
                 cmbImposto.setSelectedIndex(0);
                 txtDescricao.setText("");
                 txtPreco.setText("");
-                txtSenhaUsuario.setText("");
-                txtConfSenhaUsuario.setText(""); //fim  3
+                txtAnotacao.setText("");
+                //fim  3
                 return;
 
             }
@@ -567,20 +556,20 @@ public class frmProdutos extends javax.swing.JInternalFrame {
             }
         }
 
-        Usuario mUsuario = new Usuario(
+        Produto mProduto = new Produto(
                 txtIDProduto.getText(),
                 txtDescricao.getText(),
                 txtPreco.getText(),
-                senha,
                 cmbImposto.getSelectedIndex());
+                txtAnotacao.getText();
 
         String msg;
 
         if (novo) {
-            msg = msDados.adicionarUsuario(mUsuario);
+            msg = msDados.adicionarProduto(mProduto);
 
         } else {
-            msg = msDados.editarUsuario(mUsuario, pos);
+            msg = msDados.editarProduto(mProduto, pos);
 
         }
         JOptionPane.showMessageDialog(rootPane, msg,
@@ -603,8 +592,8 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         cmbImposto.setEnabled(false);
         txtDescricao.setEnabled(false);
         txtPreco.setEnabled(false);
-        txtSenhaUsuario.setEnabled(false);
-        txtConfSenhaUsuario.setEnabled(false); //fim  2
+        txtAnotacao.setEnabled(false);
+         //fim  2
 
         preencherTabela();
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -627,8 +616,8 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         cmbImposto.setEnabled(false);
         txtDescricao.setEnabled(false);
         txtPreco.setEnabled(false);
-        txtSenhaUsuario.setEnabled(false);
-        txtConfSenhaUsuario.setEnabled(false); //fim  2
+        txtAnotacao.setEnabled(false);
+         //fim  2
 
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -644,30 +633,30 @@ public class frmProdutos extends javax.swing.JInternalFrame {
 
     private void btnPrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeiroActionPerformed
         // Chamando o primeiro usuario cadastrado
-        usuAtual = 0;
+        proAtual = 0;
         mostrarRegistro();
     }//GEN-LAST:event_btnPrimeiroActionPerformed
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
         // Chamando o ultimo usuario cadastrado
-        usuAtual = msDados.numeroUsuarios() - 1;
+        proAtual = msDados.numeroProdutos()- 1;
         mostrarRegistro();
     }//GEN-LAST:event_btnUltimoActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
         // Chamando o proximo usuario cadastrado
-        usuAtual++;
-        if (usuAtual == msDados.numeroUsuarios()) {
-            usuAtual = 0;
+        proAtual++;
+        if (proAtual == msDados.numeroProdutos()) {
+            proAtual = 0;
         }
         mostrarRegistro();
     }//GEN-LAST:event_btnProximoActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         // Chamando o usuario anterior cadastrado
-        usuAtual--;
-        if (usuAtual == -1) {
-            usuAtual = msDados.numeroUsuarios() - 1;
+        proAtual--;
+        if (proAtual == -1) {
+            proAtual = msDados.numeroProdutos()- 1;
         }
         mostrarRegistro();
     }//GEN-LAST:event_btnAnteriorActionPerformed
@@ -681,16 +670,16 @@ public class frmProdutos extends javax.swing.JInternalFrame {
             return;
         }
         String msg;
-        msg = msDados.deletarUsuario(usuAtual);
+        msg = msDados.deletarProduto(proAtual);
 
         JOptionPane.showMessageDialog(rootPane, msg,
                 "ATENÇÂO", HEIGHT, figura);
 
-        usuAtual = 0;
+        proAtual = 0;
 
         mostrarRegistro();
         preencherTabela();
-        
+
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
@@ -704,17 +693,17 @@ public class frmProdutos extends javax.swing.JInternalFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
-        String usuario = JOptionPane.showInputDialog("Inserir o usuário");
-        if (usuario.equals("")) {
-            
-            return ;
+        String produto = JOptionPane.showInputDialog("Inserir o usuário");
+        if (produto.equals("")) {
+
+            return;
         }
-        int pos = msDados.posicaoUsuario(usuario);
+        int pos = msDados.posicaoProduto(produto);
         if (pos == -1) {
             JOptionPane.showMessageDialog(rootPane, "Este usuário não existe");
             return;
         }
-        usuAtual = pos;
+        proAtual = pos;
 
         mostrarRegistro();
 
@@ -729,23 +718,22 @@ public class frmProdutos extends javax.swing.JInternalFrame {
 
     private void tblTabelaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblTabelaKeyPressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_tblTabelaKeyPressed
 
     private void tblTabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblTabelaKeyReleased
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_tblTabelaKeyReleased
 
     private void mostrarRegistro() {
         //metodo para mostrar os registros de usuarios na tela
-        txtIDProduto.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
-        txtDescricao.setText(msDados.getUsuarios()[usuAtual].getNome());
-        txtPreco.setText(msDados.getUsuarios()[usuAtual].getSnome());
-        txtSenhaUsuario.setText(msDados.getUsuarios()[usuAtual].getSenha());
-        txtConfSenhaUsuario.setText(msDados.getUsuarios()[usuAtual].getSenha());
-        cmbImposto.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
+        txtIDProduto.setText(msDados.getUsuarios()[proAtual].getIdUsuario());
+        txtDescricao.setText(msDados.getUsuarios()[proAtual].getNome());
+        txtPreco.setText(msDados.getUsuarios()[proAtual].getSnome());
+        
+        cmbImposto.setSelectedIndex(msDados.getUsuarios()[proAtual].getPerfil());
     }
 
     private void preencherTabela() {
@@ -769,16 +757,14 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     }
 
     // Método para setar os campos do formulário com o conteúdo da tabela
-    public void setar_campos(){
-        
-        
+    public void setar_campos() {
+
         int setar = tblTabela.getSelectedRow();
         txtIDProduto.setText("" + tblTabela.getModel().getValueAt(setar, 0));
         txtDescricao.setText(tblTabela.getModel().getValueAt(setar, 1).toString());
         txtPreco.setText("" + tblTabela.getModel().getValueAt(setar, 2));
-        cmbImposto.setSelectedItem(tblTabela.getModel().getValueAt(setar,3));
-        
-        
+        cmbImposto.setSelectedItem(tblTabela.getModel().getValueAt(setar, 3));
+
     }
 
     private String perfil(int idPerfil) {
@@ -788,10 +774,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
             return "Comum";
         }
     }
-    
-    
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
