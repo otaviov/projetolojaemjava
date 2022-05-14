@@ -494,21 +494,24 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         // validar se o campo de produto foi preenchido
         if (txtIDProduto.getText().equals("")) {
 
-            JOptionPane.showMessageDialog(rootPane, "Inserir o nome do produto",
+            JOptionPane.showMessageDialog(rootPane, "Inserir o ID do produto",
                     "ATENÇÂO", HEIGHT, figura);
             txtIDProduto.requestFocusInWindow();
             return;
         }
         // Validar se o campo de imposto foi preenchido
-        if (cmbImposto.getSelectedIndex() == 0) {
+        /*
+        if (cmbImposto.getSelectedIndex() < 0) {
             JOptionPane.showMessageDialog(rootPane, "Selecionar o valor de imposto (taxa)",
                     "ATENÇÂO", HEIGHT, figura);
             cmbImposto.requestFocusInWindow();
             return;
         }
+        */
+        
         // Validar se o campo de descrição foi preenchido
         if (txtDescricao.getText().equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Inserir uma descrição do produto",
+            JOptionPane.showMessageDialog(rootPane, "Inserir o nome do produto",
                     "ATENÇÂO", HEIGHT, figura);
             txtDescricao.requestFocusInWindow();
             return;
@@ -522,7 +525,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         }
         //Verificar se foi digitado apenas numeros
         if (!Ultilidades.isNumeric(txtPreco.getText())) {
-            JOptionPane.showMessageDialog(rootPane, "Campo preço aceita apenas numeros",
+            JOptionPane.showMessageDialog(rootPane, "Campo preço só aceita números",
                     "ATENÇÂO", HEIGHT, figura);
             txtPreco.requestFocusInWindow();
             return;
@@ -540,8 +543,9 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         int pos = msDados.posicaoProduto(txtIDProduto.getText());
         if (novo) {
             if (pos != -1) {
-                JOptionPane.showMessageDialog(rootPane, "Este produto já existe",
-                        "ATENÇÂO", HEIGHT, figura);
+                JOptionPane.showMessageDialog(rootPane, """
+                    O ID do produto j\u00e1 existe
+                    Verifique se trata-se do mesmo produto""", "ATENÇÂO", HEIGHT, figura);
                 txtIDProduto.requestFocusInWindow();
                 // 3 Limpar caixa de textos
                 txtIDProduto.setText("");
