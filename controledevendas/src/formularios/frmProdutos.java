@@ -108,7 +108,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         jLabel2.setText("Imposto:");
         jLabel2.setAlignmentX(0.5F);
 
-        cmbImposto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0%", "10%", "15%", "20%", "25%" }));
+        cmbImposto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0%", "10%", "15%", "20%", "25%", "30%", "35%", "40%", "45%", "50%", "55%", "60%" }));
         cmbImposto.setToolTipText("Selecione o tipo de acesso");
         cmbImposto.setEnabled(false);
         cmbImposto.addActionListener(new java.awt.event.ActionListener() {
@@ -439,7 +439,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         novo = false;
 
         // 3 Adicionando foco ao campo Nome
-        txtDescricao.requestFocus(); // fim 3
+        txtAnotacao.requestFocus(); // fim 3
 
 
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -595,9 +595,9 @@ public class frmProdutos extends javax.swing.JInternalFrame {
 
         // 2 desabilitar as caixas de texto
         txtIDProduto.setEnabled(false);
-        cmbImposto.setEnabled(false);
         txtDescricao.setEnabled(false);
         txtPreco.setEnabled(false);
+        cmbImposto.setEnabled(false);
         txtAnotacao.setEnabled(false);
          //fim  2
 
@@ -670,7 +670,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
 
-        int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente deletar este usuário?",
+        int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente deletar este produto?",
                 "ATENÇÂO", HEIGHT);
         if (resposta != 0) {
             return;
@@ -699,14 +699,14 @@ public class frmProdutos extends javax.swing.JInternalFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
-        String produto = JOptionPane.showInputDialog("Inserir o usuário");
+        String produto = JOptionPane.showInputDialog("Inserir o produto");
         if (produto.equals("")) {
 
             return;
         }
         int pos = msDados.posicaoProduto(produto);
         if (pos == -1) {
-            JOptionPane.showMessageDialog(rootPane, "Este usuário não existe");
+            JOptionPane.showMessageDialog(rootPane, "Este produto não existe");
             return;
         }
         proAtual = pos;
@@ -737,9 +737,9 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         //metodo para mostrar os registros de usuarios na tela
         txtIDProduto.setText(msDados.getProdutos()[proAtual].getIdProduto());
         txtDescricao.setText(msDados.getProdutos()[proAtual].getDescricao());
-        txtPreco.setText(""+ msDados.getProdutos()[proAtual].getPreco());
-        cmbImposto.setSelectedIndex(msDados.getProdutos()[proAtual].getImposto());
+        txtPreco.setText("" + msDados.getProdutos()[proAtual].getPreco());
         txtAnotacao.setText(msDados.getProdutos()[proAtual].getAnotacao());
+        cmbImposto.setSelectedIndex(msDados.getProdutos()[proAtual].getImposto());
     }
 
     private void preencherTabela() {
@@ -752,7 +752,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
             registro[0] = msDados.getProdutos()[i].getIdProduto();
             registro[1] = msDados.getProdutos()[i].getDescricao();
             registro[2] = "" + msDados.getProdutos()[i].getPreco();
-            registro[3] = "" + msDados.getProdutos()[i].getImposto();
+            registro[3] = imposto (msDados.getProdutos()[i].getImposto());
             registro[4] = msDados.getProdutos()[i].getAnotacao();
 
             mTabela.addRow(registro);
@@ -762,7 +762,27 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         tblTabela.setModel(mTabela);
 
     }
-
+    
+    // Metodo para o campo imposto
+    private String imposto(int idIMPOSTO){
+        switch (idIMPOSTO) {
+            case 0: return "0%";
+            case 1: return "10%";
+            case 2: return "15%";
+            case 3: return "20%";
+            case 4: return "25%";
+            case 5: return "30%";
+            case 6: return "35%";
+            case 7: return "40%";
+            case 8: return "45%";
+            case 9: return "50%";
+            case 10: return "55%";
+            case 11: return "60%";
+                
+            default:
+               return "Não definido";
+        }
+    }
     // Método para setar os campos do formulário com o conteúdo da tabela
     public void setar_campos() {
 
