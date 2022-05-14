@@ -1,8 +1,10 @@
 package formularios;
 
+import formularios.sobres.frmSobreUsuarios;
 import classes.Dados;
 import classes.Produto;
 import classes.Ultilidades;
+import formularios.sobres.frmSobreProdutos;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -93,7 +95,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("ID Produto:");
+        jLabel1.setText("ID:");
         jLabel1.setToolTipText("");
         jLabel1.setAlignmentX(0.5F);
 
@@ -118,7 +120,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("Descrição:");
+        jLabel3.setText("Nome:");
         jLabel3.setAlignmentX(0.5F);
 
         txtDescricao.setEnabled(false);
@@ -283,7 +285,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblTabela);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setText("Anotação:");
+        jLabel8.setText("Descrição:");
         jLabel8.setAlignmentX(0.5F);
 
         txtAnotacao.setColumns(20);
@@ -433,13 +435,13 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         cmbImposto.setEnabled(true);
         txtDescricao.setEnabled(true);
         txtPreco.setEnabled(true);
-        txtAnotacao.setEditable(true);
+        txtAnotacao.setEnabled(true);
 
         //bloqueando o adiconar novos usuarios
         novo = false;
 
         // 3 Adicionando foco ao campo Nome
-        txtAnotacao.requestFocus(); // fim 3
+        txtDescricao.requestFocus(); // fim 3
 
 
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -447,8 +449,8 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         // Chamando a tela frmSobreUsuarios
-        frmSobreUsuarios SobreUser = new frmSobreUsuarios();
-        SobreUser.setVisible(true); //fim 
+        frmSobreProdutos sobreProdutos = new frmSobreProdutos();
+        sobreProdutos.setVisible(true); //fim 
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -467,17 +469,17 @@ public class frmProdutos extends javax.swing.JInternalFrame {
 
         // 2 Habilitar as caixas de texto
         txtIDProduto.setEnabled(true);
-        cmbImposto.setEnabled(true);
         txtDescricao.setEnabled(true);
         txtPreco.setEnabled(true);
-        txtAnotacao.setEditable(true);//fim  2
+        cmbImposto.setEnabled(true);
+        txtAnotacao.setEnabled(true);//fim  2
 
         // 3 Limpar caixa de textos
         txtIDProduto.setText("");
-        cmbImposto.setSelectedIndex(0);
         txtDescricao.setText("");
         txtPreco.setText("");
-        txtAnotacao.setEditable(true);
+        cmbImposto.setSelectedIndex(0);
+        txtAnotacao.setText("");
 
         //adicionar novos usuarios
         novo = true;
