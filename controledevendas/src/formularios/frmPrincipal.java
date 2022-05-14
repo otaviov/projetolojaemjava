@@ -185,7 +185,17 @@ public class frmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuArquivoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoClienteActionPerformed
-        // TODO add your handling code here:
+        // Chamando tela de Clientes (frmClientes)
+	frmClientes msClientes = new frmClientes();
+	msClientes.setDados(msDados);
+	dpnDesk.add(msClientes);
+	msClientes.show();
+	
+	// 3 Centralizando o JInternalJFrame (frmClientes -- nome da variarial: msClientes
+        Dimension desktopSize = dpnDesk.getSize();
+        Dimension FrameSize = msClientes.getSize();
+        msClientes.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        msClientes.show(); // 3 fim
     }//GEN-LAST:event_mnuArquivoClienteActionPerformed
 
     private void mnuArquivoProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoProdutosActionPerformed
