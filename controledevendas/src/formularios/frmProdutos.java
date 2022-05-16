@@ -524,13 +524,14 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         }
         //Verificar se foi digitado apenas numeros
         if (!Ultilidades.isNumeric(txtPreco.getText())) {
-            JOptionPane.showMessageDialog(rootPane, "Campo preço só aceita números",
+            JOptionPane.showMessageDialog(rootPane, "Campo preço só aceita números" + 
+                    "\nCaso seja números decimais usar ponto '.' no lugar da vírgula ','",
                     "ATENÇÂO", HEIGHT, figura);
             txtPreco.requestFocusInWindow();
             return;
         }
         // Validar para o usuario não digitar valor abaixo de zero
-        int preco = Integer.parseInt((txtPreco.getText()));
+        float preco = Float.parseFloat((txtPreco.getText()));
         if (preco <= 0) {
             JOptionPane.showMessageDialog(rootPane, "Campo preço não aceita valores 0 ou abaixo de 0",
                     "ATENÇÂO", HEIGHT, figura);
