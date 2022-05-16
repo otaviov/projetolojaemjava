@@ -17,7 +17,8 @@ public class Cliente {
     private int idcidade; 
     private Date Data; 
 
-    public Cliente(String idCliente, String nome, String SNome, Date Nascimento, String endereço, int telefone, int idTipo, int estado, int idcidade, Date Data) {
+    public Cliente(String idCliente, String nome, String SNome, Date Nascimento, 
+            String endereço, int telefone, int idTipo, int estado, int idcidade, Date Data) {
 	this.idCliente = idCliente;
 	this.nome = nome;
 	this.SNome = SNome;

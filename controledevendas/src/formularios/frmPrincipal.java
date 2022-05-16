@@ -186,7 +186,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void mnuArquivoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoClienteActionPerformed
         // Chamando tela de Clientes (frmClientes)
-	frmClientes msClientes = new frmClientes();
+	/*frmClientes msClientes = new frmClientes();
 	msClientes.setDados(msDados);
 	dpnDesk.add(msClientes);
 	msClientes.show();
@@ -196,6 +196,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         Dimension FrameSize = msClientes.getSize();
         msClientes.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
         msClientes.show(); // 3 fim
+        */
     }//GEN-LAST:event_mnuArquivoClienteActionPerformed
 
     private void mnuArquivoProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoProdutosActionPerformed
