@@ -7,9 +7,19 @@ import java.text.SimpleDateFormat;
 
 public class Ultilidades {
     // Convertendo o preço no formulario frmProdutos para boolean -- encontrar codigo no botão salvar
-    public static boolean isNumeric(String Numero){
+    public static boolean isNumericFloat(String NumeroFloat){
         try {
-            Float.parseFloat(Numero);
+            Float.parseFloat(NumeroFloat);
+            return true;
+            
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+    
+    public static boolean isNumericInt(String NumeroInt){
+        try {
+            Integer.parseInt(NumeroInt);
             return true;
             
         } catch (NumberFormatException nfe) {

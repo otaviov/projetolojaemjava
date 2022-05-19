@@ -523,7 +523,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
             return;
         }
         //Verificar se foi digitado apenas numeros
-        if (!Ultilidades.isNumeric(txtPreco.getText())) {
+        if (!Ultilidades.isNumericFloat(txtPreco.getText())) {
             JOptionPane.showMessageDialog(rootPane, "Campo preço só aceita números" + 
                     "\nCaso seja números decimais usar ponto '.' no lugar da vírgula ','",
                     "ATENÇÂO", HEIGHT, figura);

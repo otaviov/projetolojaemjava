@@ -2,7 +2,9 @@ package formularios;
 
 import classes.Cliente;
 import classes.Dados;
+import classes.Ultilidades;
 import formularios.sobres.frmSobreClientes;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -336,6 +338,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         jLabel10.setText("Data Nasc:");
         jLabel10.setAlignmentX(0.5F);
 
+        DNascimento.setDateFormatString("d/MM/y");
         DNascimento.setEnabled(false);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -351,6 +354,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
             }
         });
 
+        DData.setDateFormatString("d/MM/y");
         DData.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -364,6 +368,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane1)
                         .addGap(26, 26, 26))
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel2)
@@ -374,44 +379,44 @@ public class frmClientes extends javax.swing.JInternalFrame {
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNome))
-                            .addComponent(txtEndereco)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel8)
                                 .addGap(18, 18, 18)
                                 .addComponent(cmbIdentificacao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtSNome, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel10)
-                                .addGap(23, 23, 23)
-                                .addComponent(DNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel9))
-                                    .addComponent(DData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(DData, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(18, 18, 18)
-                                .addComponent(cmbcidade, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbcidade, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabel4)
-                                .addGap(0, 26, Short.MAX_VALUE))
+                                .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtSNome)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(DNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(26, 26, 26))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
+                                .addGap(17, 17, 17))))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(169, Short.MAX_VALUE)
                 .addComponent(btnPrimeiro, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -431,7 +436,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(169, 169, 169))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -445,14 +450,17 @@ public class frmClientes extends javax.swing.JInternalFrame {
                         .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel6)
                                 .addComponent(txtSNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel10))
-                            .addComponent(DNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(DNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -461,23 +469,20 @@ public class frmClientes extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8))
                             .addComponent(cmbIdentificacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(cmbcidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
-                            .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel4)))
+                            .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
                     .addComponent(DData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPrimeiro, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -489,7 +494,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                     .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
@@ -529,15 +534,14 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
         // 2 Habilitar as caixas de texto
         txtNome.setEnabled(true);
-	txtSNome.setEnabled(true);
-	DNascimento.setEnabled(true);
+        txtSNome.setEnabled(true);
+        DNascimento.setEnabled(true);
         txtEndereco.setEnabled(true);
-	txtTelefone.setEnabled(true);
+        txtTelefone.setEnabled(true);
         cmbIdentificacao.setEnabled(true);
-	cmbEstado.setEnabled(true);
-	cmbcidade.setEnabled(true);
-	DData.setEnabled(true);
-        
+        cmbEstado.setEnabled(true);
+        cmbcidade.setEnabled(true);
+        DData.setEnabled(true);
 
         //bloqueando o adiconar novos usuarios
         novo = false;
@@ -570,36 +574,34 @@ public class frmClientes extends javax.swing.JInternalFrame {
         btnPesquisar.setEnabled(false); //fim 1
 
         // 2 Habilitar as caixas de texto
-	txtIDCliente.setEnabled(true);
+        txtIDCliente.setEnabled(true);
         txtNome.setEnabled(true);
-	txtSNome.setEnabled(true);
-	DNascimento.setEnabled(true);
+        txtSNome.setEnabled(true);
+        DNascimento.setEnabled(true);
         txtEndereco.setEnabled(true);
-	txtTelefone.setEnabled(true);
+        txtTelefone.setEnabled(true);
         cmbIdentificacao.setEnabled(true);
-	cmbEstado.setEnabled(true);
-	cmbcidade.setEnabled(true);
-	DData.setEnabled(true);//fim  2
+        cmbEstado.setEnabled(true);
+        cmbcidade.setEnabled(true);
+        DData.setEnabled(true);//fim  2
 
         // 3 Limpar caixa de textos
         txtIDCliente.setText("");
         txtNome.setText("");
         txtSNome.setText("");
-        DNascimento.setDateFormatString("");
+        DNascimento.setDate(new Date());
         txtEndereco.setText("");
         txtTelefone.setText("");
         cmbIdentificacao.setSelectedIndex(0);
         cmbEstado.setSelectedIndex(0);
         cmbcidade.setSelectedIndex(0);
-        DData.setDateFormatString("");
-        
+        DData.setDate(new Date());
 
         //adicionar novos usuarios
         novo = true;
 
         // 4 Adicionando foco ao campo ID
         txtIDCliente.requestFocus(); // fim 4
-
 
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -612,15 +614,6 @@ public class frmClientes extends javax.swing.JInternalFrame {
             txtIDCliente.requestFocusInWindow();
             return;
         }
-        // Validar se o campo de imposto foi preenchido
-        /*
-        if (cmbImposto.getSelectedIndex() < 0) {
-            JOptionPane.showMessageDialog(rootPane, "Selecionar o valor de imposto (taxa)",
-                    "ATENÇÂO", HEIGHT, figura);
-            cmbImposto.requestFocusInWindow();
-            return;
-        }
-        */
         
         // Validar se o campo de Nome foi preenchido
         if (txtNome.getText().equals("")) {
@@ -629,7 +622,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
             txtNome.requestFocusInWindow();
             return;
         }
-        
+
         // Validar se o campo Sobrenome foi preenchido
         if (txtSNome.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Inserir o Sobrenome do Cliente",
@@ -637,9 +630,18 @@ public class frmClientes extends javax.swing.JInternalFrame {
             txtSNome.requestFocusInWindow();
             return;
         }
-        
+
         //Validar se o campo Nascimento foi preenchido
-        
+        if (DNascimento.getDate().before(new Date())) {
+             JOptionPane.showMessageDialog(rootPane, """
+                Por quest\u00f5es de segura\u00e7a 
+                inserir a data de nascimento do cliente.
+                Para mais informa\u00e7\u00f5es clique no bot\u00e3o de interroga\u00e7\u00e3o
+                e saiba mais sobre""",
+                    "ATENÇÂO", HEIGHT, figura);
+            DNascimento.requestFocusInWindow();
+            return;
+        }
         
         // Validar se o campo de Endereço foi preenchido
         if (txtEndereco.getText().equals("")) {
@@ -649,17 +651,47 @@ public class frmClientes extends javax.swing.JInternalFrame {
             return;
         }
         
-        /*//Verificar se foi digitado apenas numeros
-        if (!Ultilidades.isNumeric(txtEndereco.getText())) {
-            JOptionPane.showMessageDialog(rootPane, "Campo preço só aceita números",
+        // Verificar se o campo telefone foi preeenchido
+        if(txtTelefone.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Inserir Telefone do cliente",
                     "ATENÇÂO", HEIGHT, figura);
-            txtEndereco.requestFocusInWindow();
+            txtTelefone.requestFocusInWindow();
             return;
-        }*/
+        }
         
+        //Verificar se foi digitado apenas numeros
+        if (!Ultilidades.isNumericInt(txtTelefone.getText())) {
+            JOptionPane.showMessageDialog(rootPane, "Campo telefone só aceita números",
+                    "ATENÇÂO", HEIGHT, figura);
+            txtTelefone.requestFocusInWindow();
+            return;
+        }
         
+        // Validar se o campo de identificação foi preenchido
+        if (cmbIdentificacao.getSelectedIndex() <= 0) {
+            JOptionPane.showMessageDialog(rootPane, "Selecionar uma identificação para o cliente",
+                    "ATENÇÂO", HEIGHT, figura);
+            cmbIdentificacao.requestFocusInWindow();
+            return;
+        }
+        
+        // Validar campo de estado
+        if (cmbEstado.getSelectedIndex() <= 0) {
+            JOptionPane.showMessageDialog(rootPane, "Selecionar o Estado do cliente",
+                    "ATENÇÂO", HEIGHT, figura);
+            cmbEstado.requestFocusInWindow();
+            return;
+        }
+        
+        if (cmbcidade.getSelectedIndex() <= 0) {
+            JOptionPane.showMessageDialog(rootPane, "Selecionar a Cidade do cliente",
+                    "ATENÇÂO", HEIGHT, figura);
+            cmbcidade.requestFocusInWindow();
+            return;
+        }
+
         // Validar para o usuario não digitar valor abaixo de zero
-        int fone = Integer.parseInt((txtEndereco.getText()));
+        int fone = Integer.parseInt((txtTelefone.getText()));
         /*
         if (preco <= 0) {
             JOptionPane.showMessageDialog(rootPane, "Campo preço não aceita valores 0 ou abaixo de 0",
@@ -667,6 +699,8 @@ public class frmClientes extends javax.swing.JInternalFrame {
             txtEndereco.requestFocusInWindow();
             return;
         }*/
+        
+         
 
         // Verificar se o Cliente já existe
         int pos = msDados.posicaoProduto(txtIDCliente.getText());
@@ -684,7 +718,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                 txtEndereco.setText("");
                 txtAnotacao.setText("");
                 //fim  3
-*/
+                 */
                 return;
 
             }
@@ -717,7 +751,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
             msg = msDados.adicionarCliente(mCliente);
 
         } else {
-            msg = msDados.editarCliente (mCliente, pos);
+            msg = msDados.editarCliente(mCliente, pos);
 
         }
         JOptionPane.showMessageDialog(rootPane, msg,
@@ -743,8 +777,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         cmbIdentificacao.setEnabled(false);
         txtAnotacao.setEnabled(false);
          //fim  2
-*/
-
+         */
         preencherTabela();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -769,7 +802,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         txtEndereco.setEnabled(false);
         txtAnotacao.setEnabled(false);
          //fim  2
-*/
+         */
 
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -791,7 +824,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
         // Chamando o ultimo usuario cadastrado
-        CliAtual = msDados.numeroProdutos()- 1;
+        CliAtual = msDados.numeroProdutos() - 1;
         mostrarRegistro();
     }//GEN-LAST:event_btnUltimoActionPerformed
 
@@ -808,7 +841,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         // Chamando o usuario anterior cadastrado
         CliAtual--;
         if (CliAtual == -1) {
-            CliAtual = msDados.numeroProdutos()- 1;
+            CliAtual = msDados.numeroProdutos() - 1;
         }
         mostrarRegistro();
     }//GEN-LAST:event_btnAnteriorActionPerformed
@@ -914,7 +947,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
             registro[0] = msDados.getProdutos()[i].getIdProduto();
             registro[1] = msDados.getProdutos()[i].getDescricao();
             registro[2] = "" + msDados.getProdutos()[i].getPreco();
-            registro[3] = imposto (msDados.getProdutos()[i].getImposto());
+            registro[3] = imposto(msDados.getProdutos()[i].getImposto());
             registro[4] = msDados.getProdutos()[i].getAnotacao();
 
             mTabela.addRow(registro);
@@ -924,27 +957,40 @@ public class frmClientes extends javax.swing.JInternalFrame {
         tblTabela.setModel(mTabela);
 
     }
-    
+
     // Metodo para o campo imposto
-    private String imposto(int idIMPOSTO){
+    private String imposto(int idIMPOSTO) {
         switch (idIMPOSTO) {
-            case 0: return "0%";
-            case 1: return "10%";
-            case 2: return "15%";
-            case 3: return "20%";
-            case 4: return "25%";
-            case 5: return "30%";
-            case 6: return "35%";
-            case 7: return "40%";
-            case 8: return "45%";
-            case 9: return "50%";
-            case 10: return "55%";
-            case 11: return "60%";
-                
+            case 0:
+                return "0%";
+            case 1:
+                return "10%";
+            case 2:
+                return "15%";
+            case 3:
+                return "20%";
+            case 4:
+                return "25%";
+            case 5:
+                return "30%";
+            case 6:
+                return "35%";
+            case 7:
+                return "40%";
+            case 8:
+                return "45%";
+            case 9:
+                return "50%";
+            case 10:
+                return "55%";
+            case 11:
+                return "60%";
+
             default:
-               return "Não definido";
+                return "Não definido";
         }
     }
+
     // Método para setar os campos do formulário com o conteúdo da tabela
     public void setar_campos() {
 
@@ -956,8 +1002,6 @@ public class frmClientes extends javax.swing.JInternalFrame {
         //txtAnotacao.setText("" + tblTabela.getModel().getValueAt(setar, 4));
 
     }
-
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
