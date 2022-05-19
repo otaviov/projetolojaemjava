@@ -5,16 +5,22 @@ import javax.swing.JOptionPane;
 
 public class Dados {
     
-    private int maxUsu = 50;
-    //Criando produtos
-    private int maxPro = 20;
     // Criando usuarios
+    private int maxUsu = 12;
+    //Criando produtos
+    private int maxPro = 10;
+    // Criando Clientes
+    private int maxCli = 10;
+    
     private Usuario msUsuarios[] = new Usuario[maxUsu];
     // Criando produtos
     private Produto msProdutos[] = new Produto[maxPro];
     
+    private Cliente msClientes[] = new Cliente[maxCli];
+    
     private int conUsu = 0;
     private int conPro = 0;
+    private int conCli = 0;
 
     public Dados() {
         //Criando usuarios manuais
@@ -22,43 +28,33 @@ public class Dados {
         mUsuario = new Usuario("adm", "Otavio", "Oliveira", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-
         mUsuario = new Usuario("momo", "Emilia", "Santos", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-
         mUsuario = new Usuario("prinxexa", "Joaquina", "Oliveira", "123", 2);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-
         mUsuario = new Usuario("neneco", "Inacio", "Silva", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        
         mUsuario = new Usuario("nenem", "Jose", "Januario", "123", 2);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        
         mUsuario = new Usuario("negao", "Black", "Caetano", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        
         mUsuario = new Usuario("bola", "Jose", "Vitorio", "123", 2);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        
         mUsuario = new Usuario("pleta", "Milu", "Maria", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        
         mUsuario = new Usuario("memegan", "Megan", "Maria", "123", 2);
         msUsuarios[conUsu] = mUsuario;
         conUsu++; 
-        
         mUsuario = new Usuario("cleitin", "Cleiton", "Jose", "123", 2);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        
         mUsuario = new Usuario("rodolfo", "Rodolfo", "Jose", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
@@ -68,13 +64,9 @@ public class Dados {
         mProduto = new Produto ("1", "Arroz", 10, 0, "ggg");
         msProdutos[conPro] = mProduto;
         conPro++;
-        
-        
         mProduto = new Produto ("2", "Feijão", 15, 2, "feijão preto");
         msProdutos[conPro] = mProduto;
         conPro++;
-        
-       
         mProduto = new Produto ("3", "Açucar", 2, 0, "Açucar branco");
         msProdutos[conPro] = mProduto;
         conPro++;
