@@ -3,6 +3,7 @@ package classes;
 
 import java.text.ParseException;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Ultilidades {
     // Convertendo o preço no formulario frmProdutos para boolean -- encontrar codigo no botão salvar
@@ -16,9 +17,9 @@ public class Ultilidades {
         }
     }
     
-    // Convertendo Data d formulario frmClientes para String
+    // Convertendo Data do formulario frmClientes para String
     public static Date StringtoDate (String Data){
-        StringDateFormat formatotexto = new StringDateFormat("yyyy/MM/dd");
+        SimpleDateFormat formatotexto = new SimpleDateFormat("yyyy/MM/dd");
         Date x = null;
         try {
             x = formatotexto.parse(Data);

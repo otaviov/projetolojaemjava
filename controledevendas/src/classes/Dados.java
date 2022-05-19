@@ -1,6 +1,5 @@
 package classes;
 
-import javax.swing.JOptionPane;
 
 
 public class Dados {
@@ -71,9 +70,24 @@ public class Dados {
         msProdutos[conPro] = mProduto;
         conPro++;
         
+        //Cadastrando Clientes
+        Cliente mCliente;
+        mCliente = new Cliente ("1", "Lucas", "Andrade", Ultilidades.StringtoDate("1995/10/20"), 
+                "Rua Galileu Galilei", 8199855-6698, 1, 2, 1, 
+                Ultilidades.StringtoDate("2022/05/19"));
+        msClientes[conCli] = mCliente;
+        conCli ++;
+        mCliente = new Cliente ("2", "Lucas", "Andrade", Ultilidades.StringtoDate("1995/10/20"), 
+                "Rua Galileu Galilei", 8199855-6698, 1, 2, 1, 
+                Ultilidades.StringtoDate("2022/05/19"));
+        msClientes[conCli] = mCliente;
+        conCli ++;
         
-
     }
+    
+    // Usuarios
+    // Produtos
+    // Cleintes 
 
     public int numeroUsuarios() {
         return conUsu;
@@ -82,6 +96,10 @@ public class Dados {
     public int numeroProdutos() {
         return conPro;
     }
+    
+    public int numeroCliente() {
+        return conCli;
+    }
 
     public Usuario[] getUsuarios() {
         return msUsuarios;
@@ -89,6 +107,10 @@ public class Dados {
     
     public Produto[] getProdutos() {
         return msProdutos;
+    }
+    
+    public Cliente[] getCliente() {
+        return msClientes;
     }
 
     public boolean validarUsuario(String usuario, String senha) {
@@ -129,6 +151,18 @@ public class Dados {
 
     }
     
+    public int posicaoCliente(String cliente) {
+
+        for (int i = 0; i < conCli; i++) {
+            if (msClientes[i].getIdCliente().equals(cliente)) {
+                return i;
+            }
+
+        }
+        return -1;
+
+    }
+    
     public String adicionarUsuario(Usuario mUsuario) {
         if (conUsu == maxUsu) {
             return "Não é possível cadastrar mais usuarios (Número Máximo atingido)";
@@ -148,6 +182,16 @@ public class Dados {
         conPro++;
         return "Produto cadastrado com sucesso" ;
     }
+    
+    public String adicionarCliente(Cliente mCliente) {
+        if (conCli== maxCli) {
+            return "Não é possível cadastrar mais clientes (Número Máximo atingido)";
+        }
+
+        msClientes[conCli] = mCliente;
+        conCli ++;
+        return "Cliente cadastrado com sucesso" ;
+    }
 
     public String editarUsuario(Usuario mUsuario, int pos) {
         msUsuarios[pos].setNome(mUsuario.getNome());
@@ -166,7 +210,21 @@ public class Dados {
 
         return "Produto editado com sucesso";
     }
+    
+    public String editarCliente(Cliente mCliente, int pos) {
+        msClientes[pos].setNome(mCliente.getNome());
+        msClientes[pos].setSNome(mCliente.getSNome());
+        msClientes[pos].setNascimento(mCliente.getNascimento());
+        msClientes[pos].setEndereço(mCliente.getEndereço());
+        msClientes[pos].setTelefone(mCliente.getTelefone());
+        msClientes[pos].setIdTipo(mCliente.getIdTipo());
+        msClientes[pos].setEstado(mCliente.getEstado());
+        msClientes[pos].setIdcidade(mCliente.getIdcidade());
+        msClientes[pos].setData(mCliente.getData());
+        
 
+        return "Cliente editado com sucesso";
+    }
 
     public String deletarUsuario(int pos) {
         for (int i = pos; i < conUsu - 1; i++) {
@@ -184,6 +242,15 @@ public class Dados {
         conPro--;
         
         return "Produto deletado com sucesso";
+    }
+    
+    public String deletarCliente(int pos) {
+        for (int i = pos; i < conCli - 1; i++) {
+            msClientes[i] = msClientes [i + 1];
+        }
+        conCli --;
+        
+        return "Cliente deletado com sucesso";
     }
     
 
