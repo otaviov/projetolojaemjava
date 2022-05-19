@@ -73,9 +73,9 @@
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="txtPreco" min="-2" pref="127" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="txtPreco" min="-2" pref="184" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="cmbImposto" min="-2" pref="115" max="-2" attributes="0"/>
@@ -244,6 +244,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtPreco">
       <Properties>
+        <Property name="text" type="java.lang.String" value="R$"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
