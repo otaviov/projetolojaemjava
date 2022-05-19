@@ -1,10 +1,8 @@
 package formularios;
 
+import classes.Cliente;
 import classes.Dados;
-import classes.Produto;
-import classes.Ultilidades;
-import formularios.sobres.frmSobreProdutos;
-
+import formularios.sobres.frmSobreClientes;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -552,9 +550,9 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        // Chamando a tela frmSobreUsuarios
-        frmSobreProdutos sobreProdutos = new frmSobreProdutos();
-        sobreProdutos.setVisible(true); //fim 
+        // Chamando a tela frmSobreClientes
+        frmSobreClientes sobreClientes = new frmSobreClientes();
+        sobreClientes.setVisible(true); //fim 
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -606,10 +604,10 @@ public class frmClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // validar se o campo de produto foi preenchido
+        // validar se o campo de Id Cliente foi preenchido
         if (txtIDCliente.getText().equals("")) {
 
-            JOptionPane.showMessageDialog(rootPane, "Inserir o ID do produto",
+            JOptionPane.showMessageDialog(rootPane, "Inserir o ID do Cliente",
                     "ATENÇÂO", HEIGHT, figura);
             txtIDCliente.requestFocusInWindow();
             return;
@@ -624,37 +622,53 @@ public class frmClientes extends javax.swing.JInternalFrame {
         }
         */
         
-        // Validar se o campo de descrição foi preenchido
+        // Validar se o campo de Nome foi preenchido
         if (txtNome.getText().equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Inserir o nome do produto",
+            JOptionPane.showMessageDialog(rootPane, "Inserir o nome do Cliente",
                     "ATENÇÂO", HEIGHT, figura);
             txtNome.requestFocusInWindow();
             return;
         }
-        // Validar se o campo de preco foi preenchido
+        
+        // Validar se o campo Sobrenome foi preenchido
+        if (txtSNome.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Inserir o Sobrenome do Cliente",
+                    "ATENÇÂO", HEIGHT, figura);
+            txtSNome.requestFocusInWindow();
+            return;
+        }
+        
+        //Validar se o campo Nascimento foi preenchido
+        
+        
+        // Validar se o campo de Endereço foi preenchido
         if (txtEndereco.getText().equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Inserir preço do produto",
+            JOptionPane.showMessageDialog(rootPane, "Inserir endereço do cliente",
                     "ATENÇÂO", HEIGHT, figura);
             txtEndereco.requestFocusInWindow();
             return;
         }
-        //Verificar se foi digitado apenas numeros
+        
+        /*//Verificar se foi digitado apenas numeros
         if (!Ultilidades.isNumeric(txtEndereco.getText())) {
             JOptionPane.showMessageDialog(rootPane, "Campo preço só aceita números",
                     "ATENÇÂO", HEIGHT, figura);
             txtEndereco.requestFocusInWindow();
             return;
-        }
+        }*/
+        
+        
         // Validar para o usuario não digitar valor abaixo de zero
-        int preco = Integer.parseInt((txtEndereco.getText()));
+        int fone = Integer.parseInt((txtEndereco.getText()));
+        /*
         if (preco <= 0) {
             JOptionPane.showMessageDialog(rootPane, "Campo preço não aceita valores 0 ou abaixo de 0",
                     "ATENÇÂO", HEIGHT, figura);
             txtEndereco.requestFocusInWindow();
             return;
-        }
+        }*/
 
-        // Verificar se o usuário já existe
+        // Verificar se o Cliente já existe
         int pos = msDados.posicaoProduto(txtIDCliente.getText());
         if (novo) {
             if (pos != -1) {
@@ -663,12 +677,14 @@ public class frmClientes extends javax.swing.JInternalFrame {
                     Verifique se trata-se do mesmo produto""", "ATENÇÂO", HEIGHT, figura);
                 txtIDCliente.requestFocusInWindow();
                 // 3 Limpar caixa de textos
+                /*
                 txtIDCliente.setText("");
                 cmbIdentificacao.setSelectedIndex(0);
                 txtNome.setText("");
                 txtEndereco.setText("");
                 txtAnotacao.setText("");
                 //fim  3
+*/
                 return;
 
             }
@@ -683,20 +699,25 @@ public class frmClientes extends javax.swing.JInternalFrame {
             }
         }
 
-        Produto mProduto = new Produto(
+        Cliente mCliente = new Cliente(
                 txtIDCliente.getText(),
                 txtNome.getText(),
-                preco,
+                txtSNome.getText(),
+                DNascimento.getDate(),
+                txtEndereco.getText(),
+                fone,
                 cmbIdentificacao.getSelectedIndex(),
-                txtAnotacao.getText());
+                cmbEstado.getSelectedIndex(),
+                cmbcidade.getSelectedIndex(),
+                DData.getDate());
 
         String msg;
 
         if (novo) {
-            msg = msDados.adicionarProduto(mProduto);
+            msg = msDados.adicionarCliente(mCliente);
 
         } else {
-            msg = msDados.editarProduto(mProduto, pos);
+            msg = msDados.editarCliente (mCliente, pos);
 
         }
         JOptionPane.showMessageDialog(rootPane, msg,
@@ -715,12 +736,14 @@ public class frmClientes extends javax.swing.JInternalFrame {
         btnPesquisar.setEnabled(true); //fim 1
 
         // 2 desabilitar as caixas de texto
+        /*
         txtIDCliente.setEnabled(false);
         txtNome.setEnabled(false);
         txtEndereco.setEnabled(false);
         cmbIdentificacao.setEnabled(false);
         txtAnotacao.setEnabled(false);
          //fim  2
+*/
 
         preencherTabela();
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -738,6 +761,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         btnCancelar.setEnabled(false);
         btnPesquisar.setEnabled(true); //fim 1
 
+        /*
         // 2 Desabilitar as caixas de texto
         txtIDCliente.setEnabled(false);
         cmbIdentificacao.setEnabled(false);
@@ -745,6 +769,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         txtEndereco.setEnabled(false);
         txtAnotacao.setEnabled(false);
          //fim  2
+*/
 
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -875,7 +900,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         txtIDCliente.setText(msDados.getProdutos()[CliAtual].getIdProduto());
         txtNome.setText(msDados.getProdutos()[CliAtual].getDescricao());
         txtEndereco.setText("" + msDados.getProdutos()[CliAtual].getPreco());
-        txtAnotacao.setText(msDados.getProdutos()[CliAtual].getAnotacao());
+        //txtAnotacao.setText(msDados.getProdutos()[CliAtual].getAnotacao());
         cmbIdentificacao.setSelectedIndex(msDados.getProdutos()[CliAtual].getImposto());
     }
 
@@ -928,7 +953,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         txtNome.setText("" + tblTabela.getModel().getValueAt(setar, 1));
         txtEndereco.setText("" + tblTabela.getModel().getValueAt(setar, 2));
         cmbIdentificacao.setSelectedItem(tblTabela.getModel().getValueAt(setar, 3));
-        txtAnotacao.setText("" + tblTabela.getModel().getValueAt(setar, 4));
+        //txtAnotacao.setText("" + tblTabela.getModel().getValueAt(setar, 4));
 
     }
 
