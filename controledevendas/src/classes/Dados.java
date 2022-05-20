@@ -71,12 +71,12 @@ public class Dados {
         //Cadastrando Clientes
         Cliente mCliente;
         mCliente = new Cliente("1", "Lucas", "Andrade", Ultilidades.StringtoDate("1995/10/20"),
-                "Rua Galileu Galilei", 8199855 - 6698, 1, 2, 1,
+                "Rua Galileu Galilei", 8199855-6698, 1, 2, 1,
                 Ultilidades.StringtoDate("2022/05/19"));
         msClientes[conCli] = mCliente;
         conCli++;
-        mCliente = new Cliente("2", "Lucas", "Andrade", Ultilidades.StringtoDate("1995/10/20"),
-                "Rua Galileu Galilei", 8199855 - 6698, 1, 2, 1,
+        mCliente = new Cliente("2", "Will", "Alves", Ultilidades.StringtoDate("1985/12/14"),
+                "Rua da pinga", 8198571-6354, 2, 1, 2,
                 Ultilidades.StringtoDate("2022/05/19"));
         msClientes[conCli] = mCliente;
         conCli++;

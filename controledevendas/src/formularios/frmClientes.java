@@ -368,7 +368,6 @@ public class frmClientes extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane1)
                         .addGap(26, 26, 26))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel2)
@@ -409,12 +408,12 @@ public class frmClientes extends javax.swing.JInternalFrame {
                             .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(26, 26, 26))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17))))))
+                                .addContainerGap())))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(169, Short.MAX_VALUE)
                 .addComponent(btnPrimeiro, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -441,14 +440,17 @@ public class frmClientes extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(32, 32, 32)
@@ -541,7 +543,6 @@ public class frmClientes extends javax.swing.JInternalFrame {
         cmbIdentificacao.setEnabled(true);
         cmbEstado.setEnabled(true);
         cmbcidade.setEnabled(true);
-        DData.setEnabled(true);
 
         //bloqueando o adiconar novos usuarios
         novo = false;
@@ -614,7 +615,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
             txtIDCliente.requestFocusInWindow();
             return;
         }
-        
+
         // Validar se o campo de Nome foi preenchido
         if (txtNome.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Inserir o nome do Cliente",
@@ -633,7 +634,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
         //Validar se o campo Nascimento foi preenchido
         if (DNascimento.getDate().before(new Date())) {
-             JOptionPane.showMessageDialog(rootPane, """
+            JOptionPane.showMessageDialog(rootPane, """
                 Por quest\u00f5es de segura\u00e7a 
                 inserir a data de nascimento do cliente.
                 Para mais informa\u00e7\u00f5es clique no bot\u00e3o de interroga\u00e7\u00e3o
@@ -642,51 +643,12 @@ public class frmClientes extends javax.swing.JInternalFrame {
             DNascimento.requestFocusInWindow();
             return;
         }
-        
-        // Validar se o campo de Endereço foi preenchido
-        if (txtEndereco.getText().equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Inserir endereço do cliente",
-                    "ATENÇÂO", HEIGHT, figura);
-            txtEndereco.requestFocusInWindow();
-            return;
-        }
-        
-        // Verificar se o campo telefone foi preeenchido
-        if(txtTelefone.getText().equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Inserir Telefone do cliente",
-                    "ATENÇÂO", HEIGHT, figura);
-            txtTelefone.requestFocusInWindow();
-            return;
-        }
-        
-        //Verificar se foi digitado apenas numeros
+
+        //Verificar se o telefone foi digitado apenas numeros
         if (!Ultilidades.isNumericInt(txtTelefone.getText())) {
             JOptionPane.showMessageDialog(rootPane, "Campo telefone só aceita números",
                     "ATENÇÂO", HEIGHT, figura);
             txtTelefone.requestFocusInWindow();
-            return;
-        }
-        
-        // Validar se o campo de identificação foi preenchido
-        if (cmbIdentificacao.getSelectedIndex() <= 0) {
-            JOptionPane.showMessageDialog(rootPane, "Selecionar uma identificação para o cliente",
-                    "ATENÇÂO", HEIGHT, figura);
-            cmbIdentificacao.requestFocusInWindow();
-            return;
-        }
-        
-        // Validar campo de estado
-        if (cmbEstado.getSelectedIndex() <= 0) {
-            JOptionPane.showMessageDialog(rootPane, "Selecionar o Estado do cliente",
-                    "ATENÇÂO", HEIGHT, figura);
-            cmbEstado.requestFocusInWindow();
-            return;
-        }
-        
-        if (cmbcidade.getSelectedIndex() <= 0) {
-            JOptionPane.showMessageDialog(rootPane, "Selecionar a Cidade do cliente",
-                    "ATENÇÂO", HEIGHT, figura);
-            cmbcidade.requestFocusInWindow();
             return;
         }
 
@@ -699,26 +661,29 @@ public class frmClientes extends javax.swing.JInternalFrame {
             txtEndereco.requestFocusInWindow();
             return;
         }*/
-        
-         
 
         // Verificar se o Cliente já existe
-        int pos = msDados.posicaoProduto(txtIDCliente.getText());
+        int pos = msDados.posicaoCliente(txtIDCliente.getText());
         if (novo) {
             if (pos != -1) {
                 JOptionPane.showMessageDialog(rootPane, """
-                    O ID do produto j\u00e1 existe
-                    Verifique se trata-se do mesmo produto""", "ATENÇÂO", HEIGHT, figura);
+                    O ID do cliente j\u00e1 existe
+                    Verifique se trata-se do mesmo cliente""", "ATENÇÂO", HEIGHT, figura);
                 txtIDCliente.requestFocusInWindow();
+
                 // 3 Limpar caixa de textos
-                /*
                 txtIDCliente.setText("");
-                cmbIdentificacao.setSelectedIndex(0);
                 txtNome.setText("");
+                txtSNome.setText("");
+                DNascimento.setDate(new Date());
                 txtEndereco.setText("");
-                txtAnotacao.setText("");
+                txtTelefone.setText("");
+                cmbIdentificacao.setSelectedIndex(0);
+                cmbEstado.setSelectedIndex(0);
+                cmbcidade.setSelectedIndex(0);
+                DData.setDate(new Date());
                 //fim  3
-                 */
+
                 return;
 
             }
@@ -770,15 +735,20 @@ public class frmClientes extends javax.swing.JInternalFrame {
         btnPesquisar.setEnabled(true); //fim 1
 
         // 2 desabilitar as caixas de texto
-        /*
-        txtIDCliente.setEnabled(false);
+        txtIDCliente.setEditable(false);
         txtNome.setEnabled(false);
+        txtSNome.setEnabled(false);
+        DNascimento.setEnabled(false);
         txtEndereco.setEnabled(false);
+        txtTelefone.setEnabled(false);
         cmbIdentificacao.setEnabled(false);
-        txtAnotacao.setEnabled(false);
-         //fim  2
-         */
+        cmbEstado.setEnabled(false);
+        cmbcidade.setEnabled(false);
+        DData.setEnabled(false);
+        //fim  2
+
         preencherTabela();
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -794,15 +764,19 @@ public class frmClientes extends javax.swing.JInternalFrame {
         btnCancelar.setEnabled(false);
         btnPesquisar.setEnabled(true); //fim 1
 
-        /*
         // 2 Desabilitar as caixas de texto
-        txtIDCliente.setEnabled(false);
-        cmbIdentificacao.setEnabled(false);
+        txtIDCliente.setEditable(false);
         txtNome.setEnabled(false);
+        txtSNome.setEnabled(false);
+        DNascimento.setEnabled(false);
         txtEndereco.setEnabled(false);
-        txtAnotacao.setEnabled(false);
-         //fim  2
-         */
+        txtTelefone.setEnabled(false);
+        cmbIdentificacao.setEnabled(false);
+        cmbEstado.setEnabled(false);
+        cmbcidade.setEnabled(false);
+        DData.setEnabled(false);
+        //fim  2
+
 
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -824,14 +798,14 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
         // Chamando o ultimo usuario cadastrado
-        CliAtual = msDados.numeroProdutos() - 1;
+        CliAtual = msDados.numeroCliente() - 1;
         mostrarRegistro();
     }//GEN-LAST:event_btnUltimoActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
         // Chamando o proximo usuario cadastrado
         CliAtual++;
-        if (CliAtual == msDados.numeroProdutos()) {
+        if (CliAtual == msDados.numeroCliente()) {
             CliAtual = 0;
         }
         mostrarRegistro();
@@ -841,7 +815,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         // Chamando o usuario anterior cadastrado
         CliAtual--;
         if (CliAtual == -1) {
-            CliAtual = msDados.numeroProdutos() - 1;
+            CliAtual = msDados.numeroCliente() - 1;
         }
         mostrarRegistro();
     }//GEN-LAST:event_btnAnteriorActionPerformed
@@ -849,13 +823,13 @@ public class frmClientes extends javax.swing.JInternalFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
 
-        int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente deletar este produto?",
+        int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente deletar este cliente?",
                 "ATENÇÂO", HEIGHT);
         if (resposta != 0) {
             return;
         }
         String msg;
-        msg = msDados.deletarProduto(CliAtual);
+        msg = msDados.deletarCliente(CliAtual);
 
         JOptionPane.showMessageDialog(rootPane, msg,
                 "ATENÇÂO", HEIGHT, figura);
@@ -878,14 +852,14 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
-        String produto = JOptionPane.showInputDialog("Inserir o produto");
-        if (produto.equals("")) {
+        String cliente = JOptionPane.showInputDialog("Inserir o cliente");
+        if (cliente.equals("")) {
 
             return;
         }
-        int pos = msDados.posicaoProduto(produto);
+        int pos = msDados.posicaoCliente(cliente);
         if (pos == -1) {
-            JOptionPane.showMessageDialog(rootPane, "Este produto não existe");
+            JOptionPane.showMessageDialog(rootPane, "Este cliente não existe");
             return;
         }
         CliAtual = pos;
@@ -930,25 +904,31 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
     private void mostrarRegistro() {
         //metodo para mostrar os registros de usuarios na tela
-        txtIDCliente.setText(msDados.getProdutos()[CliAtual].getIdProduto());
-        txtNome.setText(msDados.getProdutos()[CliAtual].getDescricao());
-        txtEndereco.setText("" + msDados.getProdutos()[CliAtual].getPreco());
-        //txtAnotacao.setText(msDados.getProdutos()[CliAtual].getAnotacao());
-        cmbIdentificacao.setSelectedIndex(msDados.getProdutos()[CliAtual].getImposto());
+        txtIDCliente.setText(msDados.getCliente()[CliAtual].getIdCliente());
+        txtNome.setText(msDados.getCliente()[CliAtual].getNome());
+        txtSNome.setText(msDados.getCliente()[CliAtual].getSNome());
+        DNascimento.setDate(msDados.getCliente()[CliAtual].getNascimento());
+        txtEndereco.setText(msDados.getCliente()[CliAtual].getEndereço());
+        txtTelefone.setText("" + msDados.getCliente()[CliAtual].getTelefone());
+        cmbIdentificacao.setSelectedIndex(msDados.getCliente()[CliAtual].getIdTipo());
+        cmbEstado.setSelectedIndex(msDados.getCliente()[CliAtual].getEstado());
+        cmbcidade.setSelectedIndex(msDados.getCliente()[CliAtual].getIdcidade());
+        DData.setDate(msDados.getCliente()[CliAtual].getData());
     }
 
     private void preencherTabela() {
 
-        String titulos[] = {"ID", "Nome", "Preço", "Imposto", "Descrição"};
+        String titulos[] = {"ID", "Nome", "Sobrenome", "Data de nasc", "Data de cadastro"};
         String registro[] = new String[5];
         mTabela = new DefaultTableModel(null, titulos);
 
-        for (int i = 0; i < msDados.numeroProdutos(); i++) {
-            registro[0] = msDados.getProdutos()[i].getIdProduto();
-            registro[1] = msDados.getProdutos()[i].getDescricao();
-            registro[2] = "" + msDados.getProdutos()[i].getPreco();
-            registro[3] = imposto(msDados.getProdutos()[i].getImposto());
-            registro[4] = msDados.getProdutos()[i].getAnotacao();
+        for (int i = 0; i < msDados.numeroCliente(); i++) {
+            registro[0] = msDados.getCliente()[i].getIdCliente();
+            registro[1] = msDados.getCliente()[i].getNome();
+            registro[2] = msDados.getCliente()[i].getSNome();
+            registro[3] = "" + msDados.getCliente()[i].getNascimento();
+            registro[4] = "" + msDados.getCliente()[i].getData();
+            
 
             mTabela.addRow(registro);
 
@@ -961,30 +941,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
     // Metodo para o campo imposto
     private String imposto(int idIMPOSTO) {
         switch (idIMPOSTO) {
-            case 0:
-                return "0%";
-            case 1:
-                return "10%";
-            case 2:
-                return "15%";
-            case 3:
-                return "20%";
-            case 4:
-                return "25%";
-            case 5:
-                return "30%";
-            case 6:
-                return "35%";
-            case 7:
-                return "40%";
-            case 8:
-                return "45%";
-            case 9:
-                return "50%";
-            case 10:
-                return "55%";
-            case 11:
-                return "60%";
+            
 
             default:
                 return "Não definido";
