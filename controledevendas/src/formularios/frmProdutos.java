@@ -789,6 +789,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
                return "Não definido";
         }
     }
+    
     // Método para setar os campos do formulário com o conteúdo da tabela
     public void setar_campos() {
 

@@ -442,12 +442,17 @@
         <Component class="javax.swing.JTable" name="tblTabela">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="5" rowCount="4">
-                <Column editable="true" title="ID" type="java.lang.Integer"/>
-                <Column editable="true" title="Nome" type="java.lang.String"/>
-                <Column editable="true" title="Pre&#xe7;o" type="java.lang.Double"/>
-                <Column editable="true" title="Imposto" type="java.lang.Integer"/>
-                <Column editable="true" title="Descri&#xe7;&#xe3;o" type="java.lang.String"/>
+              <Table columnCount="10" rowCount="5">
+                <Column editable="true" title="ID" type="java.lang.Object"/>
+                <Column editable="true" title="Nome" type="java.lang.Object"/>
+                <Column editable="true" title="S_nome" type="java.lang.Object"/>
+                <Column editable="true" title="D_Nasc" type="java.lang.Object"/>
+                <Column editable="true" title="Endere&#xe7;o" type="java.lang.Object"/>
+                <Column editable="true" title="Cel" type="java.lang.Object"/>
+                <Column editable="true" title="Identifica&#xe7;&#xe3;o" type="java.lang.Object"/>
+                <Column editable="true" title="UF" type="java.lang.Object"/>
+                <Column editable="true" title="Cidade" type="java.lang.Object"/>
+                <Column editable="true" title="D_atual" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
@@ -516,15 +521,29 @@
     <Component class="javax.swing.JComboBox" name="cmbcidade">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Selecione uma cidade"/>
-            <StringItem index="1" value="Teste1"/>
-            <StringItem index="2" value="Teste2"/>
+          <StringArray count="14">
+            <StringItem index="0" value="Abreu e Lima"/>
+            <StringItem index="1" value="Afogados da Ingazeira"/>
+            <StringItem index="2" value="Afr&#xe2;nio"/>
+            <StringItem index="3" value="Agrestina"/>
+            <StringItem index="4" value="&#xc1;gua Preta"/>
+            <StringItem index="5" value="&#xc1;guas Belas"/>
+            <StringItem index="6" value="Alagoinha"/>
+            <StringItem index="7" value="Alian&#xe7;a"/>
+            <StringItem index="8" value="Altinho"/>
+            <StringItem index="9" value="Amaraji"/>
+            <StringItem index="10" value="Angelim"/>
+            <StringItem index="11" value="Ara&#xe7;oiaba"/>
+            <StringItem index="12" value="Araripina"/>
+            <StringItem index="13" value="Arcoverde"/>
           </StringArray>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Selecione o tipo de acesso"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbcidadeActionPerformed"/>
       </Events>
@@ -568,10 +587,34 @@
     <Component class="javax.swing.JComboBox" name="cmbEstado">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="UF"/>
-            <StringItem index="1" value="Teste1"/>
-            <StringItem index="2" value="Teste2"/>
+          <StringArray count="27">
+            <StringItem index="0" value="AC"/>
+            <StringItem index="1" value="AL"/>
+            <StringItem index="2" value="AP"/>
+            <StringItem index="3" value="AM"/>
+            <StringItem index="4" value="BA"/>
+            <StringItem index="5" value="CE"/>
+            <StringItem index="6" value="DF"/>
+            <StringItem index="7" value="ES"/>
+            <StringItem index="8" value="GO"/>
+            <StringItem index="9" value="MA            "/>
+            <StringItem index="10" value="MT"/>
+            <StringItem index="11" value="MS            "/>
+            <StringItem index="12" value="MG"/>
+            <StringItem index="13" value="PA"/>
+            <StringItem index="14" value="PB         "/>
+            <StringItem index="15" value="PR"/>
+            <StringItem index="16" value="PE"/>
+            <StringItem index="17" value="PI         "/>
+            <StringItem index="18" value="RJ"/>
+            <StringItem index="19" value="RN"/>
+            <StringItem index="20" value="RS"/>
+            <StringItem index="21" value="RO"/>
+            <StringItem index="22" value="RR"/>
+            <StringItem index="23" value="SC"/>
+            <StringItem index="24" value="SP"/>
+            <StringItem index="25" value="SE           "/>
+            <StringItem index="26" value="TO"/>
           </StringArray>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Selecione o tipo de acesso"/>

@@ -258,23 +258,16 @@ public class frmClientes extends javax.swing.JInternalFrame {
         };
         tblTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nome", "Preço", "Imposto", "Descrição"
+                "ID", "Nome", "S_nome", "D_Nasc", "Endereço", "Cel", "Identificação", "UF", "Cidade", "D_atual"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         tblTabela.setEnabled(false);
         tblTabela.setFocusable(false);
         tblTabela.getTableHeader().setReorderingAllowed(false);
@@ -321,8 +314,8 @@ public class frmClientes extends javax.swing.JInternalFrame {
         jLabel9.setText("Cidade:");
         jLabel9.setAlignmentX(0.5F);
 
-        cmbcidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione uma cidade", "Teste1", "Teste2" }));
-        cmbcidade.setToolTipText("Selecione o tipo de acesso");
+        cmbcidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abreu e Lima", "Afogados da Ingazeira", "Afrânio", "Agrestina", "Água Preta", "Águas Belas", "Alagoinha", "Aliança", "Altinho", "Amaraji", "Angelim", "Araçoiaba", "Araripina", "Arcoverde" }));
+        cmbcidade.setToolTipText("");
         cmbcidade.setEnabled(false);
         cmbcidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,7 +338,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         jLabel11.setText("Estado:");
         jLabel11.setAlignmentX(0.5F);
 
-        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UF", "Teste1", "Teste2" }));
+        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA            ", "MT", "MS            ", "MG", "PA", "PB         ", "PR", "PE", "PI         ", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE           ", "TO" }));
         cmbEstado.setToolTipText("Selecione o tipo de acesso");
         cmbEstado.setEnabled(false);
         cmbEstado.addActionListener(new java.awt.event.ActionListener() {
@@ -500,6 +493,8 @@ public class frmClientes extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
+
+        cmbcidade.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -918,8 +913,8 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
     private void preencherTabela() {
 
-        String titulos[] = {"ID", "Nome", "Sobrenome", "Data de nasc", "Data de cadastro"};
-        String registro[] = new String[5];
+        String titulos[] = {"ID", "Nome", "S_nome", "D_nasc", "Cel", "Indentificação", "UF", "Cidade", "D_cadas"};
+        String registro[] = new String[9];
         mTabela = new DefaultTableModel(null, titulos);
 
         for (int i = 0; i < msDados.numeroCliente(); i++) {
@@ -927,8 +922,11 @@ public class frmClientes extends javax.swing.JInternalFrame {
             registro[1] = msDados.getCliente()[i].getNome();
             registro[2] = msDados.getCliente()[i].getSNome();
             registro[3] = "" + msDados.getCliente()[i].getNascimento();
-            registro[4] = "" + msDados.getCliente()[i].getData();
-            
+            registro[4] = "" + msDados.getCliente()[i].getTelefone();
+            registro[5] = tipoId(msDados.getCliente()[i].getIdTipo());
+            registro[6] = tipoEstado(msDados.getCliente()[i].getEstado());
+            registro[7] = tipoCidade(msDados.getCliente()[i].getIdcidade());
+            registro[8] = "" + msDados.getCliente()[i].getData();
 
             mTabela.addRow(registro);
 
@@ -938,10 +936,120 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
     }
 
-    // Metodo para o campo imposto
-    private String imposto(int idIMPOSTO) {
-        switch (idIMPOSTO) {
-            
+    // Metodo para o campo identificação
+    private String tipoId(int id) {
+        switch (id) {
+            case 0:
+                return "CNH";
+            case 1:
+                return "Identidade";
+            case 2:
+                return "Passaporte";
+            case 3:
+                return "Chave Pix";
+
+            default:
+                return "Não definido";
+        }
+    }
+
+    // Metodo para o campo estado
+    private String tipoEstado(int id) {
+        switch (id) {
+            case 0:
+                return "AC";
+            case 1:
+                return "AL";
+            case 2:
+                return "AP";
+            case 3:
+                return "AM";
+            case 4:
+                return "BA";
+            case 5:
+                return "CE";
+            case 6:
+                return "DF";
+            case 7:
+                return "ES";
+            case 8:
+                return "GO";
+            case 9:
+                return "MA";
+            case 10:
+                return "MT";
+            case 11:
+                return "MS";
+            case 12:
+                return "MG";
+            case 13:
+                return "PA";
+            case 14:
+                return "PB";
+            case 15:
+                return "PR";
+            case 16:
+                return "PE";
+            case 17:
+                return "PI";
+            case 18:
+                return "RJ";
+            case 19:
+                return "RN";
+            case 20:
+                return "RS";
+            case 21:
+                return "RO";
+            case 22:
+                return "RR";
+            case 23:
+                return "SC";
+            case 24:
+                return "SP";
+            case 25:
+                return "SE";
+            case 26:
+                return "TO";
+
+            default:
+                return "Não definido";
+        }
+    }
+
+    private String tipoCidade(int id) {
+        switch (id) {
+            case 0:
+                return "Abreu e Lima";
+            case 1:
+                return "Afogados da Ingazeira";
+            case 2:
+                return "Afrânio";
+            case 3:
+                return "Agrestina";
+            case 4:
+                return "Água Preta";
+            case 5:
+                return "Águas Belas";
+            case 6:
+                return "Alagoinha";
+            case 7:
+                return "Aliança";
+            case 8:
+                return "Altinho";
+            case 9:
+                return "Agrestina";
+            case 10:
+                return "Amaraji";
+            case 11:
+                return "Agrestina";
+            case 12:
+                return "Angelim";
+            case 13:
+                return "Araçoiaba";
+            case 14:
+                return "Araripina";
+            case 15:
+                return "Arcoverde";
 
             default:
                 return "Não definido";
@@ -952,11 +1060,16 @@ public class frmClientes extends javax.swing.JInternalFrame {
     public void setar_campos() {
 
         int setar = tblTabela.getSelectedRow();
+
         txtIDCliente.setText("" + tblTabela.getModel().getValueAt(setar, 0));
         txtNome.setText("" + tblTabela.getModel().getValueAt(setar, 1));
-        txtEndereco.setText("" + tblTabela.getModel().getValueAt(setar, 2));
-        cmbIdentificacao.setSelectedItem(tblTabela.getModel().getValueAt(setar, 3));
-        //txtAnotacao.setText("" + tblTabela.getModel().getValueAt(setar, 4));
+        txtSNome.setText("" + tblTabela.getModel().getValueAt(setar, 2));
+
+        txtEndereco.setText("" + tblTabela.getModel().getValueAt(setar, 4));
+        txtTelefone.setText((String) tblTabela.getModel().getValueAt(setar, 5));
+        cmbIdentificacao.setSelectedIndex((int) tblTabela.getModel().getValueAt(setar, 6));
+        cmbEstado.setSelectedIndex((int) tblTabela.getModel().getValueAt(setar, 7));
+        cmbcidade.setSelectedIndex((int) tblTabela.getModel().getValueAt(setar, 8));
 
     }
 
