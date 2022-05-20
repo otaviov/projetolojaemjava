@@ -268,7 +268,6 @@ public class frmClientes extends javax.swing.JInternalFrame {
                 "ID", "Nome", "S_nome", "D_Nasc", "Endereço", "Cel", "Identificação", "UF", "Cidade", "D_atual"
             }
         ));
-        tblTabela.setEnabled(false);
         tblTabela.setFocusable(false);
         tblTabela.getTableHeader().setReorderingAllowed(false);
         tblTabela.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1064,12 +1063,13 @@ public class frmClientes extends javax.swing.JInternalFrame {
         txtIDCliente.setText("" + tblTabela.getModel().getValueAt(setar, 0));
         txtNome.setText("" + tblTabela.getModel().getValueAt(setar, 1));
         txtSNome.setText("" + tblTabela.getModel().getValueAt(setar, 2));
-
+        DNascimento.setDate((Date)tblTabela.getValueAt(setar, 3));
         txtEndereco.setText("" + tblTabela.getModel().getValueAt(setar, 4));
         txtTelefone.setText((String) tblTabela.getModel().getValueAt(setar, 5));
         cmbIdentificacao.setSelectedIndex((int) tblTabela.getModel().getValueAt(setar, 6));
-        cmbEstado.setSelectedIndex((int) tblTabela.getModel().getValueAt(setar, 7));
-        cmbcidade.setSelectedIndex((int) tblTabela.getModel().getValueAt(setar, 8));
+        cmbEstado.setSelectedItem((int) tblTabela.getModel().getValueAt(setar, 7));
+        cmbcidade.setSelectedItem((int) tblTabela.getModel().getValueAt(setar, 8));
+        DData.setDate((Date)tblTabela.getValueAt(setar, 9));
 
     }
 
