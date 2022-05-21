@@ -881,19 +881,19 @@ public class frmClientes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblTabelaKeyReleased
 
     private void txtSNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSNomeActionPerformed
-        // TODO add your handling code here:
+    
     }//GEN-LAST:event_txtSNomeActionPerformed
 
     private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
-        // TODO add your handling code here:
+  
     }//GEN-LAST:event_txtTelefoneActionPerformed
 
     private void cmbcidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbcidadeActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_cmbcidadeActionPerformed
 
     private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_cmbEstadoActionPerformed
 
     private void mostrarRegistro() {
