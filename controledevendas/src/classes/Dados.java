@@ -1,5 +1,9 @@
 package classes;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Dados {
 
     // Criando usuarios
@@ -71,13 +75,11 @@ public class Dados {
         //Cadastrando Clientes
         Cliente mCliente;
         mCliente = new Cliente("1", "Lucas", "Andrade", Ultilidades.StringtoDate("1995/10/20"),
-                "Rua Galileu Galilei", 8199855-6698, 1, 2, 1,
-                Ultilidades.StringtoDate("2022/05/19"));
+                "Rua Galileu Galilei", 8199858-6698, 1, 2, 1,"oi");
         msClientes[conCli] = mCliente;
         conCli++;
         mCliente = new Cliente("2", "Will", "Alves", Ultilidades.StringtoDate("1985/12/14"),
-                "Rua da pinga", 8198571-6354, 2, 1, 2,
-                Ultilidades.StringtoDate("2022/05/19"));
+                "Rua da pinga", 819857-16354, 2, 1, 2, "");
         msClientes[conCli] = mCliente;
         conCli++;
 
@@ -176,7 +178,7 @@ public class Dados {
         conPro++;
         return "Produto cadastrado com sucesso";
     }
-    
+
     public String editarProduto(Produto mProduto, int pos) {
         msProdutos[pos].setDescricao(mProduto.getDescricao());
         msProdutos[pos].setPreco(mProduto.getPreco());
@@ -185,7 +187,7 @@ public class Dados {
 
         return "Produto editado com sucesso";
     }
-    
+
     public String deletarProduto(int pos) {
         for (int i = pos; i < conPro - 1; i++) {
             msProdutos[i] = msProdutos[i + 1];
@@ -194,17 +196,16 @@ public class Dados {
 
         return "Produto deletado com sucesso";
     }
-    
-    
+
     // Clientes 
     public int numeroCliente() {
         return conCli;
     }
-    
+
     public Cliente[] getCliente() {
         return msClientes;
     }
-    
+
     public int posicaoCliente(String cliente) {
 
         for (int i = 0; i < conCli; i++) {

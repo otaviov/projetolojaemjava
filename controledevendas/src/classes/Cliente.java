@@ -15,10 +15,10 @@ public class Cliente {
     private int idTipo; 
     private int estado; 
     private int idcidade; 
-    private Date Data; 
+    private String Data; 
 
     public Cliente(String idCliente, String nome, String SNome, Date Nascimento, 
-            String endereço, int telefone, int idTipo, int estado, int idcidade, Date Data) {
+            String endereço, int telefone, int idTipo, int estado, int idcidade, String Data) {
 	this.idCliente = idCliente;
 	this.nome = nome;
 	this.SNome = SNome;
@@ -103,11 +103,11 @@ public class Cliente {
 	this.idcidade = idcidade;
     }
 
-    public Date getData() {
+    public String getData() {
 	return Data;
     }
 
-    public void setData(Date Data) {
+    public void setData(String Data) {
 	this.Data = Data;
     }
     

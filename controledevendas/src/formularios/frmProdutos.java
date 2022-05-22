@@ -744,8 +744,9 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         txtIDProduto.setText(msDados.getProdutos()[proAtual].getIdProduto());
         txtDescricao.setText(msDados.getProdutos()[proAtual].getDescricao());
         txtPreco.setText("" + msDados.getProdutos()[proAtual].getPreco());
-        txtAnotacao.setText(msDados.getProdutos()[proAtual].getAnotacao());
         cmbImposto.setSelectedIndex(msDados.getProdutos()[proAtual].getImposto());
+        txtAnotacao.setText(msDados.getProdutos()[proAtual].getAnotacao());
+        
     }
 
     private void preencherTabela() {

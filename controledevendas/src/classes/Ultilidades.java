@@ -17,9 +17,9 @@ public class Ultilidades {
         }
     }
     
-    public static boolean isNumericInt(String NumeroInt){
+    public static boolean isNumericDouble(String NumeroDouble){
         try {
-            Integer.parseInt(NumeroInt);
+            Double.parseDouble(NumeroDouble);
             return true;
             
         } catch (NumberFormatException nfe) {
