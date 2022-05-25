@@ -963,7 +963,6 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
             case 1:
                 return "AC";
-
             case 2:
                 return "AP";
             case 3:
