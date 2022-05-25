@@ -657,7 +657,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         }
 
         // Validar para o usuario não digitar valor abaixo de zero
-        int fone = Integer.parseInt((txtTelefone.getText()));
+        //int fone = Integer.parseInt((txtTelefone.getText()));
         /*
         if (preco <= 0) {
             JOptionPane.showMessageDialog(rootPane, "Campo preço não aceita valores 0 ou abaixo de 0",
@@ -707,7 +707,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
                 txtSNome.getText(),
                 DNascimento.getDate(),
                 txtEndereco.getText(),
-                fone,
+                txtTelefone.getText(),
                 cmbIdentificacao.getSelectedIndex(),
                 cmbEstado.getSelectedIndex(),
                 cmbcidade.getSelectedIndex(),
