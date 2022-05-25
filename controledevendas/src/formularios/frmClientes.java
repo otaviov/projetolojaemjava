@@ -921,7 +921,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
     private void preencherTabela() {
 
-        String titulos[] = {"ID", "Nome", "S_nome", "D_nasc", "Cel", "Indentificação", "UF", "Cidade", "D_cadas"};
+        String titulos[] = {"ID", "Nome", "S_nome", "D_nasc", "Cel", "Indentificação", "UF", "Cidade", "Endereço", "D_cadas"};
         String registro[] = new String[9];
         mTabela = new DefaultTableModel(null, titulos);
 
@@ -932,9 +932,9 @@ public class frmClientes extends javax.swing.JInternalFrame {
             registro[3] = "" + msDados.getCliente()[i].getNascimento();
             registro[4] = "" + msDados.getCliente()[i].getTelefone();
             registro[5] = tipoId(msDados.getCliente()[i].getIdTipo());
-            registro[6] = (msDados.getCliente()[i].getEndereço());
             registro[7] = tipoEstado(msDados.getCliente()[i].getEstado());
             registro[8] = tipoCidade(msDados.getCliente()[i].getIdcidade());
+            registro[6] = (msDados.getCliente()[i].getEndereço());
 
             mTabela.addRow(registro);
 
@@ -1072,12 +1072,12 @@ public class frmClientes extends javax.swing.JInternalFrame {
         txtIDCliente.setText((String) tblTabela.getModel().getValueAt(setar, 0));
         txtNome.setText((String) tblTabela.getModel().getValueAt(setar, 1));
         txtSNome.setText((String) tblTabela.getModel().getValueAt(setar, 2));
-        
+       
         txtTelefone.setText((String) tblTabela.getModel().getValueAt(setar, 4));
         cmbIdentificacao.setSelectedItem(tblTabela.getModel().getValueAt(setar, 5));
-        txtEndereco.setText((String) tblTabela.getModel().getValueAt(setar, 6));
-        cmbEstado.setSelectedItem(tblTabela.getModel().getValueAt(setar, 7));
-        cmbcidade.setSelectedItem(tblTabela.getModel().getValueAt(setar, 8));
+        cmbEstado.setSelectedItem(tblTabela.getModel().getValueAt(setar, 6));
+        cmbcidade.setSelectedItem(tblTabela.getModel().getValueAt(setar, 7));
+        txtEndereco.setText((String) tblTabela.getModel().getValueAt(setar, 8));
 
     }
 
