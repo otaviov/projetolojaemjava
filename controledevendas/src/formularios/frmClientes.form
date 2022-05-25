@@ -520,8 +520,8 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="14">
-            <StringItem index="0" value="Abreu e Lima"/>
-            <StringItem index="1" value="Afogados da Ingazeira"/>
+            <StringItem index="0" value="Selecionar cidade do Cliente"/>
+            <StringItem index="1" value="Abreu e Lima"/>
             <StringItem index="2" value="Afr&#xe2;nio"/>
             <StringItem index="3" value="Agrestina"/>
             <StringItem index="4" value="&#xc1;gua Preta"/>
@@ -580,8 +580,8 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="27">
-            <StringItem index="0" value="AC"/>
-            <StringItem index="1" value="AL"/>
+            <StringItem index="0" value="Estado"/>
+            <StringItem index="1" value="AC"/>
             <StringItem index="2" value="AP"/>
             <StringItem index="3" value="AM"/>
             <StringItem index="4" value="BA"/>

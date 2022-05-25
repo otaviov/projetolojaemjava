@@ -4,10 +4,7 @@ import classes.Cliente;
 import classes.Dados;
 import classes.Ultilidades;
 import formularios.sobres.frmSobreClientes;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.Icon;
@@ -42,7 +39,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         formatodDate = formato.format(date);
         DData.setText(formatodDate);//codigo para pegar a data do sistema e gravar na base
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -325,7 +322,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         jLabel9.setText("Cidade:");
         jLabel9.setAlignmentX(0.5F);
 
-        cmbcidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abreu e Lima", "Afogados da Ingazeira", "Afrânio", "Agrestina", "Água Preta", "Águas Belas", "Alagoinha", "Aliança", "Altinho", "Amaraji", "Angelim", "Araçoiaba", "Araripina", "Arcoverde" }));
+        cmbcidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar cidade do Cliente", "Abreu e Lima", "Afrânio", "Agrestina", "Água Preta", "Águas Belas", "Alagoinha", "Aliança", "Altinho", "Amaraji", "Angelim", "Araçoiaba", "Araripina", "Arcoverde" }));
         cmbcidade.setToolTipText("");
         cmbcidade.setEnabled(false);
         cmbcidade.addActionListener(new java.awt.event.ActionListener() {
@@ -346,7 +343,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         jLabel11.setText("Estado:");
         jLabel11.setAlignmentX(0.5F);
 
-        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA            ", "MT", "MS            ", "MG", "PA", "PB         ", "PR", "PE", "PI         ", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE           ", "TO" }));
+        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estado", "AC", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA            ", "MT", "MS            ", "MG", "PA", "PB         ", "PR", "PE", "PI         ", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE           ", "TO" }));
         cmbEstado.setToolTipText("Selecione o tipo de acesso");
         cmbEstado.setEnabled(false);
         cmbEstado.addActionListener(new java.awt.event.ActionListener() {
@@ -579,7 +576,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         btnExcluir.setEnabled(false);
         btnCancelar.setEnabled(true);
         btnPesquisar.setEnabled(false); //fim 1
-        
+
         // 2 Habilitar as caixas de texto
         txtIDCliente.setEnabled(true);
         txtNome.setEnabled(true);
@@ -665,7 +662,6 @@ public class frmClientes extends javax.swing.JInternalFrame {
             txtEndereco.requestFocusInWindow();
             return;
         }*/
-
         // Verificar se o Cliente já existe
         int pos = msDados.posicaoCliente(txtIDCliente.getText());
         if (novo) {
@@ -921,7 +917,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
     private void preencherTabela() {
 
-    String titulos[] = {"ID", "Nome", "S_nome", "D_nasc",  "Endereço", "Cel", "Indentificação", "UF", "Cidade", "D_cadas"};
+        String titulos[] = {"ID", "Nome", "S_nome", "D_nasc", "Endereço", "Cel", "Indentificação", "UF", "Cidade", "D_cadas"};
         String registro[] = new String[9];
         mTabela = new DefaultTableModel(null, titulos);
 
@@ -964,10 +960,10 @@ public class frmClientes extends javax.swing.JInternalFrame {
     // Metodo para o campo estado
     private String tipoEstado(int id) {
         switch (id) {
-            case 0:
-                return "AC";
+
             case 1:
-                return "AL";
+                return "AC";
+
             case 2:
                 return "AP";
             case 3:
@@ -1026,10 +1022,9 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
     private String tipoCidade(int id) {
         switch (id) {
-            case 0:
-                return "Abreu e Lima";
+
             case 1:
-                return "Afogados da Ingazeira";
+                return "Abreu e Lima";
             case 2:
                 return "Afrânio";
             case 3:
@@ -1072,7 +1067,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         txtIDCliente.setText((String) tblTabela.getModel().getValueAt(setar, 0));
         txtNome.setText((String) tblTabela.getModel().getValueAt(setar, 1));
         txtSNome.setText((String) tblTabela.getModel().getValueAt(setar, 2));
-       
+
         txtEndereco.setText((String) tblTabela.getModel().getValueAt(setar, 4));
         txtTelefone.setText((String) tblTabela.getModel().getValueAt(setar, 5));
         cmbIdentificacao.setSelectedItem(tblTabela.getModel().getValueAt(setar, 6));
