@@ -75,7 +75,7 @@ public class Dados {
         //Cadastrando Clientes
         Cliente mCliente;
         mCliente = new Cliente("1", "Lucas", "Andrade", Ultilidades.StringtoDate("1995/10/20"),
-                "Rua Galileu Galilei", 8199858-6698, 1, 2, 1,"oi");
+                "Rua Galileu Galilei", 81998586698, 1, 2, 1,"oi");
         msClientes[conCli] = mCliente;
         conCli++;
         mCliente = new Cliente("2", "Will", "Alves", Ultilidades.StringtoDate("1985/12/14"),

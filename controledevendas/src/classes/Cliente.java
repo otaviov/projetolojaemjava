@@ -11,14 +11,14 @@ public class Cliente {
     private String SNome; 
     private Date Nascimento; 
     private String endereço; 
-    private int telefone; 
+    private String telefone; 
     private int idTipo; 
     private int estado; 
     private int idcidade; 
     private String Data; 
 
     public Cliente(String idCliente, String nome, String SNome, Date Nascimento, 
-            String endereço, int telefone, int idTipo, int estado, int idcidade, String Data) {
+            String endereço, String telefone, int idTipo, int estado, int idcidade, String Data) {
 	this.idCliente = idCliente;
 	this.nome = nome;
 	this.SNome = SNome;
@@ -71,11 +71,11 @@ public class Cliente {
 	this.endereço = endereço;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
 	return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
 	this.telefone = telefone;
     }
 
