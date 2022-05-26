@@ -1,6 +1,6 @@
-
 package formularios;
 
+import classes.Background;
 import classes.Dados;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -24,7 +24,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dpnDesk = new javax.swing.JDesktopPane();
+        dpnDesk = new Background ();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivo = new javax.swing.JMenu();
         mnuArquivoCliente = new javax.swing.JMenuItem();
@@ -44,6 +44,14 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Vendas");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         javax.swing.GroupLayout dpnDeskLayout = new javax.swing.GroupLayout(dpnDesk);
         dpnDesk.setLayout(dpnDeskLayout);
@@ -186,17 +194,17 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void mnuArquivoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoClienteActionPerformed
         // Chamando tela de Clientes (frmClientes)
-	frmClientes msClientes = new frmClientes();
-	msClientes.setDados(msDados);
-	dpnDesk.add(msClientes);
-	msClientes.show();
-	
-	// 3 Centralizando o JInternalJFrame (frmClientes -- nome da variarial: msClientes
+        frmClientes msClientes = new frmClientes();
+        msClientes.setDados(msDados);
+        dpnDesk.add(msClientes);
+        msClientes.show();
+
+        // 3 Centralizando o JInternalJFrame (frmClientes -- nome da variarial: msClientes
         Dimension desktopSize = dpnDesk.getSize();
         Dimension FrameSize = msClientes.getSize();
         msClientes.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
         msClientes.show(); // 3 fim
-        
+
     }//GEN-LAST:event_mnuArquivoClienteActionPerformed
 
     private void mnuArquivoProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoProdutosActionPerformed
@@ -206,13 +214,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         dpnDesk.add(msProdutos);
         msProdutos.show();
         
-        
         // 3 Centralizando o JInternalJFrame (frmProdutos -- nome da variarial: msProdutos
         Dimension desktopSize = dpnDesk.getSize();
         Dimension FrameSize = msProdutos.getSize();
         msProdutos.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
         msProdutos.show(); // 3 fim
-        
+
     }//GEN-LAST:event_mnuArquivoProdutosActionPerformed
 
     private void mnuArquivoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoSairActionPerformed
@@ -228,8 +235,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         mUsuarios.setDados(msDados);//fim 2
         dpnDesk.add(mUsuarios);
         mUsuarios.show(); // 1 fim
-        
-        
 
         // 3 Centralizando o JInternalJFrame (frmUsuarios -- nome da variarial: mUsuarios) 
         Dimension desktopSize = dpnDesk.getSize();
@@ -237,13 +242,20 @@ public class frmPrincipal extends javax.swing.JFrame {
         mUsuarios.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
         mUsuarios.show(); // 3 fim
 
-        
 
     }//GEN-LAST:event_mnuArquivoUsuariosActionPerformed
 
     private void mnuArquivotUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivotUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuArquivotUsuarioActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // abrir imagem
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
