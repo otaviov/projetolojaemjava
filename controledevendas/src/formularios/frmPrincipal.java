@@ -2,8 +2,10 @@ package formularios;
 
 import classes.Background;
 import classes.Dados;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JDesktopPane;
 
 public class frmPrincipal extends javax.swing.JFrame {
 
@@ -213,7 +215,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         msProdutos.setDados(msDados);
         dpnDesk.add(msProdutos);
         msProdutos.show();
-        
+
         // 3 Centralizando o JInternalJFrame (frmProdutos -- nome da variarial: msProdutos
         Dimension desktopSize = dpnDesk.getSize();
         Dimension FrameSize = msProdutos.getSize();
@@ -251,6 +253,9 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // abrir imagem
+        final JDesktopPane desktopPane = new Background();
+        dpnDesk.getContentPane().add(desktopPane, BorderLayout.CENTER);
+
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated

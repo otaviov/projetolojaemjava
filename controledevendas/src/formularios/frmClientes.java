@@ -6,6 +6,7 @@ import classes.Ultilidades;
 import formularios.sobres.frmSobreClientes;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -404,8 +405,8 @@ public class frmClientes extends javax.swing.JInternalFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(txtSNome)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(DNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
@@ -1066,13 +1067,13 @@ public class frmClientes extends javax.swing.JInternalFrame {
         txtIDCliente.setText((String) tblTabela.getModel().getValueAt(setar, 0));
         txtNome.setText((String) tblTabela.getModel().getValueAt(setar, 1));
         txtSNome.setText((String) tblTabela.getModel().getValueAt(setar, 2));
-
+        //DNascimento.setDate((Date) tblTabela.getModel().getValueAt(setar, 3));
         txtEndereco.setText((String) tblTabela.getModel().getValueAt(setar, 4));
         txtTelefone.setText((String) tblTabela.getModel().getValueAt(setar, 5));
         cmbIdentificacao.setSelectedItem(tblTabela.getModel().getValueAt(setar, 6));
         cmbEstado.setSelectedItem(tblTabela.getModel().getValueAt(setar, 7));
         cmbcidade.setSelectedItem(tblTabela.getModel().getValueAt(setar, 8));
-
+        DData.setText((String) tblTabela.getModel().getValueAt(setar, 9));
     }
 
 

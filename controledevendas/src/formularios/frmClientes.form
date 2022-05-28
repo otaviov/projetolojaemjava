@@ -78,8 +78,8 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="txtSNome" max="32767" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel10" min="-2" pref="73" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel10" min="-2" pref="61" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="DNascimento" min="-2" pref="162" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="txtEndereco" alignment="0" min="-2" pref="563" max="-2" attributes="0"/>
