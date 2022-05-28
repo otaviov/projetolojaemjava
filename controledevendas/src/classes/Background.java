@@ -1,5 +1,5 @@
 // Essa classe ira adicionar uma imagem ao nosso plano de fundo d
-// nosso plano de fundo da tela principal
+// nosso plano de fundo da tela principal...
 package classes;
 
 import java.awt.Graphics;
