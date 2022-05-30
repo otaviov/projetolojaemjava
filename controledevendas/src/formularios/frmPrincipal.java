@@ -17,7 +17,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     public frmPrincipal() {
         initComponents();
-
+        
         //Criando metodo do icone do jFrame -- fim do codigo, linha 271
         setIcon(); // fim
     }
@@ -253,8 +253,8 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // abrir imagem
-        final JDesktopPane desktopPane = new Background();
-        dpnDesk.getContentPane().add(desktopPane, BorderLayout.CENTER);
+        //final JDesktopPane desktopPane = new Background();
+        //dpnDesk.getContentPane().add(desktopPane, BorderLayout.CENTER);
 
     }//GEN-LAST:event_formWindowOpened
 
