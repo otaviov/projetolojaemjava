@@ -1,7 +1,7 @@
-
 package classes;
 
 public class Usuario {
+
     private String idUsuario;
     private String nome;
     private String snome;
@@ -55,5 +55,15 @@ public class Usuario {
     public void setPerfil(int perfil) {
         this.perfil = perfil;
     }
-    
+
+    @Override
+    public String toString() {
+
+        return idUsuario + "|"
+                + nome + "|"
+                + snome + "|"
+                + senha + "|"
+                + perfil + "|";
+    }
+
 }

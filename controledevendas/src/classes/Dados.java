@@ -251,4 +251,18 @@ public class Dados {
         return "Cliente deletado com sucesso";
     }
 
+    public void salvarTodo(){
+        salvarUsuarios();
+        salvarClientes();
+        salvarProdutos();     
+    }
+    
+    public void salvarUsuarios(){
+    }
+    
+    public void salvarClientes(){
+    }
+    
+    public void salvarProdutos(){
+    }
 }

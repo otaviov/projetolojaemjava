@@ -261,7 +261,7 @@
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="dpnDesk">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Background ();"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Background ()"/>
         <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="frmPrincipal_dpnDesk"/>
       </AuxValues>
 

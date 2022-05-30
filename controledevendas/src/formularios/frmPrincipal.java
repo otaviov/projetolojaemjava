@@ -253,8 +253,10 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // abrir imagem
+        
         //final JDesktopPane desktopPane = new Background();
-        //dpnDesk.getContentPane().add(desktopPane, BorderLayout.CENTER);
+        //dpnDesk.(getContentPane()).add(desktopPane, BorderLayout.CENTER);
+        //((Background)dpnDesk).setImagen("/icones/background.jpg");
 
     }//GEN-LAST:event_formWindowOpened
 
