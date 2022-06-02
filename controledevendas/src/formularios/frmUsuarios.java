@@ -10,6 +10,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class frmUsuarios extends javax.swing.JInternalFrame {
 
+    
+    
     Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
 
     private Dados msDados;

@@ -1,0 +1,2 @@
+1|Lucas|Andrade|Fri Oct 20 00:00:00 BRST 1995|Rua Galileu Galilei|81998586698|1|2|1|oi|
+2|Will|Alves|Sat Dec 14 00:00:00 BRST 1985|Rua da pinga|81985798525|2|1|2||

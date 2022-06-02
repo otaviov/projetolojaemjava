@@ -111,4 +111,19 @@ public class Cliente {
 	this.Data = Data;
     }
     
+    @Override
+    public String toString() {
+
+        return idCliente + "|"
+                + nome + "|"
+                + SNome + "|"
+                + Nascimento + "|"
+                + endereço + "|"
+                + telefone + "|"
+                + idTipo + "|"
+                + estado + "|"
+                + idcidade + "|"
+                + Data + "|";
+    }
+    
 }

@@ -288,8 +288,60 @@ public class Dados {
     }
 
     public void salvarClientes() {
+        
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        
+        try {
+            fw = new FileWriter("Data/clientes.txt");
+            pw = new PrintWriter(fw);
+
+            for (int i = 0; i < conCli; i++) {
+                pw.println(msClientes[i].toString());
+                
+            }
+        } catch (Exception e1) {
+            e1.printStackTrace();
+            
+        }
+        
+        finally{
+            try {
+                if (fw != null){
+                    fw.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 
     public void salvarProdutos() {
+        
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        
+        try {
+            fw = new FileWriter("Data/produtos.txt");
+            pw = new PrintWriter(fw);
+
+            for (int i = 0; i < conPro; i++) {
+                pw.println(msProdutos[i].toString());
+                
+            }
+        } catch (Exception e1) {
+            e1.printStackTrace();
+            
+        }
+        
+        finally{
+            try {
+                if (fw != null){
+                    fw.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 }
