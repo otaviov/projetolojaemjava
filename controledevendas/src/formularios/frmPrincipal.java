@@ -2,10 +2,8 @@ package formularios;
 
 import classes.Background;
 import classes.Dados;
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import javax.swing.JDesktopPane;
 
 public class frmPrincipal extends javax.swing.JFrame {
 
@@ -227,6 +225,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void mnuArquivoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoSairActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        
+        msDados.salvarTodo();
+        System.exit(0);
 
     }//GEN-LAST:event_mnuArquivoSairActionPerformed
 

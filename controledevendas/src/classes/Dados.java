@@ -1,5 +1,7 @@
 package classes;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -75,7 +77,7 @@ public class Dados {
         //Cadastrando Clientes
         Cliente mCliente;
         mCliente = new Cliente("1", "Lucas", "Andrade", Ultilidades.StringtoDate("1995/10/20"),
-                "Rua Galileu Galilei", "81998586698", 1, 2, 1,"oi");
+                "Rua Galileu Galilei", "81998586698", 1, 2, 1, "oi");
         msClientes[conCli] = mCliente;
         conCli++;
         mCliente = new Cliente("2", "Will", "Alves", Ultilidades.StringtoDate("1985/12/14"),
@@ -251,18 +253,43 @@ public class Dados {
         return "Cliente deletado com sucesso";
     }
 
-    public void salvarTodo(){
+    public void salvarTodo() {
         salvarUsuarios();
         salvarClientes();
-        salvarProdutos();     
+        salvarProdutos();
     }
-    
-    public void salvarUsuarios(){
+
+    public void salvarUsuarios() {
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        
+        try {
+            fw = new FileWriter("Data/usuarios.txt");
+            pw = new PrintWriter(fw);
+
+            for (int i = 0; i < conUsu; i++) {
+                pw.println(msUsuarios[i].toString());
+                
+            }
+        } catch (Exception e1) {
+            e1.printStackTrace();
+            
+        }
+        
+        finally{
+            try {
+                if (fw != null){
+                    fw.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
-    
-    public void salvarClientes(){
+
+    public void salvarClientes() {
     }
-    
-    public void salvarProdutos(){
+
+    public void salvarProdutos() {
     }
 }

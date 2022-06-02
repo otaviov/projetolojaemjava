@@ -7,7 +7,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
 
 public class frmUsuarios extends javax.swing.JInternalFrame {
 
