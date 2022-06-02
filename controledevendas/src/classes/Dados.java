@@ -1,10 +1,14 @@
 package classes;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.annotation.processing.Filer;
 
 public class Dados {
 
@@ -149,7 +153,7 @@ public class Dados {
 
         return "Usuário deletado com sucesso";
     }
-
+    
     // Produtos
     public int numeroProdutos() {
         return conPro;
@@ -261,6 +265,7 @@ public class Dados {
 
     public void salvarUsuarios() {
         FileWriter fw = null;
+        // Escrever os usuarios cadastrados
         PrintWriter pw = null;
         
         try {
@@ -342,6 +347,30 @@ public class Dados {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
+        }
+    }
+    
+    public void preencherUsuarios(){
+        File arquivo = null;
+        // Ler os arquivos que foram escritos
+        FileReader fr = null;
+        BufferedReader br = null;
+        
+        try {
+            arquivo = new File("Data/usuarios.txt");
+            fr = new FileReader(arquivo);
+            br = new BufferedReader(fr);
+            
+            int pos;
+            String aux;
+            String linha;
+            String idUsuario;
+            String nome;
+            String snome;
+            String senha;
+            int perfil;
+            
+        } catch (Exception e) {
         }
     }
 }
