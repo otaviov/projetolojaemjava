@@ -63,7 +63,7 @@ public class Usuario {
                 + nome + "|"
                 + snome + "|"
                 + senha + "|"
-                + perfil + "|";
+                + perfil;
     }
 
 }

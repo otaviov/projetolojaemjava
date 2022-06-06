@@ -5,11 +5,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import static java.lang.Character.MAX_RADIX;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.annotation.processing.Filer;
 
 public class Dados {
 
@@ -364,7 +359,7 @@ public class Dados {
                 senha = aux;
                 linha = linha.substring(pos + 1);
                
-                perfil = 1;
+                perfil = new Integer (linha);
                 
 
                
