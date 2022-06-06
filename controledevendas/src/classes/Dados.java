@@ -364,8 +364,8 @@ public class Dados {
                 senha = aux;
                 linha = linha.substring(pos + 1);
                
+                perfil = new Integer(linha);
                 
-                perfil = Integer.valueOf(linha, MAX_RADIX);
 
                
                 Usuario mUsuario = new Usuario(

@@ -3,6 +3,7 @@ package formularios;
 //Importações
 import classes.Dados;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -196,7 +197,7 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void btnEntrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnEntrarKeyPressed
         // TODO add your handling code here:
-        if (evt.getKeyCode() == evt.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
             dispose();
             
