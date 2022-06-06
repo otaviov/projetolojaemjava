@@ -364,7 +364,7 @@ public class Dados {
                 senha = aux;
                 linha = linha.substring(pos + 1);
                
-                perfil = new Integer(linha);
+                perfil = 1;
                 
 
                
