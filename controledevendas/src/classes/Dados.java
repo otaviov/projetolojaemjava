@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import static java.lang.Character.MAX_RADIX;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,40 +32,17 @@ public class Dados {
 
     public Dados() {
         //Criando usuarios manuais
-        Usuario mUsuario;
-        mUsuario = new Usuario("adm", "Otavio", "Oliveira", "123", 1);
+        
+        // Usuario mUsuario;
+        /* mUsuario = new Usuario("adm", "Otavio", "Oliveira", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        mUsuario = new Usuario("momo", "Emilia", "Santos", "123", 1);
-        msUsuarios[conUsu] = mUsuario;
-        conUsu++;
-        mUsuario = new Usuario("prinxexa", "Joaquina", "Oliveira", "123", 2);
-        msUsuarios[conUsu] = mUsuario;
-        conUsu++;
-        mUsuario = new Usuario("neneco", "Inacio", "Silva", "123", 1);
-        msUsuarios[conUsu] = mUsuario;
-        conUsu++;
-        mUsuario = new Usuario("nenem", "Jose", "Januario", "123", 2);
-        msUsuarios[conUsu] = mUsuario;
-        conUsu++;
-        mUsuario = new Usuario("negao", "Black", "Caetano", "123", 1);
-        msUsuarios[conUsu] = mUsuario;
-        conUsu++;
-        mUsuario = new Usuario("bola", "Jose", "Vitorio", "123", 2);
-        msUsuarios[conUsu] = mUsuario;
-        conUsu++;
-        mUsuario = new Usuario("pleta", "Milu", "Maria", "123", 1);
-        msUsuarios[conUsu] = mUsuario;
-        conUsu++;
-        mUsuario = new Usuario("memegan", "Megan", "Maria", "123", 2);
-        msUsuarios[conUsu] = mUsuario;
-        conUsu++;
-        mUsuario = new Usuario("cleitin", "Cleiton", "Jose", "123", 2);
-        msUsuarios[conUsu] = mUsuario;
-        conUsu++;
-        mUsuario = new Usuario("rodolfo", "Rodolfo", "Jose", "123", 1);
-        msUsuarios[conUsu] = mUsuario;
-        conUsu++;
+        */
+        
+        /* Metodo para anular o metodo acima de criar usuarios manuais, chamando um por um
+        e chamar todos com apenas um metodo
+        */
+        preencherUsuarios();
 
         //Cadastrando produtos
         Produto mProduto;
@@ -153,7 +131,7 @@ public class Dados {
 
         return "Usuário deletado com sucesso";
     }
-    
+
     // Produtos
     public int numeroProdutos() {
         return conPro;
@@ -267,23 +245,21 @@ public class Dados {
         FileWriter fw = null;
         // Escrever os usuarios cadastrados
         PrintWriter pw = null;
-        
+
         try {
             fw = new FileWriter("Data/usuarios.txt");
             pw = new PrintWriter(fw);
 
             for (int i = 0; i < conUsu; i++) {
                 pw.println(msUsuarios[i].toString());
-                
+
             }
         } catch (Exception e1) {
             e1.printStackTrace();
-            
-        }
-        
-        finally{
+
+        } finally {
             try {
-                if (fw != null){
+                if (fw != null) {
                     fw.close();
                 }
             } catch (Exception e2) {
@@ -293,26 +269,24 @@ public class Dados {
     }
 
     public void salvarClientes() {
-        
+
         FileWriter fw = null;
         PrintWriter pw = null;
-        
+
         try {
             fw = new FileWriter("Data/clientes.txt");
             pw = new PrintWriter(fw);
 
             for (int i = 0; i < conCli; i++) {
                 pw.println(msClientes[i].toString());
-                
+
             }
         } catch (Exception e1) {
             e1.printStackTrace();
-            
-        }
-        
-        finally{
+
+        } finally {
             try {
-                if (fw != null){
+                if (fw != null) {
                     fw.close();
                 }
             } catch (Exception e2) {
@@ -322,26 +296,24 @@ public class Dados {
     }
 
     public void salvarProdutos() {
-        
+
         FileWriter fw = null;
         PrintWriter pw = null;
-        
+
         try {
             fw = new FileWriter("Data/produtos.txt");
             pw = new PrintWriter(fw);
 
             for (int i = 0; i < conPro; i++) {
                 pw.println(msProdutos[i].toString());
-                
+
             }
         } catch (Exception e1) {
             e1.printStackTrace();
-            
-        }
-        
-        finally{
+
+        } finally {
             try {
-                if (fw != null){
+                if (fw != null) {
                     fw.close();
                 }
             } catch (Exception e2) {
@@ -349,18 +321,18 @@ public class Dados {
             }
         }
     }
-    
-    public void preencherUsuarios(){
+
+    public void preencherUsuarios() {
         File arquivo = null;
         // Ler os arquivos que foram escritos
         FileReader fr = null;
         BufferedReader br = null;
-        
+
         try {
             arquivo = new File("Data/usuarios.txt");
             fr = new FileReader(arquivo);
             br = new BufferedReader(fr);
-            
+
             int pos;
             String aux;
             String linha;
@@ -369,8 +341,56 @@ public class Dados {
             String snome;
             String senha;
             int perfil;
-            
-        } catch (Exception e) {
+
+            while ((linha = br.readLine()) != null) {
+                
+                pos = linha.indexOf("|");
+                aux = linha.substring(0, pos);
+                idUsuario = aux;
+                linha = linha.substring(pos + 1);
+                
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                nome = aux;
+                linha = linha.substring(pos + 1);
+
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                snome = aux;
+                linha = linha.substring(pos + 1);
+
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                senha = aux;
+                linha = linha.substring(pos + 1);
+               
+                
+                perfil = Integer.valueOf(linha, MAX_RADIX);
+
+               
+                Usuario mUsuario = new Usuario(
+                        idUsuario,
+                        nome,
+                        snome,
+                        senha,
+                        perfil
+                );
+                msUsuarios[conUsu] = mUsuario;
+                conUsu++;
+            }
+
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        } finally {
+            try {
+                if (fr != null) {
+                    fr.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+
+            }
         }
+
     }
 }

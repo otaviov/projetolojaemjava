@@ -1,11 +1,2 @@
 adm|Otavio|Oliveira|123|1|
-momo|Emilia|Santos|123|1|
-prinxexa|Joaquina|Oliveira|123|2|
-neneco|Inacio|Silva|123|1|
-nenem|Jose|Januario|123|2|
-negao|Black|Caetano|123|1|
-bola|Jose|Vitorio|123|2|
-pleta|Milu|Maria|123|1|
-memegan|Megan|Maria|123|2|
-cleitin|Cleiton|Jose|123|2|
-rodolfo|Rodolfo|Jose|123|1|
+dasds|dsaadad|sadasd|123|2|
