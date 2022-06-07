@@ -25,6 +25,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         dpnDesk = new Background ();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivo = new javax.swing.JMenu();
         mnuArquivoCliente = new javax.swing.JMenuItem();
@@ -53,16 +54,11 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout dpnDeskLayout = new javax.swing.GroupLayout(dpnDesk);
-        dpnDesk.setLayout(dpnDeskLayout);
-        dpnDeskLayout.setHorizontalGroup(
-            dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 854, Short.MAX_VALUE)
-        );
-        dpnDeskLayout.setVerticalGroup(
-            dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
-        );
+        dpnDesk.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\amand\\Downloads\\flower-7067252_1920.jpg")); // NOI18N
+        jLabel2.setText("jLabel2");
+        dpnDesk.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 860, 520));
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenuBar1.setAutoscrolls(true);
@@ -304,6 +300,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane dpnDesk;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
