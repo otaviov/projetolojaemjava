@@ -339,7 +339,7 @@ public class Dados {
 
             while ((linha = br.readLine()) != null) {
                 
-                pos = linha.indexOf("|");
+                pos = linha.indexOf('|');
                 aux = linha.substring(0, pos);
                 idUsuario = aux;
                 linha = linha.substring(pos + 1);
@@ -358,8 +358,8 @@ public class Dados {
                 aux = linha.substring(0, pos);
                 senha = aux;
                 linha = linha.substring(pos + 1);
-               
-                perfil = 0;
+                
+                perfil =  Integer.valueOf(linha);
                 
 
                

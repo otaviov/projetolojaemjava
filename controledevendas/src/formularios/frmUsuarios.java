@@ -709,6 +709,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
         mostrarRegistro();
         preencherTabela();
+        setar_campos();
         
     }//GEN-LAST:event_btnExcluirActionPerformed
 
