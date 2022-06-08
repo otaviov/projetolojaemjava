@@ -58,7 +58,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
         jLabel3.setText("Usuário:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
         jLabel4.setText("Senha:");
