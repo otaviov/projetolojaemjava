@@ -40,16 +40,7 @@ public class Dados {
         preencherUsuarios();
 
         //Cadastrando produtos
-        Produto mProduto;
-        mProduto = new Produto("1", "Arroz", 10, 0, "ggg");
-        msProdutos[conPro] = mProduto;
-        conPro++;
-        mProduto = new Produto("2", "Feijão", 15, 2, "feijão preto");
-        msProdutos[conPro] = mProduto;
-        conPro++;
-        mProduto = new Produto("3", "Açucar", 2, 0, "Açucar branco");
-        msProdutos[conPro] = mProduto;
-        conPro++;
+        preencherProdutos();
 
         //Cadastrando Clientes
         Cliente mCliente;
@@ -331,6 +322,7 @@ public class Dados {
             int pos;
             String aux;
             String linha;
+            
             String idUsuario;
             String nome;
             String snome;
@@ -387,5 +379,80 @@ public class Dados {
             }
         }
 
+    }
+    
+    public void preencherProdutos() {
+        File arquivo = null;
+        // Ler os arquivos que foram escritos
+        FileReader fr = null;
+        BufferedReader br = null;
+
+        try {
+            arquivo = new File("Data/produtos.txt");
+            fr = new FileReader(arquivo);
+            br = new BufferedReader(fr);
+
+            int pos;
+            String aux;
+            String linha;
+            
+            String idProduto;
+            String descricao;
+            float preco;
+            int imposto;
+            String anotacao;
+
+            while ((linha = br.readLine()) != null) {
+                
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                idProduto = aux;
+                linha = linha.substring(pos + 1);
+                
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                descricao = aux;
+                linha = linha.substring(pos + 1);
+
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                preco = Float.parseFloat(aux);
+                linha = linha.substring(pos + 1);
+
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                imposto = Integer.parseInt(aux);
+                linha = linha.substring(pos + 1);
+                
+                anotacao =  linha;
+                
+
+               
+                Produto mProduto = new Produto(
+                        idProduto,
+                        descricao,
+                        preco,
+                        imposto,
+                        anotacao
+                );
+                msProdutos[conPro] = mProduto;
+                conUsu++;
+            }
+
+        } catch (Exception e1) {
+            e1.printStackTrace();
+            
+        } finally {
+            
+            try {
+                if (fr != null) {
+                    fr.close();
+                    
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+
+            }
+        }
     }
 }
