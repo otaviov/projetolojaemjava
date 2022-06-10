@@ -649,13 +649,16 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     private void btnPrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeiroActionPerformed
         // Chamando o primeiro usuario cadastrado
         proAtual = 0;
+        
         mostrarRegistro();
+        
     }//GEN-LAST:event_btnPrimeiroActionPerformed
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
         // Chamando o ultimo usuario cadastrado
         proAtual = msDados.numeroProdutos()- 1;
         mostrarRegistro();
+        
     }//GEN-LAST:event_btnUltimoActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
@@ -665,6 +668,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
             proAtual = 0;
         }
         mostrarRegistro();
+        
     }//GEN-LAST:event_btnProximoActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
@@ -674,6 +678,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
             proAtual = msDados.numeroProdutos()- 1;
         }
         mostrarRegistro();
+        
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
@@ -704,6 +709,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
 
         //Chamar o preenchimento da tabela
         preencherTabela();
+        
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -722,13 +728,13 @@ public class frmProdutos extends javax.swing.JInternalFrame {
 
         mostrarRegistro();
 
-
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void tblTabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTabelaMouseClicked
         // Evento será usado para setar os campos da tabela
         // clicando com o botao do mouse
         setar_campos();
+        
     }//GEN-LAST:event_tblTabelaMouseClicked
 
     private void tblTabelaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblTabelaKeyPressed
@@ -791,6 +797,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
                 
             default:
                return "Não definido";
+               
         }
     }
     
