@@ -351,7 +351,7 @@ public class Dados {
                 senha = aux;
                 linha = linha.substring(pos + 1);
                 
-                perfil =  Integer.valueOf(linha);
+                perfil =  Integer.parseInt(linha);
                 
 
                
