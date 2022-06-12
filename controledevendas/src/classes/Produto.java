@@ -63,6 +63,6 @@ public class Produto {
                 + descricao + "|"
                 + preco + "|"
                 + imposto + "|"
-                + anotacao + "|";
+                + anotacao;
     }
 }

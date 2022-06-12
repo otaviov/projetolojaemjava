@@ -37,6 +37,7 @@ public class Dados {
         /* Metodo para anular o metodo acima de criar usuarios manuais, chamando um por um
         e chamar todos com apenas um metodo
         */
+        
         preencherUsuarios();
 
         //Cadastrando produtos
@@ -436,7 +437,7 @@ public class Dados {
                         anotacao
                 );
                 msProdutos[conPro] = mProduto;
-                conUsu++;
+                conPro++;
             }
 
         } catch (Exception e1) {
