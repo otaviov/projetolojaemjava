@@ -705,7 +705,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
 
         // Chamar os registros dos usuarios
-        mostrarRegistro();
+        
 
         //Chamar o preenchimento da tabela
         preencherTabela();
