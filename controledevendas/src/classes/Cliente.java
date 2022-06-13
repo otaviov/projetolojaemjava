@@ -117,13 +117,13 @@ public class Cliente {
         return idCliente + "|"
                 + nome + "|"
                 + SNome + "|"
-                + Nascimento + "|"
+                + Ultilidades.formatDate(Nascimento) + "|"
                 + endereço + "|"
                 + telefone + "|"
                 + idTipo + "|"
                 + estado + "|"
                 + idcidade + "|"
-                + Data + "|";
+                + Data;
     }
     
 }

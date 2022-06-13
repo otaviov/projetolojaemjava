@@ -200,6 +200,7 @@ public class frmLogin extends javax.swing.JFrame {
     public void telaUsuario() {
         frmPrincipal mPrincipal = new frmPrincipal();
         mPrincipal.setDados(msDados);
+        mPrincipal.setPerfil(msDados.getPerfil(txtUsuario.getText()));
         //4abrindo a tela do frmPrincipal maximizada
         mPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
         mPrincipal.setVisible(true);

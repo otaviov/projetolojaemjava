@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.Date;
 
 public class Dados {
 
@@ -44,15 +45,7 @@ public class Dados {
         preencherProdutos();
 
         //Cadastrando Clientes
-        Cliente mCliente;
-        mCliente = new Cliente("1", "Lucas", "Andrade", Ultilidades.StringtoDate("1995/10/20"),
-                "Rua Galileu Galilei", "81998586698", 1, 2, 1, "oi");
-        msClientes[conCli] = mCliente;
-        conCli++;
-        mCliente = new Cliente("2", "Will", "Alves", Ultilidades.StringtoDate("1985/12/14"),
-                "Rua da pinga", "81985798525", 2, 1, 2, "");
-        msClientes[conCli] = mCliente;
-        conCli++;
+        preencherClientes();
 
     }
 
@@ -76,6 +69,19 @@ public class Dados {
 
         }
         return false;
+
+    }
+    
+    //Validar se o usuario é administrador ou usuario comum
+    public int getPerfil(String usuario) {
+
+        for (int i = 0; i < conUsu; i++) {
+            if (msUsuarios[i].getIdUsuario().equals(usuario)) {
+                return msUsuarios[i].getPerfil();
+            }
+        }
+        
+        return -1;
 
     }
 
@@ -310,6 +316,7 @@ public class Dados {
     }
 
     public void preencherUsuarios() {
+        
         File arquivo = null;
         // Ler os arquivos que foram escritos
         FileReader fr = null;
@@ -383,6 +390,7 @@ public class Dados {
     }
     
     public void preencherProdutos() {
+        
         File arquivo = null;
         // Ler os arquivos que foram escritos
         FileReader fr = null;
@@ -455,5 +463,113 @@ public class Dados {
 
             }
         }
+    }
+    
+    public void preencherClientes() {
+        
+        File arquivo = null;
+        // Ler os arquivos que foram escritos
+        FileReader fr = null;
+        BufferedReader br = null;
+
+        try {
+            arquivo = new File("Data/clientes.txt");
+            fr = new FileReader(arquivo);
+            br = new BufferedReader(fr);
+
+            int pos;
+            String aux;
+            String linha;
+            
+            String idCliente; 
+            String nome; 
+            String SNome; 
+            Date Nascimento; 
+            String endereço; 
+            String telefone; 
+            int idTipo; 
+            int estado; 
+            int idcidade; 
+            String Data; 
+
+            while ((linha = br.readLine()) != null) {
+                
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                idCliente = aux;
+                linha = linha.substring(pos + 1);
+                
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                nome = aux;
+                linha = linha.substring(pos + 1);
+
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                SNome = aux;
+                linha = linha.substring(pos + 1);
+
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                Nascimento = Ultilidades.StringtoDate(aux);
+                linha = linha.substring(pos + 1);
+                
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                endereço = aux;
+                linha = linha.substring(pos + 1);
+                
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                telefone = aux;
+                linha = linha.substring(pos + 1);
+                
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                idTipo = Integer.parseInt(aux);
+                linha = linha.substring(pos + 1);
+                
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                estado = Integer.parseInt(aux);
+                linha = linha.substring(pos + 1);
+                
+                pos = linha.indexOf('|');
+                aux = linha.substring(0, pos);
+                idcidade = Integer.parseInt(aux);
+                linha = linha.substring(pos + 1);
+                
+                
+                Data =  linha;
+                
+                Cliente mCliente = new Cliente(
+                        idCliente,
+                        nome,
+                        SNome,
+                        Nascimento,
+                        endereço,
+                        telefone,
+                        idTipo,
+                        estado,
+                        idcidade,
+                        Data
+                );
+                msClientes[conCli] = mCliente;
+                conCli++;
+            }
+
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        } finally {
+            try {
+                if (fr != null) {
+                    fr.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+
+            }
+        }
+
     }
 }

@@ -8,6 +8,10 @@ import java.awt.Toolkit;
 public class frmPrincipal extends javax.swing.JFrame {
 
     private Dados msDados;
+    
+    // Verificar se é Administrador ou Usuario comum
+    private int perfil;
+    
 
     public void setDados(Dados msDados) {
         this.msDados = msDados;
@@ -19,7 +23,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         //Criando metodo do icone do jFrame -- fim do codigo, linha 271
         setIcon(); // fim
     }
-
+    
+      // Verificar se é Administrador ou Usuario comum
+    public void setPerfil(int perfil){
+        this.perfil = perfil;
+    }
+    
+        
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
