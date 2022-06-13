@@ -121,11 +121,16 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuArquivotSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/senha.png"))); // NOI18N
         mnuArquivotSenha.setText("Trocar Senha");
         mnuArquivotSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuArquivotSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuArquivotSenhaActionPerformed(evt);
+            }
+        });
         mnuArquivo.add(mnuArquivotSenha);
 
         mnuArquivotUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuArquivotUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user2.png"))); // NOI18N
-        mnuArquivotUsuario.setText("Editar usuário");
+        mnuArquivotUsuario.setText("Trocar usuário");
         mnuArquivotUsuario.setActionCommand("Trocar Usuário");
         mnuArquivotUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuArquivotUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -262,6 +267,12 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void mnuArquivotUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivotUsuarioActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        frmLogin mLogin = new frmLogin();
+        mLogin.setDados(msDados);
+        mLogin.setLocationRelativeTo(null);
+        mLogin.setVisible(true);
+        
     }//GEN-LAST:event_mnuArquivotUsuarioActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -271,11 +282,21 @@ public class frmPrincipal extends javax.swing.JFrame {
         //dpnDesk.(getContentPane()).add(desktopPane, BorderLayout.CENTER);
         //((Background)dpnDesk).setImagen("/icones/background.jpg");
 
+        if(perfil == 2){
+            mnuArquivoCliente.setEnabled(false);
+            mnuArquivoProdutos.setEnabled(false);
+            mnuArquivoUsuarios.setEnabled(false);
+            mnuMovimentosRelatoriovenda.setEnabled(false);
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
     }//GEN-LAST:event_formWindowActivated
+
+    private void mnuArquivotSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivotSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuArquivotSenhaActionPerformed
 
     /**
      * @param args the command line arguments
