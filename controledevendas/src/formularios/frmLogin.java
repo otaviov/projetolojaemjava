@@ -201,9 +201,13 @@ public class frmLogin extends javax.swing.JFrame {
         frmPrincipal mPrincipal = new frmPrincipal();
         mPrincipal.setDados(msDados);
         mPrincipal.setPerfil(msDados.getPerfil(txtUsuario.getText()));
+        // verificar senha
+        mPrincipal.setSenha(new String (txtSenha.getPassword()));
         //4abrindo a tela do frmPrincipal maximizada
         mPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
         mPrincipal.setVisible(true);
+        
+        //
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

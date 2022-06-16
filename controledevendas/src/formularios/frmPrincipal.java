@@ -12,6 +12,12 @@ public class frmPrincipal extends javax.swing.JFrame {
     // Verificar se é Administrador ou Usuario comum
     private int perfil;
     
+    // Senha
+    private String senha;
+    
+    public void setSenha(String senha){
+        this.senha = senha;
+    }
 
     public void setDados(Dados msDados) {
         this.msDados = msDados;
@@ -295,7 +301,10 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void mnuArquivotSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivotSenhaActionPerformed
-        // TODO add your handling code here:
+        // chamando o trocar senha
+        frmtrocarSenha msSenha = new frmtrocarSenha(this, rootPaneCheckingEnabled);
+        msSenha.setVisible(rootPaneCheckingEnabled);
+        msSenha.setSenha(senha);
     }//GEN-LAST:event_mnuArquivotSenhaActionPerformed
 
     /**
