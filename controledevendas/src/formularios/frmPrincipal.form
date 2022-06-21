@@ -258,7 +258,9 @@
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="dataPrincipal" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Component id="horaPrincipal" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -270,6 +272,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dataPrincipal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="horaPrincipal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -306,7 +309,18 @@
     </Component>
     <Component class="javax.swing.JLabel" name="dataPrincipal">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="SimSun" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="DATA?"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="horaPrincipal">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="SimSun" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="HORA?"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -4,46 +4,45 @@ import classes.Background;
 import classes.Dados;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.Timer;
 
 public class frmPrincipal extends javax.swing.JFrame {
 
     private Dados msDados;
-    
+
     // Verificar se é Administrador ou Usuario comum
     private int perfil;
-    
+
     // Senha
     private String senha;
-    
-    public void setSenha(String senha){
+
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 
     public void setDados(Dados msDados) {
         this.msDados = msDados;
     }
-    
-    
 
     public frmPrincipal() {
         initComponents();
 
         //Criando metodo do icone do jFrame -- fim do codigo, linha 271
         setIcon(); // fim
-        
-        
+
     }
-    
-      // Verificar se é Administrador ou Usuario comum
-    public void setPerfil(int perfil){
+
+    // Verificar se é Administrador ou Usuario comum
+    public void setPerfil(int perfil) {
         this.perfil = perfil;
     }
-    
-        
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -51,6 +50,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         dpnDesk = new Background ();
         jLabel2 = new javax.swing.JLabel();
         dataPrincipal = new javax.swing.JLabel();
+        horaPrincipal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivo = new javax.swing.JMenu();
         mnuArquivoCliente = new javax.swing.JMenuItem();
@@ -93,7 +93,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
         jLabel2.setText("Seja Bem-Vindo(a)");
 
-        dataPrincipal.setText("jLabel1");
+        dataPrincipal.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
+        dataPrincipal.setText("DATA?");
+
+        horaPrincipal.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
+        horaPrincipal.setText("HORA?");
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenuBar1.setAutoscrolls(true);
@@ -223,7 +227,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(dataPrincipal)
-                .addGap(167, 167, 167))
+                .addGap(35, 35, 35)
+                .addComponent(horaPrincipal)
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +238,8 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(dataPrincipal))
+                    .addComponent(dataPrincipal)
+                    .addComponent(horaPrincipal))
                 .addContainerGap())
         );
 
@@ -280,7 +287,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuArquivoSairActionPerformed
 
     private void mnuArquivoUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivoUsuariosActionPerformed
-        
 
         // 1 chamando o formulario de usuarios:
         frmUsuarios mUsuarios = new frmUsuarios();
@@ -305,7 +311,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         mLogin.setDados(msDados);
         mLogin.setLocationRelativeTo(null);
         mLogin.setVisible(true);
-        
+
     }//GEN-LAST:event_mnuArquivotUsuarioActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -314,13 +320,32 @@ public class frmPrincipal extends javax.swing.JFrame {
         //final JDesktopPane desktopPane = new Background();
         //dpnDesk.(getContentPane()).add(desktopPane, BorderLayout.CENTER);
         //((Background)dpnDesk).setImagen("/icones/background.jpg");
-
-        if(perfil == 2){
+        if (perfil == 2) {
             mnuArquivoCliente.setEnabled(false);
             mnuArquivoProdutos.setEnabled(false);
             mnuArquivoUsuarios.setEnabled(false);
             mnuMovimentosRelatoriovenda.setEnabled(false);
         }
+        
+        /// Chamando a data atual do sistema 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ");
+        dataPrincipal.setText(sdf.format(new Date()));
+                
+                
+        // Chamando a hora em tempo real do sistema
+        Timer timer = new Timer(1000, new hora());
+        timer.start();
+    }
+    
+    // Metodo para chamar o tempo rodando em tempo real do sistema
+    class hora implements ActionListener {
+        @Override
+
+        public void actionPerformed(ActionEvent e) {
+            Calendar now = Calendar.getInstance();
+            horaPrincipal.setText(String.format("%1$tH:%1$tM:%1$tS", now)); //O Horário vai ter horas, minutos e segundos
+        }
+
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -372,6 +397,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dataPrincipal;
     private javax.swing.JDesktopPane dpnDesk;
+    private javax.swing.JLabel horaPrincipal;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
