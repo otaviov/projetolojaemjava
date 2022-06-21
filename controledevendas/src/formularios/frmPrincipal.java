@@ -5,6 +5,10 @@ import classes.Dados;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+
 public class frmPrincipal extends javax.swing.JFrame {
 
     private Dados msDados;
@@ -22,12 +26,16 @@ public class frmPrincipal extends javax.swing.JFrame {
     public void setDados(Dados msDados) {
         this.msDados = msDados;
     }
+    
+    
 
     public frmPrincipal() {
         initComponents();
 
         //Criando metodo do icone do jFrame -- fim do codigo, linha 271
         setIcon(); // fim
+        
+        
     }
     
       // Verificar se é Administrador ou Usuario comum
@@ -41,6 +49,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         dpnDesk = new Background ();
+        jLabel2 = new javax.swing.JLabel();
+        dataPrincipal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuArquivo = new javax.swing.JMenu();
         mnuArquivoCliente = new javax.swing.JMenuItem();
@@ -73,12 +83,17 @@ public class frmPrincipal extends javax.swing.JFrame {
         dpnDesk.setLayout(dpnDeskLayout);
         dpnDeskLayout.setHorizontalGroup(
             dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 957, Short.MAX_VALUE)
+            .addGap(0, 918, Short.MAX_VALUE)
         );
         dpnDeskLayout.setVerticalGroup(
             dpnDeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
+            .addGap(0, 644, Short.MAX_VALUE)
         );
+
+        jLabel2.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
+        jLabel2.setText("Seja Bem-Vindo(a)");
+
+        dataPrincipal.setText("jLabel1");
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenuBar1.setAutoscrolls(true);
@@ -203,10 +218,22 @@ public class frmPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(dpnDesk)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(dataPrincipal)
+                .addGap(167, 167, 167))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dpnDesk)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(dpnDesk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(dataPrincipal))
+                .addContainerGap())
         );
 
         pack();
@@ -343,7 +370,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel dataPrincipal;
     private javax.swing.JDesktopPane dpnDesk;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
