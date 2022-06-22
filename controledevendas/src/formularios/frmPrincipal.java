@@ -90,13 +90,13 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGap(0, 644, Short.MAX_VALUE)
         );
 
-        jLabel2.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SimSun", 1, 15)); // NOI18N
         jLabel2.setText("Seja Bem-Vindo(a)");
 
-        dataPrincipal.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
+        dataPrincipal.setFont(new java.awt.Font("SimSun", 1, 15)); // NOI18N
         dataPrincipal.setText("DATA?");
 
-        horaPrincipal.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
+        horaPrincipal.setFont(new java.awt.Font("SimSun", 1, 15)); // NOI18N
         horaPrincipal.setText("HORA?");
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
