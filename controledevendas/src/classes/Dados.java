@@ -28,17 +28,15 @@ public class Dados {
 
     public Dados() {
         //Criando usuarios manuais
-        
+
         // Usuario mUsuario;
         /* mUsuario = new Usuario("adm", "Otavio", "Oliveira", "123", 1);
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        */
-        
-        /* Metodo para anular o metodo acima de criar usuarios manuais, chamando um por um
+         */
+ /* Metodo para anular o metodo acima de criar usuarios manuais, chamando um por um
         e chamar todos com apenas um metodo
-        */
-        
+         */
         preencherUsuarios();
 
         //Cadastrando produtos
@@ -71,7 +69,7 @@ public class Dados {
         return false;
 
     }
-    
+
     //Validar se o usuario é administrador ou usuario comum
     public int getPerfil(String usuario) {
 
@@ -80,9 +78,16 @@ public class Dados {
                 return msUsuarios[i].getPerfil();
             }
         }
-        
         return -1;
+    }
 
+    public void trocarSenha(String usuario, String senha) {
+        for (int i = 0; i < conUsu; i++) {
+            if (msUsuarios[i].getIdUsuario().equals(usuario)) {
+                msUsuarios[i].setSenha(senha);
+                return;
+            }
+        }
     }
 
     public String adicionarUsuario(Usuario mUsuario) {
@@ -316,7 +321,7 @@ public class Dados {
     }
 
     public void preencherUsuarios() {
-        
+
         File arquivo = null;
         // Ler os arquivos que foram escritos
         FileReader fr = null;
@@ -330,7 +335,7 @@ public class Dados {
             int pos;
             String aux;
             String linha;
-            
+
             String idUsuario;
             String nome;
             String snome;
@@ -338,12 +343,12 @@ public class Dados {
             int perfil;
 
             while ((linha = br.readLine()) != null) {
-                
+
                 pos = linha.indexOf('|');
                 aux = linha.substring(0, pos);
                 idUsuario = aux;
                 linha = linha.substring(pos + 1);
-                
+
                 pos = linha.indexOf('|');
                 aux = linha.substring(0, pos);
                 nome = aux;
@@ -358,11 +363,9 @@ public class Dados {
                 aux = linha.substring(0, pos);
                 senha = aux;
                 linha = linha.substring(pos + 1);
-                
-                perfil =  Integer.parseInt(linha);
-                
 
-               
+                perfil = Integer.parseInt(linha);
+
                 Usuario mUsuario = new Usuario(
                         idUsuario,
                         nome,
@@ -388,9 +391,9 @@ public class Dados {
         }
 
     }
-    
+
     public void preencherProdutos() {
-        
+
         File arquivo = null;
         // Ler os arquivos que foram escritos
         FileReader fr = null;
@@ -404,7 +407,7 @@ public class Dados {
             int pos;
             String aux;
             String linha;
-            
+
             String idProduto;
             String descricao;
             float preco;
@@ -412,12 +415,12 @@ public class Dados {
             String anotacao;
 
             while ((linha = br.readLine()) != null) {
-                
+
                 pos = linha.indexOf('|');
                 aux = linha.substring(0, pos);
                 idProduto = aux;
                 linha = linha.substring(pos + 1);
-                
+
                 pos = linha.indexOf('|');
                 aux = linha.substring(0, pos);
                 descricao = aux;
@@ -432,11 +435,9 @@ public class Dados {
                 aux = linha.substring(0, pos);
                 imposto = Integer.parseInt(aux);
                 linha = linha.substring(pos + 1);
-                
-                anotacao =  linha;
-                
 
-               
+                anotacao = linha;
+
                 Produto mProduto = new Produto(
                         idProduto,
                         descricao,
@@ -450,13 +451,13 @@ public class Dados {
 
         } catch (Exception e1) {
             e1.printStackTrace();
-            
+
         } finally {
-            
+
             try {
                 if (fr != null) {
                     fr.close();
-                    
+
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -464,9 +465,9 @@ public class Dados {
             }
         }
     }
-    
+
     public void preencherClientes() {
-        
+
         File arquivo = null;
         // Ler os arquivos que foram escritos
         FileReader fr = null;
@@ -480,25 +481,25 @@ public class Dados {
             int pos;
             String aux;
             String linha;
-            
-            String idCliente; 
-            String nome; 
-            String SNome; 
-            Date Nascimento; 
-            String endereço; 
-            String telefone; 
-            int idTipo; 
-            int estado; 
-            int idcidade; 
-            String Data; 
+
+            String idCliente;
+            String nome;
+            String SNome;
+            Date Nascimento;
+            String endereço;
+            String telefone;
+            int idTipo;
+            int estado;
+            int idcidade;
+            String Data;
 
             while ((linha = br.readLine()) != null) {
-                
+
                 pos = linha.indexOf('|');
                 aux = linha.substring(0, pos);
                 idCliente = aux;
                 linha = linha.substring(pos + 1);
-                
+
                 pos = linha.indexOf('|');
                 aux = linha.substring(0, pos);
                 nome = aux;
@@ -513,35 +514,34 @@ public class Dados {
                 aux = linha.substring(0, pos);
                 Nascimento = Ultilidades.StringtoDate(aux);
                 linha = linha.substring(pos + 1);
-                
+
                 pos = linha.indexOf('|');
                 aux = linha.substring(0, pos);
                 endereço = aux;
                 linha = linha.substring(pos + 1);
-                
+
                 pos = linha.indexOf('|');
                 aux = linha.substring(0, pos);
                 telefone = aux;
                 linha = linha.substring(pos + 1);
-                
+
                 pos = linha.indexOf('|');
                 aux = linha.substring(0, pos);
                 idTipo = Integer.parseInt(aux);
                 linha = linha.substring(pos + 1);
-                
+
                 pos = linha.indexOf('|');
                 aux = linha.substring(0, pos);
                 estado = Integer.parseInt(aux);
                 linha = linha.substring(pos + 1);
-                
+
                 pos = linha.indexOf('|');
                 aux = linha.substring(0, pos);
                 idcidade = Integer.parseInt(aux);
                 linha = linha.substring(pos + 1);
-                
-                
-                Data =  linha;
-                
+
+                Data = linha;
+
                 Cliente mCliente = new Cliente(
                         idCliente,
                         nome,

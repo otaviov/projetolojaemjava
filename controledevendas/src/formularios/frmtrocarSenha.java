@@ -1,15 +1,23 @@
 
 package formularios;
 
+import classes.Dados;
 import javax.swing.JOptionPane;
 
 public class frmtrocarSenha extends javax.swing.JDialog {
 
     
+    
     private String senha;
     //Saber se é usuario
     private String usuario;
-    
+    /// Chamando metodo dos dados
+    private Dados msDados;
+
+    /// Chamando metodo dos dados
+    public void setDados(Dados msDados) {
+        this.msDados = msDados;
+    }
     
     public void setSenha(String senha){
         this.senha = senha;
@@ -148,6 +156,9 @@ public class frmtrocarSenha extends javax.swing.JDialog {
             return;
         }
         
+        msDados.trocarSenha(usuario, nova);
+        JOptionPane.showMessageDialog(rootPane, "Senha trocada com sucesso!");
+        this.dispose();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

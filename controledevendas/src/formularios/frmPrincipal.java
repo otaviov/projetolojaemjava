@@ -14,7 +14,7 @@ import javax.swing.Timer;
 
 public class frmPrincipal extends javax.swing.JFrame {
 
-    private Dados msDados;
+    ;
     
     // Verificar se é Administrador ou Usuario comum
     private int perfil;
@@ -22,22 +22,21 @@ public class frmPrincipal extends javax.swing.JFrame {
     private String senha;
     //Saber se é usuario
     private String usuario;
-    
-    //Metodo para saber o tipo de usuario
-    public void setUsuario(String usuario){
-        this.usuario = usuario;
-    }
-    
-    // Metodo da senha
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+    private Dados msDados;
 
     public void setDados(Dados msDados) {
         this.msDados = msDados;
     }
-    
-    
+
+    //Metodo para saber o tipo de usuario
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    // Metodo da senha
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
     public frmPrincipal() {
         initComponents();
@@ -335,26 +334,24 @@ public class frmPrincipal extends javax.swing.JFrame {
             mnuArquivoUsuarios.setEnabled(false);
             mnuMovimentosRelatoriovenda.setEnabled(false);
         }
-        
+
         /// Chamando a data atual do sistema 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ");
         dataPrincipal.setText(sdf.format(new Date()));
-                
-                
+
         // Chamando a hora em tempo real do sistema
         Timer timer = new Timer(1000, new hora());
         timer.start();
     }
-    
+
     // Metodo para chamar o tempo rodando em tempo real do sistema
     class hora implements ActionListener {
-        @Override
 
+        @Override
         public void actionPerformed(ActionEvent e) {
             Calendar now = Calendar.getInstance();
             horaPrincipal.setText(String.format("%1$tH:%1$tM:%1$tS", now)); //O Horário vai ter horas, minutos e segundos
         }
-
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -368,6 +365,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         msSenha.setSenha(senha);
         // Verificar usuario
         msSenha.setUsuario(usuario);
+        msSenha.setDados(msDados);
     }//GEN-LAST:event_mnuArquivotSenhaActionPerformed
 
     /**
