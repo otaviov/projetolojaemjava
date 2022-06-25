@@ -7,9 +7,19 @@ public class frmtrocarSenha extends javax.swing.JDialog {
 
     
     private String senha;
+    //Saber se é usuario
+    private String usuario;
+    
+    
     public void setSenha(String senha){
         this.senha = senha;
     }
+   
+    //Metodo para saber o tipo de usuario
+    public void setUsuario(String usuario){
+        this.usuario = usuario;
+    }
+    
     
     public frmtrocarSenha(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -126,7 +136,7 @@ public class frmtrocarSenha extends javax.swing.JDialog {
         }
         
         if(!confirmacao.equals(nova)){
-            JOptionPane.showMessageDialog(rootPane, "As senhas não correspondem");
+            JOptionPane.showMessageDialog(rootPane, "Senha atual e confirmação não correspondem");
             txtSenhaConfirmacao.requestFocusInWindow();
             return; 
         }
@@ -137,6 +147,7 @@ public class frmtrocarSenha extends javax.swing.JDialog {
             txtSenhaConfirmacao.requestFocusInWindow();
             return;
         }
+        
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

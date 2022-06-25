@@ -15,13 +15,20 @@ import javax.swing.Timer;
 public class frmPrincipal extends javax.swing.JFrame {
 
     private Dados msDados;
-
+    
     // Verificar se é Administrador ou Usuario comum
     private int perfil;
-
     // Senha
     private String senha;
-
+    //Saber se é usuario
+    private String usuario;
+    
+    //Metodo para saber o tipo de usuario
+    public void setUsuario(String usuario){
+        this.usuario = usuario;
+    }
+    
+    // Metodo da senha
     public void setSenha(String senha) {
         this.senha = senha;
     }
@@ -29,6 +36,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     public void setDados(Dados msDados) {
         this.msDados = msDados;
     }
+    
+    
 
     public frmPrincipal() {
         initComponents();
@@ -357,6 +366,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         frmtrocarSenha msSenha = new frmtrocarSenha(this, rootPaneCheckingEnabled);
         msSenha.setVisible(rootPaneCheckingEnabled);
         msSenha.setSenha(senha);
+        // Verificar usuario
+        msSenha.setUsuario(usuario);
     }//GEN-LAST:event_mnuArquivotSenhaActionPerformed
 
     /**
