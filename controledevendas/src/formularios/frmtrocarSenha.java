@@ -124,6 +124,19 @@ public class frmtrocarSenha extends javax.swing.JDialog {
             txtSenhaConfirmacao.requestFocusInWindow();
             return;
         }
+        
+        if(!confirmacao.equals(nova)){
+            JOptionPane.showMessageDialog(rootPane, "As senhas não correspondem");
+            txtSenhaConfirmacao.requestFocusInWindow();
+            return; 
+        }
+        
+        if(nova.equals(atual) && confirmacao.equals(atual)){
+            JOptionPane.showMessageDialog(rootPane, "A nova senha não pode ser igual a senha atual");
+            txtSenhaNova.requestFocusInWindow();
+            txtSenhaConfirmacao.requestFocusInWindow();
+            return;
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
