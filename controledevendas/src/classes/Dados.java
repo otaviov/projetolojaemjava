@@ -81,10 +81,10 @@ public class Dados {
         return -1;
     }
 
-    public void trocarSenha(String usuario, String senha) {
+    public void trocarSenha(String Usuario, String Senha) {
         for (int i = 0; i < conUsu; i++) {
-            if (msUsuarios[i].getIdUsuario().equals(usuario)) {
-                msUsuarios[i].setSenha(senha);
+            if (msUsuarios[i].getIdUsuario().equals(Usuario)) {
+                msUsuarios[i].setSenha(Senha);
                 return;
             }
         }
@@ -571,5 +571,9 @@ public class Dados {
             }
         }
 
+    }
+
+    public void trocarSenha(String nova) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -362,9 +362,9 @@ public class frmPrincipal extends javax.swing.JFrame {
         // chamando o trocar senha
         frmtrocarSenha msSenha = new frmtrocarSenha(this, rootPaneCheckingEnabled);
         msSenha.setVisible(rootPaneCheckingEnabled);
-        msSenha.setSenha(senha);
         // Verificar usuario
         msSenha.setUsuario(usuario);
+        msSenha.setSenha(senha);
         msSenha.setDados(msDados);
     }//GEN-LAST:event_mnuArquivotSenhaActionPerformed
 

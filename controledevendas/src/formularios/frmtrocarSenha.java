@@ -19,14 +19,15 @@ public class frmtrocarSenha extends javax.swing.JDialog {
         this.msDados = msDados;
     }
     
-    public void setSenha(String senha){
-        this.senha = senha;
-    }
-   
     //Metodo para saber o tipo de usuario
     public void setUsuario(String usuario){
         this.usuario = usuario;
     }
+    
+    public void setSenha(String senha){
+        this.senha = senha;
+    }
+   
     
     
     public frmtrocarSenha(java.awt.Frame parent, boolean modal) {
