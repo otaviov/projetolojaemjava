@@ -7,7 +7,6 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
-
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.Timer;
@@ -363,9 +362,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         frmtrocarSenha msSenha = new frmtrocarSenha(this, rootPaneCheckingEnabled);
         msSenha.setVisible(rootPaneCheckingEnabled);
         // Verificar usuario
-        msSenha.setUsuario(usuario);
         msSenha.setSenha(senha);
-        msSenha.setDados(msDados);
+        
     }//GEN-LAST:event_mnuArquivotSenhaActionPerformed
 
     /**

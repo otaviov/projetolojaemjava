@@ -81,14 +81,6 @@ public class Dados {
         return -1;
     }
 
-    public void trocarSenha(String Usuario, String Senha) {
-        for (int i = 0; i < conUsu; i++) {
-            if (msUsuarios[i].getIdUsuario().equals(Usuario)) {
-                msUsuarios[i].setSenha(Senha);
-                return;
-            }
-        }
-    }
 
     public String adicionarUsuario(Usuario mUsuario) {
         if (conUsu == maxUsu) {

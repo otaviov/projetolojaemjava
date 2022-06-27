@@ -202,8 +202,7 @@ public class frmLogin extends javax.swing.JFrame {
         mPrincipal.setPerfil(msDados.getPerfil(txtUsuario.getText()));
         // verificar senha
         mPrincipal.setSenha(new String (txtSenha.getPassword()));
-        // Verificar usuario
-        mPrincipal.setUsuario(txtUsuario.getText());
+        
         //abrindo a tela do frmPrincipal maximizada
         mPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
         mPrincipal.setVisible(true);
