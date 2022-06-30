@@ -23,7 +23,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         //Criando metodo do icone do jFrame -- fim do codigo, linha 244
         setIcon(); //fim
-
+ 
     }
 
     @SuppressWarnings("unchecked")
