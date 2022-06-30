@@ -1,9 +1,22 @@
 
 package formularios;
 
+import classes.Dados;
+import javax.swing.JOptionPane;
+
 public class frmTrocarSenha extends javax.swing.JDialog {
     
     private String senha;
+    private String usuario;
+    private Dados msDados;
+    
+    public void setDados(Dados msDados) {
+        this.msDados = msDados;
+    }
+    
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
     
     public void setSenha(String senha){
         this.senha = senha;
@@ -111,6 +124,40 @@ public class frmTrocarSenha extends javax.swing.JDialog {
         String nova = new String (txtNova.getPassword());
         String confirmacao = new String (txtConfirmacao.getPassword());
         
+        if(atual.equals("")){
+            JOptionPane.showMessageDialog(rootPane, "O campo da senha atual está vazio");
+            txtAtual.requestFocusInWindow();
+            return;
+        }
+        
+        if(nova.equals("")){
+            JOptionPane.showMessageDialog(rootPane, "O campo da nova senha está vazio");
+            txtNova.requestFocusInWindow();
+            return;
+        }
+        
+        if(confirmacao.equals("")){
+            JOptionPane.showMessageDialog(rootPane, "O campo de confirmação de senha está vazio");
+            txtConfirmacao.requestFocusInWindow();
+            return;
+        }
+        
+       if(!atual.equals(senha)){
+            JOptionPane.showMessageDialog(rootPane, "A senha atual não corresponde com a senha do usuario");
+            txtAtual.requestFocusInWindow();
+            return;
+        }
+        
+       if(!nova.equals(confirmacao)){
+           JOptionPane.showMessageDialog(rootPane, "O campo de confirmação é diferente da nova senha");
+           txtNova.requestFocusInWindow();
+           return;
+       }
+       
+       msDados.trocarSenha(usuario, nova);
+       JOptionPane.showMessageDialog(rootPane, "Senha trocada com sucesso");
+       t
+       
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

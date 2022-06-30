@@ -21,7 +21,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private String senha;
     //Saber se é usuario
     private String usuario;
-    
     private Dados msDados;
 
     public void setDados(Dados msDados) {
@@ -362,9 +361,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         // chamando o trocar senha
        frmTrocarSenha msSenha = new frmTrocarSenha(this, rootPaneCheckingEnabled);
        msSenha.setSenha(senha);
+       msSenha.setUsuario(usuario);
+       msSenha.setDados(msDados);
        msSenha.setVisible(rootPaneCheckingEnabled);
        
-        
     }//GEN-LAST:event_mnuArquivotSenhaActionPerformed
 
     /**
