@@ -1,28 +1,27 @@
-
 package formularios;
 
 import classes.Dados;
 import javax.swing.JOptionPane;
 
 public class frmTrocarSenha extends javax.swing.JDialog {
-    
+
     private String senha;
     private String usuario;
     private Dados msDados;
-    
+
     public void setDados(Dados msDados) {
         this.msDados = msDados;
     }
-    
+
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-    
-    public void setSenha(String senha){
+
+    public void setSenha(String senha) {
         this.senha = senha;
-        
+
     }
-    
+
     public frmTrocarSenha(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -120,44 +119,57 @@ public class frmTrocarSenha extends javax.swing.JDialog {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-        String atual = new String (txtAtual.getPassword());
-        String nova = new String (txtNova.getPassword());
-        String confirmacao = new String (txtConfirmacao.getPassword());
-        
-        if(atual.equals("")){
+        String atual = new String(txtAtual.getPassword());
+        String nova = new String(txtNova.getPassword());
+        String confirmacao = new String(txtConfirmacao.getPassword());
+
+        if (atual.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "O campo da senha atual está vazio");
             txtAtual.requestFocusInWindow();
             return;
         }
-        
-        if(nova.equals("")){
+
+        if (nova.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "O campo da nova senha está vazio");
             txtNova.requestFocusInWindow();
             return;
         }
-        
-        if(confirmacao.equals("")){
+
+        if (confirmacao.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "O campo de confirmação de senha está vazio");
             txtConfirmacao.requestFocusInWindow();
             return;
         }
-        
-       if(!atual.equals(senha)){
+
+        if (!atual.equals(senha)) {
             JOptionPane.showMessageDialog(rootPane, "A senha atual não corresponde com a senha do usuario");
+            txtAtual.setText("");
             txtAtual.requestFocusInWindow();
             return;
         }
-        
-       if(!nova.equals(confirmacao)){
-           JOptionPane.showMessageDialog(rootPane, "O campo de confirmação é diferente da nova senha");
-           txtNova.requestFocusInWindow();
-           return;
-       }
-       
-       msDados.trocarSenha(usuario, nova);
-       JOptionPane.showMessageDialog(rootPane, "Senha trocada com sucesso");
-       t
-       
+
+        if (!confirmacao.equals(nova)) {
+            JOptionPane.showMessageDialog(rootPane, "O campo de confirmação e senha são diferentes");
+            txtNova.setText("");
+            txtConfirmacao.setText("");
+            txtConfirmacao.requestFocusInWindow();
+            return;
+
+        }
+
+        if (nova.equals(atual) && confirmacao.equals(atual)) {
+            JOptionPane.showMessageDialog(rootPane, "A nova senha tem que ser diferente da senha atual");
+            txtNova.setText("");
+            txtConfirmacao.setText("");
+            txtNova.requestFocusInWindow();
+            txtConfirmacao.requestFocusInWindow();
+            return;
+        }
+
+        msDados.trocarSenha(usuario, nova);
+        JOptionPane.showMessageDialog(rootPane, "Senha trocada com sucesso");
+        dispose();
+
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
