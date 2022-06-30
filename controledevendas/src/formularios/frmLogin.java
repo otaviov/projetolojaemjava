@@ -23,7 +23,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         //Criando metodo do icone do jFrame -- fim do codigo, linha 244
         setIcon(); //fim
- 
+
     }
 
     @SuppressWarnings("unchecked")
@@ -141,12 +141,17 @@ public class frmLogin extends javax.swing.JFrame {
             //fim do 1
 
         }
+        
         //  chamando a tela frmPrincipal assim que o login for autorizado 
-        
+        frmPrincipal mPrincipal = new frmPrincipal();
         this.setVisible(false);
-        
-        telaUsuario();
-   
+        mPrincipal.setDados(msDados);
+        mPrincipal.setPerfil(msDados.getPerfil(txtUsuario.getText()));
+        mPrincipal.setSenha(new String (txtSenha.getPassword()));
+        //abrindo a tela do frmPrincipal maximizada
+        mPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        mPrincipal.setVisible(true);
+
 
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -156,8 +161,7 @@ public class frmLogin extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 
             dispose();
-            
-            telaUsuario();
+
         }
     }//GEN-LAST:event_btnEntrarKeyPressed
 
@@ -195,19 +199,6 @@ public class frmLogin extends javax.swing.JFrame {
         });
     }
 
-    //metodo para chamar tela principal
-    public void telaUsuario() {
-        frmPrincipal mPrincipal = new frmPrincipal();
-        mPrincipal.setDados(msDados);
-        mPrincipal.setPerfil(msDados.getPerfil(txtUsuario.getText()));
-        // verificar senha
-        mPrincipal.setSenha(new String (txtSenha.getPassword()));
-        
-        //abrindo a tela do frmPrincipal maximizada
-        mPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        mPrincipal.setVisible(true);
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntrar;
