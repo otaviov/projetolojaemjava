@@ -1,6 +1,6 @@
 package formularios;
 
-import formularios.sobres.frmSobreUsuarios;
+import formulariosSobres.frmSobreUsuarios;
 import classes.Dados;
 import classes.Usuario;
 import javax.swing.Icon;

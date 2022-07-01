@@ -2,6 +2,7 @@ package formularios;
 
 import classes.Background;
 import classes.Dados;
+import formulariosSobres.frmSobrePrincipal;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -212,6 +213,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuAjudaSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/sobre.png"))); // NOI18N
         mnuAjudaSobre.setText("Sobre");
         mnuAjudaSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuAjudaSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuAjudaSobreActionPerformed(evt);
+            }
+        });
         mnuAjuda.add(mnuAjudaSobre);
 
         mnuAjudaAjuda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -366,6 +372,12 @@ public class frmPrincipal extends javax.swing.JFrame {
        msSenha.setVisible(rootPaneCheckingEnabled);
        
     }//GEN-LAST:event_mnuArquivotSenhaActionPerformed
+
+    private void mnuAjudaSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAjudaSobreActionPerformed
+        // TODO add your handling code here:
+        frmSobrePrincipal SobrePrin = new frmSobrePrincipal(this, rootPaneCheckingEnabled);
+        SobrePrin.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_mnuAjudaSobreActionPerformed
 
     /**
      * @param args the command line arguments

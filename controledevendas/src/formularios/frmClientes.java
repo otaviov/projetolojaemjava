@@ -3,7 +3,7 @@ package formularios;
 import classes.Cliente;
 import classes.Dados;
 import classes.Ultilidades;
-import formularios.sobres.frmSobreClientes;
+import formulariosSobres.frmSobreClientes;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
