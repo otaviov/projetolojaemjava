@@ -4,10 +4,6 @@
  */
 package formulariosSobres;
 
-/**
- *
- * @author amand
- */
 public class frmSobreClientes extends javax.swing.JInternalFrame {
 
     /**
