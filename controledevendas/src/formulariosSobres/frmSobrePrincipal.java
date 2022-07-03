@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
+
 package formulariosSobres;
 
 import java.io.IOException;
@@ -9,18 +6,13 @@ import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author amand
- */
 public class frmSobrePrincipal extends javax.swing.JDialog {
+   
 
-    /**
-     * Creates new form frmSobrePrincipal
-     */
     public frmSobrePrincipal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
     }
 
     public frmSobrePrincipal() {
@@ -45,12 +37,13 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        testeForm = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
         btnGit = new javax.swing.JButton();
         btnLinkedin = new javax.swing.JButton();
         btnEmail = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SOBRE");
@@ -90,11 +83,19 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel9.setText("1.0");
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jLabel10.setText("Entre em contato com o suporte ");
+        testeForm.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        testeForm.setText("Entre em contato com o suporte ");
+        testeForm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                testeFormMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                testeFormMousePressed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jLabel11.setText("através do E-mail: otavioveira32@gmail.com");
+        jLabel11.setText("Ou através do E-mail: otavioveira32@gmail.com");
 
         btnSair.setText("Sair");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +105,7 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
         });
 
         btnGit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/github.png"))); // NOI18N
+        btnGit.setToolTipText("Acesse o meu GitHub");
         btnGit.setActionCommand("");
         btnGit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +114,7 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
         });
 
         btnLinkedin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/linkedin.png"))); // NOI18N
+        btnLinkedin.setToolTipText("Acesse meu Linkedin");
         btnLinkedin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLinkedinActionPerformed(evt);
@@ -119,11 +122,15 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
         });
 
         btnEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/gmail.png"))); // NOI18N
+        btnEmail.setToolTipText("Acesse meu E-mail");
         btnEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEmailActionPerformed(evt);
             }
         });
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jLabel12.setText("Clique e");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,21 +144,8 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel9)
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnGit)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnLinkedin)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEmail)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSair))
-                            .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
@@ -161,23 +155,44 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel5))
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11))
-                                .addGap(27, 27, 27)
-                                .addComponent(jLabel1)))
-                        .addGap(24, 24, 24))))
+                                        .addComponent(jLabel5)))
+                                .addGap(27, 27, 27))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnGit)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnLinkedin)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnEmail))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel12)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(testeForm)
+                                            .addGap(28, 28, 28))))
+                                .addGap(34, 34, 34)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addGap(33, 33, 33))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabel7)
-                .addGap(27, 27, 27)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9))
-                .addGap(29, 29, 29)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -190,16 +205,22 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
                             .addComponent(jLabel4)
                             .addComponent(jLabel6))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(testeForm)
+                            .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel11))
                     .addComponent(jLabel1))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSair)
-                    .addComponent(btnGit)
-                    .addComponent(btnLinkedin)
-                    .addComponent(btnEmail))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnGit)
+                            .addComponent(btnLinkedin)
+                            .addComponent(btnEmail)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(btnSair)))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
@@ -259,15 +280,16 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
 
     private void btnEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmailActionPerformed
         // link do email
-        try {
-            // TODO add your handling code here:
-            java.awt.Desktop.getDesktop().browse(new java.net.URI("mailto:otavioveira32@gmail.com"));
-        } catch (IOException ex) {
-            Logger.getLogger(frmSobrePrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(frmSobrePrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_btnEmailActionPerformed
+
+    private void testeFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_testeFormMouseClicked
+
+    }//GEN-LAST:event_testeFormMouseClicked
+
+    private void testeFormMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_testeFormMousePressed
+        
+    }//GEN-LAST:event_testeFormMousePressed
 
     /**
      * @param args the command line arguments
@@ -316,8 +338,8 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
     private javax.swing.JButton btnLinkedin;
     private javax.swing.JButton btnSair;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -326,5 +348,6 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel testeForm;
     // End of variables declaration//GEN-END:variables
 }
