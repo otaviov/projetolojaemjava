@@ -6,8 +6,7 @@ import javax.swing.JOptionPane;
 public class frmTrocarSenha extends javax.swing.JDialog {
 
     private String senha;
-    private String usuario;
-    private Dados msDados;
+    private String usuario;    private Dados msDados;
 
     public void setDados(Dados msDados) {
         this.msDados = msDados;
