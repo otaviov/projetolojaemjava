@@ -195,6 +195,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuMovimentosnovaVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/nova-venda.png"))); // NOI18N
         mnuMovimentosnovaVenda.setText("Nova Venda");
         mnuMovimentosnovaVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuMovimentosnovaVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuMovimentosnovaVendaActionPerformed(evt);
+            }
+        });
         mnuMovimentos.add(mnuMovimentosnovaVenda);
 
         mnuMovimentosRelatoriovenda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -376,8 +381,16 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void mnuAjudaSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAjudaSobreActionPerformed
         // TODO add your handling code here:
         frmSobrePrincipal SobrePrin = new frmSobrePrincipal(this, rootPaneCheckingEnabled);
+        SobrePrin.setLocationRelativeTo(this);
         SobrePrin.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_mnuAjudaSobreActionPerformed
+
+    private void mnuMovimentosnovaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMovimentosnovaVendaActionPerformed
+        // TODO add your handling code here:
+        frmFatura mFatura = new frmFatura();
+        dpnDesk.add(mFatura);
+        mFatura.show();
+    }//GEN-LAST:event_mnuMovimentosnovaVendaActionPerformed
 
     /**
      * @param args the command line arguments
