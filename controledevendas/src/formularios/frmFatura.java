@@ -2,6 +2,7 @@
 package formularios;
 
 import classes.Dados;
+import classes.Opcoes;
 import classes.Ultilidades;
 import java.util.Date;
 
@@ -253,6 +254,29 @@ public class frmFatura extends javax.swing.JInternalFrame {
         btnpesqproduto.setBorderPainted(false);
         btnpesqproduto.setContentAreaFilled(false);
         btnpesqproduto.setOpaque(true);
+        
+        Opcoes opc = new Opcoes("otavioveira32@gmail.com", "SELECIONE UM CLIENTE");
+        cmbcliente.addItem(opc.toString());
+        for(int i = 0; i<msDados.numeroCliente();i++){
+            opc = new Opcoes(
+                    msDados.getCliente()[i].getIdCliente(),
+                    msDados.getCliente()[i].getNome()+" "+
+                    msDados.getCliente()[i].getSNome());
+                    
+            cmbcliente.addItem(opc.toString());
+            
+                    }
+        
+        opc = new Opcoes("otavioveira32@gmail.com", "SELECIONE UM PRODUTO");
+        cmbproduto.addItem(opc.toString());
+        for(int i = 0; i<msDados.numeroProdutos();i++){
+            opc = new Opcoes(
+                    msDados.getProdutos()[i].getIdProduto(),
+                    msDados.getProdutos()[i].getDescricao());
+                   
+            cmbproduto.addItem(opc.toString());
+            
+                    }
         
         //chamar data atual
         txtdata.setText(Ultilidades.formatDate(new Date()));
