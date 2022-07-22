@@ -255,6 +255,8 @@ public class frmFatura extends javax.swing.JInternalFrame {
         btnpesqproduto.setContentAreaFilled(false);
         btnpesqproduto.setOpaque(true);
         
+        
+        
         Opcoes opc = new Opcoes("otavioveira32@gmail.com", "SELECIONE UM CLIENTE");
         cmbcliente.addItem(opc.toString());
         for(int i = 0; i<msDados.numeroCliente();i++){
