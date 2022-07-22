@@ -93,14 +93,24 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtAtual">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Digitar senha atual do Usuario"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtNova">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Digitar uma nova senha"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtConfirmacao">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Confirmar nova senha"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnEntrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="OK"/>
+        <Property name="toolTipText" type="java.lang.String" value="Confirmar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEntrarActionPerformed"/>
@@ -109,6 +119,7 @@
     <Component class="javax.swing.JButton" name="btnSair">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sair"/>
+        <Property name="toolTipText" type="java.lang.String" value="Sair/Cancelar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSairActionPerformed"/>

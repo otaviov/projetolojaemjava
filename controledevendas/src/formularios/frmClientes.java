@@ -117,6 +117,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         jLabel1.setToolTipText("");
         jLabel1.setAlignmentX(0.5F);
 
+        txtIDCliente.setToolTipText("");
         txtIDCliente.setEnabled(false);
         txtIDCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +164,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         jLabel4.setAlignmentX(0.5F);
 
         btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/usuario-anterior.png"))); // NOI18N
-        btnAnterior.setToolTipText("Ir para o Usuário Anterior");
+        btnAnterior.setToolTipText("Ir para o cliente Anterior");
         btnAnterior.setAlignmentX(0.5F);
         btnAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,7 +173,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         });
 
         btnPrimeiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/primeiro-usuario.png"))); // NOI18N
-        btnPrimeiro.setToolTipText("Ir para o Primeiro Usuário");
+        btnPrimeiro.setToolTipText("Ir para o Primeiro cliente");
         btnPrimeiro.setAlignmentX(0.5F);
         btnPrimeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +182,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         });
 
         btnProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/proximo-usuario.png"))); // NOI18N
-        btnProximo.setToolTipText("Ir para o Próximo Usuário");
+        btnProximo.setToolTipText("Ir para o Próximo cliente");
         btnProximo.setAlignmentX(0.5F);
         btnProximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,7 +191,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         });
 
         btnUltimo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/ultimo-usuario.png"))); // NOI18N
-        btnUltimo.setToolTipText("Ir para o Ultimo Usuário");
+        btnUltimo.setToolTipText("Ir para o Ultimo cliente");
         btnUltimo.setAlignmentX(0.5F);
         btnUltimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,7 +200,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         });
 
         btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar-usuario.png"))); // NOI18N
-        btnNovo.setToolTipText("Adicionar um Novo Usuário");
+        btnNovo.setToolTipText("Adicionar um Novo cliente");
         btnNovo.setAlignmentX(0.5F);
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,7 +209,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         });
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/editar-usuario.png"))); // NOI18N
-        btnEditar.setToolTipText("Editar Usuario");
+        btnEditar.setToolTipText("Editar cliente");
         btnEditar.setAlignmentX(0.5F);
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,7 +218,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         });
 
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/apagar-usuario.png"))); // NOI18N
-        btnExcluir.setToolTipText("Excluir Usuário");
+        btnExcluir.setToolTipText("Excluir cliente");
         btnExcluir.setAlignmentX(0.5F);
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,7 +346,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         jLabel11.setAlignmentX(0.5F);
 
         cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estado", "AC", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA            ", "MT", "MS            ", "MG", "PA", "PB         ", "PR", "PE", "PI         ", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE           ", "TO" }));
-        cmbEstado.setToolTipText("Selecione o tipo de acesso");
+        cmbEstado.setToolTipText("Selecione o estado do cliente");
         cmbEstado.setEnabled(false);
         cmbEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

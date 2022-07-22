@@ -55,7 +55,14 @@ public class frmTrocarSenha extends javax.swing.JDialog {
         jLabel8.setText("Conf. Senha:");
         jLabel8.setToolTipText("Confirmar Senha");
 
+        txtAtual.setToolTipText("Digitar senha atual do Usuario");
+
+        txtNova.setToolTipText("Digitar uma nova senha");
+
+        txtConfirmacao.setToolTipText("Confirmar nova senha");
+
         btnEntrar.setText("OK");
+        btnEntrar.setToolTipText("Confirmar");
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntrarActionPerformed(evt);
@@ -63,6 +70,7 @@ public class frmTrocarSenha extends javax.swing.JDialog {
         });
 
         btnSair.setText("Sair");
+        btnSair.setToolTipText("Sair/Cancelar");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);

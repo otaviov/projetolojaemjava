@@ -98,6 +98,7 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
         jLabel11.setText("Ou através do E-mail: otavioveira32@gmail.com");
 
         btnSair.setText("Sair");
+        btnSair.setToolTipText("Botão Sair");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -106,7 +107,6 @@ public class frmSobrePrincipal extends javax.swing.JDialog {
 
         btnGit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/github.png"))); // NOI18N
         btnGit.setToolTipText("Acesse o meu GitHub");
-        btnGit.setActionCommand("");
         btnGit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGitActionPerformed(evt);

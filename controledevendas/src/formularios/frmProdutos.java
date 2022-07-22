@@ -110,7 +110,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         jLabel2.setAlignmentX(0.5F);
 
         cmbImposto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0%", "10%", "15%", "20%", "25%", "30%", "35%", "40%", "45%", "50%", "55%", "60%" }));
-        cmbImposto.setToolTipText("Selecione o tipo de acesso");
+        cmbImposto.setToolTipText("");
         cmbImposto.setEnabled(false);
         cmbImposto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +145,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         jLabel4.setAlignmentX(0.5F);
 
         btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/usuario-anterior.png"))); // NOI18N
-        btnAnterior.setToolTipText("Ir para o Usuário Anterior");
+        btnAnterior.setToolTipText("Ir para o produto Anterior");
         btnAnterior.setAlignmentX(0.5F);
         btnAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,7 +154,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         });
 
         btnPrimeiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/primeiro-usuario.png"))); // NOI18N
-        btnPrimeiro.setToolTipText("Ir para o Primeiro Usuário");
+        btnPrimeiro.setToolTipText("Ir para o primeiro produto");
         btnPrimeiro.setAlignmentX(0.5F);
         btnPrimeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +163,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         });
 
         btnProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/proximo-usuario.png"))); // NOI18N
-        btnProximo.setToolTipText("Ir para o Próximo Usuário");
+        btnProximo.setToolTipText("Ir para o Próximo produto");
         btnProximo.setAlignmentX(0.5F);
         btnProximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,7 +172,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         });
 
         btnUltimo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/ultimo-usuario.png"))); // NOI18N
-        btnUltimo.setToolTipText("Ir para o Ultimo Usuário");
+        btnUltimo.setToolTipText("Ir para o Ultimo produto");
         btnUltimo.setAlignmentX(0.5F);
         btnUltimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +181,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         });
 
         btnNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar-usuario.png"))); // NOI18N
-        btnNovo.setToolTipText("Adicionar um Novo Usuário");
+        btnNovo.setToolTipText("Adicionar um Novo produto");
         btnNovo.setAlignmentX(0.5F);
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,7 +190,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         });
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/editar-usuario.png"))); // NOI18N
-        btnEditar.setToolTipText("Editar Usuario");
+        btnEditar.setToolTipText("Editar produto");
         btnEditar.setAlignmentX(0.5F);
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,7 +199,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         });
 
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/apagar-usuario.png"))); // NOI18N
-        btnExcluir.setToolTipText("Excluir Usuário");
+        btnExcluir.setToolTipText("Excluir produto");
         btnExcluir.setAlignmentX(0.5F);
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,7 +227,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
         });
 
         btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/procurar-usuario.png"))); // NOI18N
-        btnPesquisar.setToolTipText("Pesquisar Usuário Cadastrado");
+        btnPesquisar.setToolTipText("Pesquisar produto Cadastrado");
         btnPesquisar.setAlignmentX(0.5F);
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -386,10 +386,12 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuAjudaSobreActionPerformed
 
     private void mnuMovimentosnovaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMovimentosnovaVendaActionPerformed
-        // TODO add your handling code here:
+        // Chamando tela de vendas
         frmFatura mFatura = new frmFatura();
+        mFatura.setDados(msDados);
         dpnDesk.add(mFatura);
         mFatura.show();
+        
     }//GEN-LAST:event_mnuMovimentosnovaVendaActionPerformed
 
     /**
