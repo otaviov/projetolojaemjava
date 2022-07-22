@@ -40,7 +40,7 @@ public class Ultilidades {
     }
     
     public static String formatDate(Date Data){
-        SimpleDateFormat formatotexto = new SimpleDateFormat ("yyyy/MM/dd");
+        SimpleDateFormat formatotexto = new SimpleDateFormat ("dd/MM/yyyy");
         return formatotexto.format(Data);
     }
 

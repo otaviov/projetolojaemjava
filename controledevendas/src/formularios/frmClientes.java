@@ -6,7 +6,6 @@ import classes.Ultilidades;
 import formulariosSobres.frmSobreClientes;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -34,12 +33,6 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
     public frmClientes() {
         initComponents();
-
-        String formatodDate = null;
-        Date date = new Date();
-        DateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        formatodDate = formato.format(date);
-        DData.setText(formatodDate);//codigo para pegar a data do sistema e gravar na base
 
     }
 
@@ -699,7 +692,8 @@ public class frmClientes extends javax.swing.JInternalFrame {
             }
         }
 
-        Cliente mCliente = new Cliente(
+        Cliente mCliente;
+        mCliente = new Cliente(
                 txtIDCliente.getText(),
                 txtNome.getText(),
                 txtSNome.getText(),
@@ -786,6 +780,8 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
         //Chamar o preenchimento da tabela
         preencherTabela();
+        
+        DData.setText(Ultilidades.formatDate(new Date()));
 
     }//GEN-LAST:event_formInternalFrameOpened
 

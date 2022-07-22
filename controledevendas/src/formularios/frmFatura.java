@@ -2,6 +2,8 @@
 package formularios;
 
 import classes.Dados;
+import classes.Ultilidades;
+import java.util.Date;
 
 public class frmFatura extends javax.swing.JInternalFrame {
 
@@ -29,22 +31,22 @@ public class frmFatura extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
+        txtdata = new javax.swing.JTextField();
+        cmbcliente = new javax.swing.JComboBox<>();
+        cmbproduto = new javax.swing.JComboBox<>();
+        txtquantidade = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbldetalhes = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        btnPesquisa1 = new javax.swing.JButton();
-        btnPesquisa2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnpesqcliente = new javax.swing.JButton();
+        btnpesqproduto = new javax.swing.JButton();
+        btnadicionar = new javax.swing.JButton();
+        btndeletar = new javax.swing.JButton();
+        btndeletartodos = new javax.swing.JButton();
+        btnsalvar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtvalor = new javax.swing.JTextField();
+        txtquant = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -76,14 +78,14 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Quantidade:");
 
-        jTextField1.setEnabled(false);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtdata.setEnabled(false);
+        txtdata.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtdataActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbldetalhes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -94,50 +96,50 @@ public class frmFatura extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbldetalhes);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Vendas1.png"))); // NOI18N
 
-        btnPesquisa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa3.png"))); // NOI18N
-        btnPesquisa1.setToolTipText("Pesquisar Clientes");
-        btnPesquisa1.addActionListener(new java.awt.event.ActionListener() {
+        btnpesqcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa3.png"))); // NOI18N
+        btnpesqcliente.setToolTipText("Pesquisar Clientes");
+        btnpesqcliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisa1ActionPerformed(evt);
+                btnpesqclienteActionPerformed(evt);
             }
         });
 
-        btnPesquisa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa3.png"))); // NOI18N
-        btnPesquisa2.setToolTipText("Pesquisar Produtos");
-        btnPesquisa2.addActionListener(new java.awt.event.ActionListener() {
+        btnpesqproduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa3.png"))); // NOI18N
+        btnpesqproduto.setToolTipText("Pesquisar Produtos");
+        btnpesqproduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisa2ActionPerformed(evt);
+                btnpesqprodutoActionPerformed(evt);
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar-produto1.png"))); // NOI18N
-        jButton1.setToolTipText("Adicionar Produto");
+        btnadicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar-produto1.png"))); // NOI18N
+        btnadicionar.setToolTipText("Adicionar Produto");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir-produto.png"))); // NOI18N
-        jButton2.setToolTipText("Deletar Produto");
+        btndeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir-produto.png"))); // NOI18N
+        btndeletar.setToolTipText("Deletar Produto");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir-todos.png"))); // NOI18N
-        jButton3.setToolTipText("Deletar todos os Produtos");
+        btndeletartodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir-todos.png"))); // NOI18N
+        btndeletartodos.setToolTipText("Deletar todos os Produtos");
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar.png"))); // NOI18N
-        jButton4.setToolTipText("Salvar Venda");
+        btnsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar.png"))); // NOI18N
+        btnsalvar.setToolTipText("Salvar Venda");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Total:");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtvalor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtvalorActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtquant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txtquantActionPerformed(evt);
             }
         });
 
@@ -152,9 +154,9 @@ public class frmFatura extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtquant, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtvalor, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jScrollPane1)
                         .addGroup(layout.createSequentialGroup()
@@ -165,24 +167,24 @@ public class frmFatura extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel4))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtdata, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(11, 11, 11)
-                                    .addComponent(btnPesquisa1))
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnpesqcliente))
+                                .addComponent(txtquantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbproduto, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(11, 11, 11)
-                                    .addComponent(btnPesquisa2))
+                                    .addComponent(btnpesqproduto))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton1)
+                                    .addComponent(btnadicionar)
                                     .addGap(40, 40, 40)
-                                    .addComponent(jButton2)
+                                    .addComponent(btndeletar)
                                     .addGap(40, 40, 40)
-                                    .addComponent(jButton3)
+                                    .addComponent(btndeletartodos)
                                     .addGap(40, 40, 40)
-                                    .addComponent(jButton4)))
+                                    .addComponent(btnsalvar)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5))))
                 .addGap(19, 19, 19))
@@ -193,88 +195,91 @@ public class frmFatura extends javax.swing.JInternalFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnPesquisa1)
+                        .addComponent(btnpesqcliente)
                         .addGap(11, 11, 11)
-                        .addComponent(btnPesquisa2)
+                        .addComponent(btnpesqproduto)
                         .addGap(38, 38, 38))
                     .addComponent(jLabel5)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtdata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbproduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtquantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btndeletar)
+                    .addComponent(btndeletartodos)
+                    .addComponent(btnsalvar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnadicionar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtvalor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtquant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtdataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdataActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtdataActionPerformed
 
-    private void btnPesquisa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisa2ActionPerformed
+    private void btnpesqprodutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesqprodutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPesquisa2ActionPerformed
+    }//GEN-LAST:event_btnpesqprodutoActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         //Botão pesquisa1
-        btnPesquisa1.setBorderPainted(false);
-        btnPesquisa1.setContentAreaFilled(false);
-        btnPesquisa1.setOpaque(true);
+        btnpesqcliente.setBorderPainted(false);
+        btnpesqcliente.setContentAreaFilled(false);
+        btnpesqcliente.setOpaque(true);
         
         //Botão pesquisa2
-        btnPesquisa2.setBorderPainted(false);
-        btnPesquisa2.setContentAreaFilled(false);
-        btnPesquisa2.setOpaque(true);
+        btnpesqproduto.setBorderPainted(false);
+        btnpesqproduto.setContentAreaFilled(false);
+        btnpesqproduto.setOpaque(true);
+        
+        //chamar data atual
+        txtdata.setText(Ultilidades.formatDate(new Date()));
     }//GEN-LAST:event_formInternalFrameOpened
 
-    private void btnPesquisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisa1ActionPerformed
+    private void btnpesqclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesqclienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPesquisa1ActionPerformed
+    }//GEN-LAST:event_btnpesqclienteActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtvalorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvalorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtvalorActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtquantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtquantActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txtquantActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPesquisa1;
-    private javax.swing.JButton btnPesquisa2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JButton btnadicionar;
+    private javax.swing.JButton btndeletar;
+    private javax.swing.JButton btndeletartodos;
+    private javax.swing.JButton btnpesqcliente;
+    private javax.swing.JButton btnpesqproduto;
+    private javax.swing.JButton btnsalvar;
+    private javax.swing.JComboBox<String> cmbcliente;
+    private javax.swing.JComboBox<String> cmbproduto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -282,10 +287,10 @@ public class frmFatura extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTable tbldetalhes;
+    private javax.swing.JTextField txtdata;
+    private javax.swing.JTextField txtquant;
+    private javax.swing.JTextField txtquantidade;
+    private javax.swing.JTextField txtvalor;
     // End of variables declaration//GEN-END:variables
 }
