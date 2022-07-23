@@ -38,6 +38,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         this.senha = senha;
     }
 
+
     public frmPrincipal() {
         initComponents();
 
@@ -370,12 +371,12 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void mnuArquivotSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuArquivotSenhaActionPerformed
         // chamando o trocar senha
-       frmTrocarSenha msSenha = new frmTrocarSenha(this, rootPaneCheckingEnabled);
-       msSenha.setSenha(senha);
-       msSenha.setUsuario(usuario);
-       msSenha.setDados(msDados);
-       msSenha.setVisible(rootPaneCheckingEnabled);
-       
+        frmTrocarSenha msSenha = new frmTrocarSenha(this, rootPaneCheckingEnabled);
+        msSenha.setSenha(senha);
+        msSenha.setUsuario(usuario);
+        msSenha.setDados(msDados);
+        msSenha.setVisible(rootPaneCheckingEnabled);
+
     }//GEN-LAST:event_mnuArquivotSenhaActionPerformed
 
     private void mnuAjudaSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAjudaSobreActionPerformed
@@ -392,6 +393,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         dpnDesk.add(mFatura);
         mFatura.show();
         
+
     }//GEN-LAST:event_mnuMovimentosnovaVendaActionPerformed
 
     /**
@@ -457,4 +459,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/nix1.png")));
     } //fim
 
+    
 }
+
+

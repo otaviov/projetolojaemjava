@@ -1,22 +1,25 @@
-
 package formularios;
 
 import classes.Dados;
 import classes.Opcoes;
 import classes.Ultilidades;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 
 public class frmFatura extends javax.swing.JInternalFrame {
 
     private Dados msDados;
 
+    private DefaultTableModel mTabela;
+
     public void setDados(Dados msDados) {
         this.msDados = msDados;
+
     }
-    
-    
+
     public frmFatura() {
         initComponents();
+
     }
 
     /**
@@ -132,12 +135,16 @@ public class frmFatura extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Total:");
 
+        txtvalor.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtvalor.setEnabled(false);
         txtvalor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtvalorActionPerformed(evt);
             }
         });
 
+        txtquant.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtquant.setEnabled(false);
         txtquant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtquantActionPerformed(evt);
@@ -245,43 +252,49 @@ public class frmFatura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnpesqprodutoActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+
         //Botão pesquisa1
         btnpesqcliente.setBorderPainted(false);
         btnpesqcliente.setContentAreaFilled(false);
         btnpesqcliente.setOpaque(true);
-        
+
         //Botão pesquisa2
         btnpesqproduto.setBorderPainted(false);
         btnpesqproduto.setContentAreaFilled(false);
         btnpesqproduto.setOpaque(true);
-        
-        
-        
+
         Opcoes opc = new Opcoes("otavioveira32@gmail.com", "SELECIONE UM CLIENTE");
         cmbcliente.addItem(opc.toString());
-        for(int i = 0; i<msDados.numeroCliente();i++){
+        for (int i = 0; i < msDados.numeroCliente(); i++) {
             opc = new Opcoes(
                     msDados.getCliente()[i].getIdCliente(),
-                    msDados.getCliente()[i].getNome()+" "+
-                    msDados.getCliente()[i].getSNome());
-                    
+                    msDados.getCliente()[i].getNome() + " "
+                    + msDados.getCliente()[i].getSNome());
+
             cmbcliente.addItem(opc.toString());
-            
-                    }
-        
+
+        }
+
         opc = new Opcoes("otavioveira32@gmail.com", "SELECIONE UM PRODUTO");
         cmbproduto.addItem(opc.toString());
-        for(int i = 0; i<msDados.numeroProdutos();i++){
+        for (int i = 0; i < msDados.numeroProdutos(); i++) {
             opc = new Opcoes(
                     msDados.getProdutos()[i].getIdProduto(),
                     msDados.getProdutos()[i].getDescricao());
-                   
+
             cmbproduto.addItem(opc.toString());
-            
-                    }
-        
+
+        }
+
         //chamar data atual
         txtdata.setText(Ultilidades.formatDate(new Date()));
+
+        //Campos de totais iniciar com o valor Zero
+        txtquant.setText("0");
+        txtvalor.setText("0");
+        
+        //chamar metodo da tabela
+        preencherTabela();
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void btnpesqclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesqclienteActionPerformed
@@ -319,4 +332,20 @@ public class frmFatura extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtquantidade;
     private javax.swing.JTextField txtvalor;
     // End of variables declaration//GEN-END:variables
+
+    void setLocationRelativeTo(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void preencherTabela() {
+
+        String titulos[] = {"ID Pro", "Descrição", "Preço", "Quant", "Valor"};
+        String registro[] = new String[5];
+        mTabela = new DefaultTableModel(null, titulos);
+
+        for (int i = 0; i < msDados.numeroCliente(); i++) {
+            tbldetalhes.setModel(mTabela);
+        }
+    }
+
 }
