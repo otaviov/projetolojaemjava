@@ -4,6 +4,7 @@ import classes.Dados;
 import classes.Opcoes;
 import classes.Ultilidades;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class frmFatura extends javax.swing.JInternalFrame {
@@ -122,6 +123,11 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
         btnadicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/adicionar-produto1.png"))); // NOI18N
         btnadicionar.setToolTipText("Adicionar Produto");
+        btnadicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnadicionarActionPerformed(evt);
+            }
+        });
 
         btndeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir-produto.png"))); // NOI18N
         btndeletar.setToolTipText("Deletar Produto");
@@ -308,6 +314,37 @@ public class frmFatura extends javax.swing.JInternalFrame {
     private void txtquantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtquantActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtquantActionPerformed
+
+    private void btnadicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadicionarActionPerformed
+        // ---- Validar campos ----
+        // Validando campo de produtos
+        if(cmbproduto.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(rootPane, "O campo de protudo está vazio!");
+            cmbproduto.requestFocusInWindow();
+            return;
+        }
+        // Validando campo de quantidade
+        if(txtquantidade.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "O campo de quantidade não pode ser vazio");
+            txtquantidade.requestFocusInWindow();
+            return;
+        }
+        
+        if (!Ultilidades.isNumericInt(txtquantidade.getText())) {
+            JOptionPane.showMessageDialog(rootPane, "Campo de quantidade só aceita números");
+            txtquantidade.setText("");
+            txtquantidade.requestFocusInWindow();
+            return;
+        }
+        // Validar para o usuario não digitar valor abaixo de zero
+        int quantidade = Integer.parseInt((txtquantidade.getText()));
+        if (quantidade <= 0) {
+            JOptionPane.showMessageDialog(rootPane, "Campo preço não aceita valores 0 ou abaixo de 0");
+            txtquantidade.setText("");
+            txtquantidade.requestFocusInWindow();
+            return;
+        }
+    }//GEN-LAST:event_btnadicionarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -6,6 +6,18 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 
 public class Ultilidades {
+    
+    //Convertendo em INT
+    public static boolean isNumericInt(String NumeroInt){
+        try {
+            Integer.parseInt(NumeroInt);
+            return true;
+            
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+    
     // Convertendo o preço no formulario frmProdutos para boolean -- encontrar codigo no botão salvar
     public static boolean isNumericFloat(String NumeroFloat){
         try {
@@ -17,6 +29,7 @@ public class Ultilidades {
         }
     }
     
+    //Convertendo em double
     public static boolean isNumericDouble(String NumeroDouble){
         try {
             Double.parseDouble(NumeroDouble);
@@ -44,5 +57,4 @@ public class Ultilidades {
         return formatotexto.format(Data);
     }
 
-    
 }
