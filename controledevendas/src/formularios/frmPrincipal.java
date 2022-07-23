@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JInternalFrame;
 import javax.swing.Timer;
 
 public class frmPrincipal extends javax.swing.JFrame {
@@ -384,6 +385,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         frmSobrePrincipal SobrePrin = new frmSobrePrincipal(this, rootPaneCheckingEnabled);
         SobrePrin.setLocationRelativeTo(this);
         SobrePrin.setVisible(rootPaneCheckingEnabled);
+        
     }//GEN-LAST:event_mnuAjudaSobreActionPerformed
 
     private void mnuMovimentosnovaVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMovimentosnovaVendaActionPerformed
@@ -392,6 +394,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         mFatura.setDados(msDados);
         dpnDesk.add(mFatura);
         mFatura.show();
+        mFatura.setPosicao();
         
 
     }//GEN-LAST:event_mnuMovimentosnovaVendaActionPerformed
@@ -459,7 +462,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/nix1.png")));
     } //fim
 
-    
+
 }
 
 

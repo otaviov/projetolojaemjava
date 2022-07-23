@@ -3,6 +3,7 @@ package formularios;
 import classes.Dados;
 import classes.Opcoes;
 import classes.Ultilidades;
+import java.awt.Dimension;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -193,11 +194,11 @@ public class frmFatura extends javax.swing.JInternalFrame {
                                     .addComponent(btnpesqproduto))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(btnadicionar)
-                                    .addGap(40, 40, 40)
+                                    .addGap(41, 41, 41)
                                     .addComponent(btndeletar)
-                                    .addGap(40, 40, 40)
+                                    .addGap(41, 41, 41)
                                     .addComponent(btndeletartodos)
-                                    .addGap(40, 40, 40)
+                                    .addGap(41, 41, 41)
                                     .addComponent(btnsalvar)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5))))
@@ -270,25 +271,25 @@ public class frmFatura extends javax.swing.JInternalFrame {
         btnpesqproduto.setOpaque(true);
 
         Opcoes opc = new Opcoes("otavioveira32@gmail.com", "SELECIONE UM CLIENTE");
-        cmbcliente.addItem(opc.toString());
+        cmbcliente.addItem(opc);
         for (int i = 0; i < msDados.numeroCliente(); i++) {
             opc = new Opcoes(
                     msDados.getCliente()[i].getIdCliente(),
                     msDados.getCliente()[i].getNome() + " "
                     + msDados.getCliente()[i].getSNome());
 
-            cmbcliente.addItem(opc.toString());
+            cmbcliente.addItem(opc);
 
         }
 
         opc = new Opcoes("otavioveira32@gmail.com", "SELECIONE UM PRODUTO");
-        cmbproduto.addItem(opc.toString());
+        cmbproduto.addItem(opc);
         for (int i = 0; i < msDados.numeroProdutos(); i++) {
             opc = new Opcoes(
                     msDados.getProdutos()[i].getIdProduto(),
                     msDados.getProdutos()[i].getDescricao());
 
-            cmbproduto.addItem(opc.toString());
+            cmbproduto.addItem(opc);
 
         }
 
@@ -298,7 +299,7 @@ public class frmFatura extends javax.swing.JInternalFrame {
         //Campos de totais iniciar com o valor Zero
         txtquant.setText("0");
         txtvalor.setText("0");
-        
+
         //chamar metodo da tabela
         preencherTabela();
     }//GEN-LAST:event_formInternalFrameOpened
@@ -318,18 +319,18 @@ public class frmFatura extends javax.swing.JInternalFrame {
     private void btnadicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadicionarActionPerformed
         // ---- Validar campos ----
         // Validando campo de produtos
-        if(cmbproduto.getSelectedIndex()==0){
+        if (cmbproduto.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(rootPane, "O campo de protudo está vazio!");
             cmbproduto.requestFocusInWindow();
             return;
         }
         // Validando campo de quantidade
-        if(txtquantidade.getText().equals("")){
+        if (txtquantidade.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane, "O campo de quantidade não pode ser vazio");
             txtquantidade.requestFocusInWindow();
             return;
         }
-        
+
         if (!Ultilidades.isNumericInt(txtquantidade.getText())) {
             JOptionPane.showMessageDialog(rootPane, "Campo de quantidade só aceita números");
             txtquantidade.setText("");
@@ -344,6 +345,25 @@ public class frmFatura extends javax.swing.JInternalFrame {
             txtquantidade.requestFocusInWindow();
             return;
         }
+        //carregar campos na tabela
+        int pos = msDados.posicaoProduto(((Opcoes) cmbproduto.getSelectedItem()).getValor());
+
+        String registro[] = new String[5];
+        registro[0] = msDados.getProdutos()[pos].getIdProduto();
+        registro[1] = msDados.getProdutos()[pos].getDescricao();
+
+        registro[2] = "" + msDados.getProdutos()[pos].getPreco();
+        registro[3] = "" + quantidade;
+        registro[4] = "" + (quantidade * msDados.getProdutos()[pos].getPreco());
+        mTabela.addRow(registro);
+
+        //Limpar campos
+        cmbcliente.setSelectedIndex(0);
+        cmbproduto.setSelectedIndex(0);
+        txtquantidade.setText("");
+        //Focar no campo de cliente
+        cmbcliente.requestFocusInWindow();
+
     }//GEN-LAST:event_btnadicionarActionPerformed
 
 
@@ -354,8 +374,8 @@ public class frmFatura extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnpesqcliente;
     private javax.swing.JButton btnpesqproduto;
     private javax.swing.JButton btnsalvar;
-    private javax.swing.JComboBox<String> cmbcliente;
-    private javax.swing.JComboBox<String> cmbproduto;
+    private javax.swing.JComboBox<Opcoes> cmbcliente;
+    private javax.swing.JComboBox<Opcoes> cmbproduto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -376,13 +396,21 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
     private void preencherTabela() {
 
-        String titulos[] = {"ID Pro", "Descrição", "Preço", "Quant", "Valor"};
+        String titulos[] = {"ID Pro", "Produto", "Preço", "Quant", "Valor"};
         String registro[] = new String[5];
         mTabela = new DefaultTableModel(null, titulos);
 
         for (int i = 0; i < msDados.numeroCliente(); i++) {
             tbldetalhes.setModel(mTabela);
         }
+        
+          
+
     }
 
+    public void setPosicao() {
+        Dimension d = this.getDesktopPane().getSize();
+        this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+
+    }
 }
