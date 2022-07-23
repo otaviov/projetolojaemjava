@@ -56,5 +56,7 @@ public class Ultilidades {
         SimpleDateFormat formatotexto = new SimpleDateFormat ("dd/MM/yyyy");
         return formatotexto.format(Data);
     }
+    
+    
 
 }

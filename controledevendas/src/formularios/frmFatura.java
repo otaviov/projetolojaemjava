@@ -403,14 +403,14 @@ public class frmFatura extends javax.swing.JInternalFrame {
         for (int i = 0; i < msDados.numeroCliente(); i++) {
             tbldetalhes.setModel(mTabela);
         }
-        
-          
 
     }
 
+    // Centralizando o JInternal
     public void setPosicao() {
         Dimension d = this.getDesktopPane().getSize();
         this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
 
     }
+    
 }
