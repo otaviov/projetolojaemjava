@@ -6,6 +6,8 @@ import classes.Ultilidades;
 import java.awt.Dimension;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class frmFatura extends javax.swing.JInternalFrame {
@@ -351,7 +353,6 @@ public class frmFatura extends javax.swing.JInternalFrame {
         String registro[] = new String[5];
         registro[0] = msDados.getProdutos()[pos].getIdProduto();
         registro[1] = msDados.getProdutos()[pos].getDescricao();
-
         registro[2] = "" + msDados.getProdutos()[pos].getPreco();
         registro[3] = "" + quantidade;
         registro[4] = "" + (quantidade * msDados.getProdutos()[pos].getPreco());
@@ -363,6 +364,9 @@ public class frmFatura extends javax.swing.JInternalFrame {
         txtquantidade.setText("");
         //Focar no campo de cliente
         cmbcliente.requestFocusInWindow();
+        
+        //chamar metodo de totais
+        totais();
 
     }//GEN-LAST:event_btnadicionarActionPerformed
 
@@ -402,8 +406,14 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
         for (int i = 0; i < msDados.numeroCliente(); i++) {
             tbldetalhes.setModel(mTabela);
+            
+            //alinhar preços
+            DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
+            dtcr.setHorizontalAlignment(SwingConstants.RIGHT);
+            tbldetalhes.getColumnModel().getColumn(2).setCellRenderer(dtcr);
+            tbldetalhes.getColumnModel().getColumn(3).setCellRenderer(dtcr);
+            tbldetalhes.getColumnModel().getColumn(4).setCellRenderer(dtcr);
         }
-
     }
 
     // Centralizando o JInternal
@@ -413,4 +423,14 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
     }
     
+    private void totais(){
+        int num = tbldetalhes.getRowCount();
+        int somQuant = 0, somVal = 0;
+        for(int i = 0; i < num; i++){
+            somQuant += Ultilidades.objectToDouble(tbldetalhes.getValueAt(i, 3));
+            somVal += Ultilidades.objectToDouble(tbldetalhes.getValueAt(i, 4));
+        }
+        txtquant.setText(""+somQuant);
+        txtvalor.setText(""+somVal);
+    }
 }
