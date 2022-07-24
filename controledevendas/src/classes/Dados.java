@@ -52,14 +52,7 @@ public class Dados {
 
     }
     
-    
-    public int getNumeroFatura(){
-        return numFatura;
-    }
-    
-    public void setNumeroFatura(){
-        this.numFatura = numFatura;
-    }
+
 
     // Usuarios
     public int numeroUsuarios() {
@@ -655,8 +648,14 @@ public class Dados {
             }
         }
     }
+        
+    public int getNumeroFatura(){
+        return numFatura;
+    }
     
-    public void trocarSenha(String nova) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setNumeroFatura(int numFatura){
+        this.numFatura = numFatura;
     }
 }
+    
+

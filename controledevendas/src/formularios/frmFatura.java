@@ -159,6 +159,11 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
         btndeletartodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir-todos.png"))); // NOI18N
         btndeletartodos.setToolTipText("Deletar todos os Produtos");
+        btndeletartodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeletartodosActionPerformed(evt);
+            }
+        });
 
         btnsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar.png"))); // NOI18N
         btnsalvar.setToolTipText("Salvar Venda");
@@ -423,14 +428,14 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
             for (int i = 0; i < num; i++) {
                 aux = "2|"
-                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 0))+"|"
-                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 1))+"|"
-                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 2))+"|"
-                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 3))+"|"
+                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 0)) + "|"
+                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 1)) + "|"
+                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 2)) + "|"
+                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 3)) + "|"
                         + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 4));
+
+                pw.println(aux);
             }
-            txtquant.setText("" + somQuant);
-            txtvalor.setText("" + somVal);
 
         } catch (Exception e1) {
             e1.printStackTrace();
@@ -445,8 +450,22 @@ public class frmFatura extends javax.swing.JInternalFrame {
             }
         }
 
+        JOptionPane.showMessageDialog(rootPane, "Venda: " + numFatura + " Realizada com sucesso!");
+        msDados.setNumeroFatura(numFatura);
+        cmbcliente.setSelectedIndex(0);
+        Limpartabela();
+        totais();
+        cmbcliente.requestFocusInWindow();
 
     }//GEN-LAST:event_btnsalvarActionPerformed
+
+    private void btndeletartodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeletartodosActionPerformed
+        // deletar tudo
+        int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja excluir esta venda?");
+        if(resposta != 0){
+            return;
+        }
+    }//GEN-LAST:event_btndeletartodosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -512,5 +531,17 @@ public class frmFatura extends javax.swing.JInternalFrame {
         }
         txtquant.setText("" + somQuant);
         txtvalor.setText("" + somVal);
+    }
+
+    public void Limpartabela() {
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) tbldetalhes.getModel();
+            int Linha = tbldetalhes.getRowCount();
+            for (int i = 0; Linha > i; i++) {
+                modelo.removeRow(0);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
