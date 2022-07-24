@@ -4,6 +4,8 @@ import classes.Dados;
 import classes.Opcoes;
 import classes.Ultilidades;
 import java.awt.Dimension;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -394,7 +396,7 @@ public class frmFatura extends javax.swing.JInternalFrame {
         txtquantidade.setText("");
         //Focar no campo de cliente
         cmbcliente.requestFocusInWindow();
-        
+
         //chamar metodo de totais
         totais();
 
@@ -402,8 +404,48 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
         // Salvando venda
-        
-        
+        int numFatura = msDados.getNumeroFatura() + 1;
+        FileWriter fw = null;
+        PrintWriter pw = null;
+
+        try {
+            fw = new FileWriter("Data/Fatura.txt", true);
+            pw = new PrintWriter(fw);
+
+            String aux = "1|"
+                    + numFatura + "|"
+                    + ((Opcoes) cmbcliente.getSelectedItem()).getValor() + "|"
+                    + ((Opcoes) cmbcliente.getSelectedItem()).getDescricao() + "|"
+                    + txtdata.getText();
+            pw.println(aux);
+
+            double num = tbldetalhes.getRowCount();
+
+            for (int i = 0; i < num; i++) {
+                aux = "2|"
+                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 0))+"|"
+                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 1))+"|"
+                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 2))+"|"
+                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 3))+"|"
+                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 4));
+            }
+            txtquant.setText("" + somQuant);
+            txtvalor.setText("" + somVal);
+
+        } catch (Exception e1) {
+            e1.printStackTrace();
+
+        } finally {
+            try {
+                if (fw != null) {
+                    fw.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+
+
     }//GEN-LAST:event_btnsalvarActionPerformed
 
 
@@ -443,7 +485,7 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
         for (int i = 0; i < msDados.numeroCliente(); i++) {
             tbldetalhes.setModel(mTabela);
-            
+
             //alinhar preços
             DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
             dtcr.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -459,16 +501,16 @@ public class frmFatura extends javax.swing.JInternalFrame {
         this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
 
     }
-    
-    private void totais(){
+
+    private void totais() {
         double num = tbldetalhes.getRowCount();
-        int somQuant = 0; 
+        int somQuant = 0;
         double somVal = 0;
-        for(int i = 0; i < num; i++){
+        for (int i = 0; i < num; i++) {
             somQuant += Ultilidades.objectToInt(tbldetalhes.getValueAt(i, 3));
             somVal += Ultilidades.objectToDouble(tbldetalhes.getValueAt(i, 4));
         }
-        txtquant.setText(""+somQuant);
-        txtvalor.setText(""+somVal);
+        txtquant.setText("" + somQuant);
+        txtvalor.setText("" + somVal);
     }
 }
