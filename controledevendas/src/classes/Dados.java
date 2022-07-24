@@ -25,6 +25,9 @@ public class Dados {
     private int conUsu = 0;
     private int conPro = 0;
     private int conCli = 0;
+    
+    // Salvar vendas
+    private int numFatura = 0;
 
     public Dados() {
         //Criando usuarios manuais
@@ -44,6 +47,8 @@ public class Dados {
 
         //Cadastrando Clientes
         preencherClientes();
+        
+        preencherConfiguracao();
 
     }
 
@@ -239,6 +244,8 @@ public class Dados {
         salvarUsuarios();
         salvarClientes();
         salvarProdutos();
+        salvarConfiguracao();
+        
     }
 
     public void salvarUsuarios() {
@@ -322,6 +329,33 @@ public class Dados {
         }
     }
 
+    public void salvarConfiguracao() {
+        FileWriter fw = null;
+        // Escrever os usuarios cadastrados
+        PrintWriter pw = null;
+
+        try {
+            fw = new FileWriter("Data/Configuracao.ini");
+            pw = new PrintWriter(fw);
+            
+            pw.println("[Geral]");
+            pw.println("FaturaAtual=" + numFatura);
+            
+
+        } catch (Exception e1) {
+            e1.printStackTrace();
+
+        } finally {
+            try {
+                if (fw != null) {
+                    fw.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+    
     public void preencherUsuarios() {
 
         File arquivo = null;
@@ -575,6 +609,44 @@ public class Dados {
 
     }
 
+    public void preencherConfiguracao() {
+
+        File arquivo = null;
+        // Ler os arquivos que foram escritos
+        FileReader fr = null;
+        BufferedReader br = null;
+
+        try {
+            arquivo = new File("Data/Configuracao.ini");
+            fr = new FileReader(arquivo);
+            br = new BufferedReader(fr);
+
+            String linha;
+
+            while ((linha = br.readLine()) != null) {
+                if(linha.startsWith("FaturaAtual=")){
+                    numFatura = new Integer(linha.substring(14));
+                }
+                
+            }
+                
+        }catch (Exception e1) {
+            e1.printStackTrace();
+
+        } finally {
+
+            try {
+                if (fr != null) {
+                    fr.close();
+
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+
+            }
+        }
+    }
+    
     public void trocarSenha(String nova) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }

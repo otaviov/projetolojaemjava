@@ -122,6 +122,8 @@ public class frmFatura extends javax.swing.JInternalFrame {
             }
         });
         tbldetalhes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tbldetalhes.getTableHeader().setResizingAllowed(false);
+        tbldetalhes.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tbldetalhes);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Vendas1.png"))); // NOI18N
