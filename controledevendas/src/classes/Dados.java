@@ -51,6 +51,15 @@ public class Dados {
         preencherConfiguracao();
 
     }
+    
+    
+    public int getNumeroFatura(){
+        return numFatura;
+    }
+    
+    public void setNumeroFatura(){
+        this.numFatura = numFatura;
+    }
 
     // Usuarios
     public int numeroUsuarios() {

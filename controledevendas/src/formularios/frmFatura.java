@@ -160,6 +160,11 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
         btnsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar.png"))); // NOI18N
         btnsalvar.setToolTipText("Salvar Venda");
+        btnsalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsalvarActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Quantidade de itens:");
@@ -394,6 +399,12 @@ public class frmFatura extends javax.swing.JInternalFrame {
         totais();
 
     }//GEN-LAST:event_btnadicionarActionPerformed
+
+    private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
+        // Salvando venda
+        
+        
+    }//GEN-LAST:event_btnsalvarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
