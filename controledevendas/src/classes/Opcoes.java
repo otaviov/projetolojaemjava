@@ -10,10 +10,6 @@ public class Opcoes {
         this.descricao = descricao;
     }
 
-    public Opcoes() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
     public String getValor() {
         return valor;
     }

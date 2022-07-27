@@ -1,12 +1,9 @@
-1|1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|24/07/2022
-2|3|Pipoca|2.9|3|8.700001
-1|1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|24/07/2022
-2|1|Feijão|9.5|9|85.5
-1|1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|24/07/2022
-2|2|Arroz|5.5|2|11.0
-1|2|otavioveira32@gmail.com|SELECIONE UM CLIENTE|24/07/2022
-2|1|Feijão|9.5|9|85.5
-1|3|otavioveira32@gmail.com|SELECIONE UM CLIENTE|24/07/2022
-2|3|Pipoca|2.9|8|23.2
-2|1|Feijão|9.5|9|85.5
-2|2|Arroz|5.5|5|27.5
+1|Numero de fatura: 1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|25/07/2022
+2|ID: 2|Produto: Arroz|Preço: 5.5|Quantidade: 7|Valor Total:38.5
+2|ID: 1|Produto: Feijão|Preço: 9.5|Quantidade: 2|Valor Total:19.0
+2|ID: 1|Produto: Feijão|Preço: 9.5|Quantidade: 3|Valor Total:28.5
+1|Numero de fatura: 1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|25/07/2022
+2|ID: 5|Produto: vps|Preço: 20.0|Quantidade: 2|Valor Total:40.0
+2|ID: 4|Produto: http injector|Preço: 15.0|Quantidade: 1|Valor Total:15.0
+1|Numero de fatura: 1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|25/07/2022
+2|ID: 1|Produto: Feijão|Preço: 9.5|Quantidade: 3|Valor Total:28.5

@@ -20,7 +20,7 @@ public class Usuario {
         return idUsuario;
     }
 
-    public void setIdUsuario(String idUsuario) {
+    public void setIdUsuario(String idUsuarioadm) {
         this.idUsuario = idUsuario;
     }
 

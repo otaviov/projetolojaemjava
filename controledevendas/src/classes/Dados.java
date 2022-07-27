@@ -25,7 +25,7 @@ public class Dados {
     private int conUsu = 0;
     private int conPro = 0;
     private int conCli = 0;
-    
+
     // Salvar vendas
     private int numFatura = 0;
 
@@ -47,12 +47,18 @@ public class Dados {
 
         //Cadastrando Clientes
         preencherClientes();
-        
+
         preencherConfiguracao();
 
     }
-    
 
+    public int getNumeroFatura() {
+        return numFatura;
+    }
+
+    public void setNumeroFatura(int nFatura) {
+        this.numFatura = numFatura;
+    }
 
     // Usuarios
     public int numeroUsuarios() {
@@ -87,8 +93,8 @@ public class Dados {
         }
         return -1;
     }
-    
-    public void trocarSenha (String usuario, String senha) {
+
+    public void trocarSenha(String usuario, String senha) {
 
         for (int i = 0; i < conUsu; i++) {
             if (msUsuarios[i].getIdUsuario().equals(usuario)) {
@@ -97,7 +103,6 @@ public class Dados {
             }
         }
     }
-
 
     public String adicionarUsuario(Usuario mUsuario) {
         if (conUsu == maxUsu) {
@@ -247,7 +252,7 @@ public class Dados {
         salvarClientes();
         salvarProdutos();
         salvarConfiguracao();
-        
+
     }
 
     public void salvarUsuarios() {
@@ -333,16 +338,14 @@ public class Dados {
 
     public void salvarConfiguracao() {
         FileWriter fw = null;
-        // Escrever os usuarios cadastrados
         PrintWriter pw = null;
 
         try {
             fw = new FileWriter("Data/Configuracao.ini");
             pw = new PrintWriter(fw);
-            
+
             pw.println("[Geral]");
             pw.println("FaturaAtual=" + numFatura);
-            
 
         } catch (Exception e1) {
             e1.printStackTrace();
@@ -357,7 +360,7 @@ public class Dados {
             }
         }
     }
-    
+
     public void preencherUsuarios() {
 
         File arquivo = null;
@@ -626,13 +629,12 @@ public class Dados {
             String linha;
 
             while ((linha = br.readLine()) != null) {
-                if(linha.startsWith("FaturaAtual=")){
-                    numFatura = new Integer(linha.substring(14));
+                if (linha.startsWith("FaturaAtual=")) {
+                    numFatura = Integer.valueOf(linha.substring(12));
                 }
-                
             }
-                
-        }catch (Exception e1) {
+
+        } catch (Exception e1) {
             e1.printStackTrace();
 
         } finally {
@@ -648,14 +650,4 @@ public class Dados {
             }
         }
     }
-        
-    public int getNumeroFatura(){
-        return numFatura;
-    }
-    
-    public void setNumeroFatura(int numFatura){
-        this.numFatura = numFatura;
-    }
 }
-    
-

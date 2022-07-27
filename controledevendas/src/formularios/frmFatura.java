@@ -410,6 +410,7 @@ public class frmFatura extends javax.swing.JInternalFrame {
     private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
         // Salvando venda
         int numFatura = msDados.getNumeroFatura() + 1;
+
         FileWriter fw = null;
         PrintWriter pw = null;
 
@@ -418,7 +419,7 @@ public class frmFatura extends javax.swing.JInternalFrame {
             pw = new PrintWriter(fw);
 
             String aux = "1|"
-                    + numFatura + "|"
+                    + "Numero de fatura: " + numFatura + "|"
                     + ((Opcoes) cmbcliente.getSelectedItem()).getValor() + "|"
                     + ((Opcoes) cmbcliente.getSelectedItem()).getDescricao() + "|"
                     + txtdata.getText();
@@ -428,11 +429,11 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
             for (int i = 0; i < num; i++) {
                 aux = "2|"
-                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 0)) + "|"
-                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 1)) + "|"
-                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 2)) + "|"
-                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 3)) + "|"
-                        + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 4));
+                        + "ID: " + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 0)) + "|"
+                        + "Produto: " + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 1)) + "|"
+                        + "Preço: " + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 2)) + "|"
+                        + "Quantidade: " + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 3)) + "|"
+                        + "Valor Total:" + Ultilidades.objectToString(tbldetalhes.getValueAt(i, 4));
 
                 pw.println(aux);
             }
@@ -462,9 +463,11 @@ public class frmFatura extends javax.swing.JInternalFrame {
     private void btndeletartodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeletartodosActionPerformed
         // deletar tudo
         int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja excluir esta venda?");
-        if(resposta != 0){
+        if (resposta != 0) {
             return;
         }
+        Limpartabela();
+        totais();
     }//GEN-LAST:event_btndeletartodosActionPerformed
 
 
@@ -491,10 +494,6 @@ public class frmFatura extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtquantidade;
     private javax.swing.JTextField txtvalor;
     // End of variables declaration//GEN-END:variables
-
-    void setLocationRelativeTo(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     private void preencherTabela() {
 
