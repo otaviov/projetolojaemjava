@@ -156,6 +156,11 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
         btndeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir-produto.png"))); // NOI18N
         btndeletar.setToolTipText("Deletar Produto");
+        btndeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeletarActionPerformed(evt);
+            }
+        });
 
         btndeletartodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir-todos.png"))); // NOI18N
         btndeletartodos.setToolTipText("Deletar todos os Produtos");
@@ -344,7 +349,10 @@ public class frmFatura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void btnpesqclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesqclienteActionPerformed
-        // TODO add your handling code here:
+         // chamando formulario de pesquisar cliente
+        frmPesqCliente mPesqCliente = new frmPesqCliente(null, closable);
+        mPesqCliente.setLocationRelativeTo(null);
+        mPesqCliente.setVisible(true);
     }//GEN-LAST:event_btnpesqclienteActionPerformed
 
     private void txtvalorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvalorActionPerformed
@@ -352,7 +360,7 @@ public class frmFatura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtvalorActionPerformed
 
     private void txtquantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtquantActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtquantActionPerformed
 
     private void btnadicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadicionarActionPerformed
@@ -469,6 +477,30 @@ public class frmFatura extends javax.swing.JInternalFrame {
         Limpartabela();
         totais();
     }//GEN-LAST:event_btndeletartodosActionPerformed
+
+    private void btndeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeletarActionPerformed
+        // TODO add your handling code here:
+        
+        
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) tbldetalhes.getModel();
+            int Linha = tbldetalhes.getRowCount();
+            for (int i = 0; Linha > i; i++) {
+                String idTabela = Ultilidades.objectToString(tbldetalhes.getValueAt(i, 0));
+                String idCombo = ((Opcoes) cmbproduto.getSelectedItem()).getValor();
+                
+                if(idTabela.equals(idCombo)){
+                modelo.removeRow(i);
+                totais();
+                return;
+                        }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+    }//GEN-LAST:event_btndeletarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

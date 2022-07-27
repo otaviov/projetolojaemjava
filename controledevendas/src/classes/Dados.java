@@ -630,7 +630,7 @@ public class Dados {
 
             while ((linha = br.readLine()) != null) {
                 if (linha.startsWith("FaturaAtual=")) {
-                    numFatura = Integer.valueOf(linha.substring(12));
+                    numFatura = Integer.parseInt((linha.substring(12)));
                 }
             }
 
