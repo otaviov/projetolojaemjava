@@ -299,7 +299,22 @@ public class frmFatura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtdataActionPerformed
 
     private void btnpesqprodutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesqprodutoActionPerformed
-        // TODO add your handling code here:
+        // chamando a tela pesq produtos:
+        frmPesqProdutos mPesqProdutos = new frmPesqProdutos(null, closable);
+        mPesqProdutos.setDados(msDados);
+        mPesqProdutos.setLocationRelativeTo(null);
+        mPesqProdutos.setVisible(true);
+
+        String rta = mPesqProdutos.getResposta();
+        if (rta.equals("")) {
+            return;
+        }
+        for (int i = 0; i < cmbproduto.getItemCount(); i++) {
+            if (((Opcoes) cmbproduto.getItemAt(i)).getValor().equals(rta)) {
+                cmbproduto.setSelectedIndex(i);
+                return;
+            }
+        }
     }//GEN-LAST:event_btnpesqprodutoActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
@@ -349,22 +364,22 @@ public class frmFatura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void btnpesqclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesqclienteActionPerformed
-         // chamando formulario de pesquisar cliente
+        // chamando formulario de pesquisar cliente
         frmPesqCliente mPesqCliente = new frmPesqCliente(null, closable);
         mPesqCliente.setDados(msDados);
         mPesqCliente.setLocationRelativeTo(null);
         mPesqCliente.setVisible(true);
-        
+
         String rta = mPesqCliente.getResposta();
-        if(rta.equals("")){
+        if (rta.equals("")) {
             return;
         }
-        for(int i = 0; i < cmbcliente.getItemCount(); i++){
-        if(((Opcoes)cmbcliente.getItemAt(i)).getValor().equals(rta)){
-            cmbcliente.setSelectedIndex(i);
-            return;
+        for (int i = 0; i < cmbcliente.getItemCount(); i++) {
+            if (((Opcoes) cmbcliente.getItemAt(i)).getValor().equals(rta)) {
+                cmbcliente.setSelectedIndex(i);
+                return;
+            }
         }
-    }
     }//GEN-LAST:event_btnpesqclienteActionPerformed
 
     private void txtvalorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvalorActionPerformed
@@ -372,7 +387,7 @@ public class frmFatura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtvalorActionPerformed
 
     private void txtquantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtquantActionPerformed
-       
+
     }//GEN-LAST:event_txtquantActionPerformed
 
     private void btnadicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnadicionarActionPerformed
@@ -492,26 +507,25 @@ public class frmFatura extends javax.swing.JInternalFrame {
 
     private void btndeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeletarActionPerformed
         // TODO add your handling code here:
-        
-        
+
         try {
             DefaultTableModel modelo = (DefaultTableModel) tbldetalhes.getModel();
             int Linha = tbldetalhes.getRowCount();
             for (int i = 0; Linha > i; i++) {
                 String idTabela = Ultilidades.objectToString(tbldetalhes.getValueAt(i, 0));
                 String idCombo = ((Opcoes) cmbproduto.getSelectedItem()).getValor();
-                
-                if(idTabela.equals(idCombo)){
-                modelo.removeRow(i);
-                totais();
-                return;
-                        }
+
+                if (idTabela.equals(idCombo)) {
+                    modelo.removeRow(i);
+                    totais();
+                    return;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        
+
+
     }//GEN-LAST:event_btndeletarActionPerformed
 
 
