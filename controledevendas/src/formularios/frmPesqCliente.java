@@ -19,18 +19,61 @@ public class frmPesqCliente extends javax.swing.JDialog {
         String titulos[] = {"ID", "Nome", "S_nome"};
         String registro[] = new String[3];
         mTabela = new DefaultTableModel(null, titulos);
+        if (txtpesqcli.getText().equals("")) {
+            for (int i = 0; i < msDados.numeroCliente(); i++) {
+                registro[0] = msDados.getCliente()[i].getIdCliente();
+                registro[1] = msDados.getCliente()[i].getNome();
+                registro[2] = msDados.getCliente()[i].getSNome();
 
-        for (int i = 0; i < msDados.numeroCliente(); i++) {
-            registro[0] = msDados.getCliente()[i].getIdCliente();
-            registro[1] = msDados.getCliente()[i].getNome();
-            registro[2] = msDados.getCliente()[i].getSNome();
+            }
 
-            mTabela.addRow(registro);
+            tblTabela.setModel(mTabela);
+            return;
 
         }
+        if (radionome.isSelected()) {
+            for (int i = 0; i < msDados.numeroCliente(); i++) {
+                if (msDados.getCliente()[i].getNome().startsWith(txtpesqcli.getText())) {
+                    registro[0] = msDados.getCliente()[i].getIdCliente();
+                    registro[1] = msDados.getCliente()[i].getNome();
+                    registro[2] = msDados.getCliente()[i].getSNome();
 
-        tblTabela.setModel(mTabela);
+                    mTabela.addRow(registro);
 
+                }
+            }
+            tblTabela.setModel(mTabela);
+            return;
+        }
+
+        if (radiosnome.isSelected()) {
+            for (int i = 0; i < msDados.numeroCliente(); i++) {
+                if (msDados.getCliente()[i].getSNome().startsWith(txtpesqcli.getText())) {
+                    registro[0] = msDados.getCliente()[i].getIdCliente();
+                    registro[1] = msDados.getCliente()[i].getNome();
+                    registro[2] = msDados.getCliente()[i].getSNome();
+
+                    mTabela.addRow(registro);
+
+                }
+            }
+            tblTabela.setModel(mTabela);
+            return;
+        }
+        if (radioid.isSelected()) {
+            for (int i = 0; i < msDados.numeroCliente(); i++) {
+                if (msDados.getCliente()[i].getIdCliente().startsWith(txtpesqcli.getText())) {
+                    registro[0] = msDados.getCliente()[i].getIdCliente();
+                    registro[1] = msDados.getCliente()[i].getNome();
+                    registro[2] = msDados.getCliente()[i].getSNome();
+
+                    mTabela.addRow(registro);
+
+                }
+            }
+            tblTabela.setModel(mTabela);
+            
+        }
     }
 
     public frmPesqCliente(java.awt.Frame parent, boolean modal) {
@@ -80,8 +123,24 @@ public class frmPesqCliente extends javax.swing.JDialog {
         });
 
         radionome.setText("Nome");
+        radionome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radionomeActionPerformed(evt);
+            }
+        });
 
         radiosnome.setText("Sobrenome");
+        radiosnome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radiosnomeActionPerformed(evt);
+            }
+        });
+
+        txtpesqcli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtpesqcliActionPerformed(evt);
+            }
+        });
 
         tblTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,7 +212,9 @@ public class frmPesqCliente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void radioidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioidActionPerformed
-        // TODO add your handling code here:
+        txtpesqcli.setText("");
+        txtpesqcli.requestFocusInWindow();
+        preencherTabela();
     }//GEN-LAST:event_radioidActionPerformed
 
     private void btnpesqcliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesqcliActionPerformed
@@ -164,8 +225,27 @@ public class frmPesqCliente extends javax.swing.JDialog {
         // chamando metodo de preencher tabela   
         preencherTabela();
         txtpesqcli.requestFocusInWindow();
-        
+
     }//GEN-LAST:event_formWindowOpened
+
+    private void radionomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radionomeActionPerformed
+
+        txtpesqcli.setText("");
+        txtpesqcli.requestFocusInWindow();
+        preencherTabela();
+
+    }//GEN-LAST:event_radionomeActionPerformed
+
+    private void radiosnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radiosnomeActionPerformed
+        txtpesqcli.setText("");
+        txtpesqcli.requestFocusInWindow();
+        preencherTabela();
+    }//GEN-LAST:event_radiosnomeActionPerformed
+
+    private void txtpesqcliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpesqcliActionPerformed
+        // pedindo para preencher a tabela
+        preencherTabela();
+    }//GEN-LAST:event_txtpesqcliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,16 +261,24 @@ public class frmPesqCliente extends javax.swing.JDialog {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmPesqCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPesqCliente.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmPesqCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPesqCliente.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmPesqCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPesqCliente.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmPesqCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPesqCliente.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
