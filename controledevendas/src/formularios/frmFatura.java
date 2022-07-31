@@ -354,6 +354,17 @@ public class frmFatura extends javax.swing.JInternalFrame {
         mPesqCliente.setDados(msDados);
         mPesqCliente.setLocationRelativeTo(null);
         mPesqCliente.setVisible(true);
+        
+        String rta = mPesqCliente.getResposta();
+        if(rta.equals("")){
+            return;
+        }
+        for(int i = 0; i < cmbcliente.getItemCount(); i++){
+        if(((Opcoes)cmbcliente.getItemAt(i)).getValor().equals(rta)){
+            cmbcliente.setSelectedIndex(i);
+            return;
+        }
+    }
     }//GEN-LAST:event_btnpesqclienteActionPerformed
 
     private void txtvalorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvalorActionPerformed

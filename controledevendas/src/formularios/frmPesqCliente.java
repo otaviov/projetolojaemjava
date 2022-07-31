@@ -1,6 +1,7 @@
 package formularios;
 
 import classes.Dados;
+import classes.Ultilidades;
 import javax.swing.table.DefaultTableModel;
 
 public class frmPesqCliente extends javax.swing.JDialog {
@@ -8,6 +9,12 @@ public class frmPesqCliente extends javax.swing.JDialog {
     private Dados msDados;
 
     private DefaultTableModel mTabela;
+
+    private String resposta = "";
+
+    public String getResposta() {
+        return resposta;
+    }
 
     public void setDados(Dados msDados) {
         this.msDados = msDados;
@@ -72,7 +79,7 @@ public class frmPesqCliente extends javax.swing.JDialog {
                 }
             }
             tblTabela.setModel(mTabela);
-            
+
         }
     }
 
@@ -163,6 +170,11 @@ public class frmPesqCliente extends javax.swing.JDialog {
         });
 
         btnpesqsair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir-produto.png"))); // NOI18N
+        btnpesqsair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpesqsairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -218,7 +230,25 @@ public class frmPesqCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_radioidActionPerformed
 
     private void btnpesqcliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesqcliActionPerformed
-        // TODO add your handling code here:
+        // fazendo contagem de linhas
+        int num = tblTabela.getRowCount();
+        if (num == 0) {
+            resposta = "";
+            dispose();
+            return;
+        }
+
+        for (int i = 0; i < num; i++) {
+            if (tblTabela.isRowSelected(i)) {
+                resposta = Ultilidades.objectToString(tblTabela.getValueAt(i, 0));
+                
+                dispose();
+                return;
+            }
+        }
+        resposta = Ultilidades.objectToString(tblTabela.getValueAt(0, 0));
+                
+                dispose();
     }//GEN-LAST:event_btnpesqcliActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -246,6 +276,12 @@ public class frmPesqCliente extends javax.swing.JDialog {
         // pedindo para preencher a tabela
         preencherTabela();
     }//GEN-LAST:event_txtpesqcliActionPerformed
+
+    private void btnpesqsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesqsairActionPerformed
+        // Saindo
+        resposta = "";
+        dispose();
+    }//GEN-LAST:event_btnpesqsairActionPerformed
 
     /**
      * @param args the command line arguments

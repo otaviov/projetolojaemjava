@@ -150,6 +150,9 @@
           <Image iconType="3" name="/icones/excluir-produto.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnpesqsairActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
