@@ -351,6 +351,7 @@ public class frmFatura extends javax.swing.JInternalFrame {
     private void btnpesqclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesqclienteActionPerformed
          // chamando formulario de pesquisar cliente
         frmPesqCliente mPesqCliente = new frmPesqCliente(null, closable);
+        mPesqCliente.setDados(msDados);
         mPesqCliente.setLocationRelativeTo(null);
         mPesqCliente.setVisible(true);
     }//GEN-LAST:event_btnpesqclienteActionPerformed

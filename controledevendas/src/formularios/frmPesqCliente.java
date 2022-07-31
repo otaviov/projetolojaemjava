@@ -1,21 +1,47 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package formularios;
 
-/**
- *
- * @author amand
- */
+import classes.Dados;
+import javax.swing.table.DefaultTableModel;
+
 public class frmPesqCliente extends javax.swing.JDialog {
 
-    /**
-     * Creates new form frmPesqCliente
-     */
+    private Dados msDados;
+
+    private DefaultTableModel mTabela;
+
+    public void setDados(Dados msDados) {
+        this.msDados = msDados;
+
+    }
+
+    private void preencherTabela() {
+
+        String titulos[] = {"ID", "Nome", "S_nome"};
+        String registro[] = new String[3];
+        mTabela = new DefaultTableModel(null, titulos);
+
+        for (int i = 0; i < msDados.numeroCliente(); i++) {
+            registro[0] = msDados.getCliente()[i].getIdCliente();
+            registro[1] = msDados.getCliente()[i].getNome();
+            registro[2] = msDados.getCliente()[i].getSNome();
+
+            mTabela.addRow(registro);
+
+        }
+
+        tblTabela.setModel(mTabela);
+
+    }
+
     public frmPesqCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        //validando escola de radio button
+        bgtipopesq.add(radioid);
+        bgtipopesq.add(radionome);
+        bgtipopesq.add(radiosnome);
+
     }
 
     /**
@@ -31,8 +57,19 @@ public class frmPesqCliente extends javax.swing.JDialog {
         radioid = new javax.swing.JRadioButton();
         radionome = new javax.swing.JRadioButton();
         radiosnome = new javax.swing.JRadioButton();
+        txtpesqcli = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblTabela = new javax.swing.JTable();
+        btnpesqcli = new javax.swing.JButton();
+        btnpesqsair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pesquisa de Cliente");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         radioid.setSelected(true);
         radioid.setText("Id Cliente");
@@ -46,18 +83,52 @@ public class frmPesqCliente extends javax.swing.JDialog {
 
         radiosnome.setText("Sobrenome");
 
+        tblTabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblTabela);
+
+        btnpesqcli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa3.png"))); // NOI18N
+        btnpesqcli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpesqcliActionPerformed(evt);
+            }
+        });
+
+        btnpesqsair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir-produto.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(radioid)
-                .addGap(44, 44, 44)
-                .addComponent(radionome)
-                .addGap(46, 46, 46)
-                .addComponent(radiosnome)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtpesqcli)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(radioid)
+                        .addGap(44, 44, 44)
+                        .addComponent(radionome)
+                        .addGap(46, 46, 46)
+                        .addComponent(radiosnome))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(327, 327, 327)
+                        .addComponent(btnpesqcli)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnpesqsair)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -67,7 +138,15 @@ public class frmPesqCliente extends javax.swing.JDialog {
                     .addComponent(radioid)
                     .addComponent(radionome)
                     .addComponent(radiosnome))
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(txtpesqcli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnpesqcli)
+                    .addComponent(btnpesqsair))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -76,6 +155,17 @@ public class frmPesqCliente extends javax.swing.JDialog {
     private void radioidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radioidActionPerformed
+
+    private void btnpesqcliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesqcliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnpesqcliActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // chamando metodo de preencher tabela   
+        preencherTabela();
+        txtpesqcli.requestFocusInWindow();
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -121,8 +211,13 @@ public class frmPesqCliente extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bgtipopesq;
+    private javax.swing.JButton btnpesqcli;
+    private javax.swing.JButton btnpesqsair;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton radioid;
     private javax.swing.JRadioButton radionome;
     private javax.swing.JRadioButton radiosnome;
+    private javax.swing.JTable tblTabela;
+    private javax.swing.JTextField txtpesqcli;
     // End of variables declaration//GEN-END:variables
 }
