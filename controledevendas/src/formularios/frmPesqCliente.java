@@ -151,15 +151,17 @@ public class frmPesqCliente extends javax.swing.JDialog {
 
         tblTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nome", "Sobrenome"
             }
         ));
+        tblTabela.getTableHeader().setResizingAllowed(false);
+        tblTabela.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblTabela);
 
         btnpesqcli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/pesquisa3.png"))); // NOI18N

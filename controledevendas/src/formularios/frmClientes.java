@@ -730,7 +730,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         btnPesquisar.setEnabled(true); //fim 1
 
         // 2 desabilitar as caixas de texto
-        txtIDCliente.setEditable(false);
+        txtIDCliente.setEnabled(false);
         txtNome.setEnabled(false);
         txtSNome.setEnabled(false);
         DNascimento.setEnabled(false);
@@ -759,7 +759,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
         btnPesquisar.setEnabled(true); //fim 1
 
         // 2 Desabilitar as caixas de texto
-        txtIDCliente.setEditable(false);
+        txtIDCliente.setEnabled(false);
         txtNome.setEnabled(false);
         txtSNome.setEnabled(false);
         DNascimento.setEnabled(false);
@@ -780,7 +780,7 @@ public class frmClientes extends javax.swing.JInternalFrame {
 
         //Chamar o preenchimento da tabela
         preencherTabela();
-        
+
         DData.setText(Ultilidades.formatDate(new Date()));
 
     }//GEN-LAST:event_formInternalFrameOpened
@@ -818,18 +818,21 @@ public class frmClientes extends javax.swing.JInternalFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
 
-        int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente deletar este cliente?",
+       int resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente deletar este cliente?",
                 "ATENÇÂO", HEIGHT);
         if (resposta != 0) {
             return;
         }
+       
+    
         String msg;
         msg = msDados.deletarCliente(CliAtual);
 
         JOptionPane.showMessageDialog(rootPane, msg,
                 "ATENÇÂO", HEIGHT, figura);
 
-        CliAtual = 0;
+        CliAtual = 0; 
+        
 
         mostrarRegistro();
         preencherTabela();

@@ -1,3 +1,6 @@
-1|Lucas|Andrade|07/09/1997||81998554851|0|1|1|12/06/2022
-2|Oliver|Souza|05/09/1993|gffd|8199856565|4|3|3|12/06/2022
-3|Otavio|Oliveira|10/05/1997|Condominio Prive das jaqueiras|81998502797|4|16|1|12/06/2022
+3|Otavio|Oliveira|15/10/0018|Condominio Prive das jaqueiras|81998502797|4|16|1|12/06/2022
+4|Jose |Leoncio|02/01/0014|Pantanal|85992431325|1|13|4|
+5|Jose|Lucas|11/01/0015|Recife -Pe|81993543244|0|0|0|
+1|Armando|Soares|18/01/0008||81993647754|0|0|0|
+2|Walder|Losdre|27/11/0013|Na puta que pariu|81997644534|0|7|0|
+6|Paulo|Andrade|01/11/0007||0|0|1|0|
