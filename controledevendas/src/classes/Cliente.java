@@ -121,7 +121,7 @@ public class Cliente {
                 + idTipo + "|"
                 + estado + "|"
                 + idcidade + "|"
-                + Data;
+                + Ultilidades.formatDate(new Date(Data));
     }
 
 }

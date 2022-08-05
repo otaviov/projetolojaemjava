@@ -839,7 +839,7 @@ public class frmProdutos extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblTabela;
     private javax.swing.JTextArea txtAnotacao;
-    private javax.swing.JTextField txtDescricao;
+    public static javax.swing.JTextField txtDescricao;
     private javax.swing.JTextField txtIDProduto;
     private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables

@@ -837,8 +837,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblTabela;
     private javax.swing.JPasswordField txtConfSenhaUsuario;
     private javax.swing.JTextField txtIDUsuario;
-    private javax.swing.JTextField txtNome;
+    public static javax.swing.JTextField txtNome;
     private javax.swing.JPasswordField txtSenhaUsuario;
-    private javax.swing.JTextField txtsnome;
+    public static javax.swing.JTextField txtsnome;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,8 @@
 package classes;
 
+import formularios.frmClientes;
+import formularios.frmProdutos;
+import formularios.frmUsuarios;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -108,10 +111,13 @@ public class Dados {
         if (conUsu == maxUsu) {
             return "Não é possível cadastrar mais usuarios (Número Máximo atingido)";
         }
-
+        // Pegar nome e sobrenome do usuario
+        String nomeUsu = frmUsuarios.txtNome.getText();
+        String sobrNomeUsu = frmUsuarios.txtsnome.getText();
+        
         msUsuarios[conUsu] = mUsuario;
         conUsu++;
-        return "Usuário cadastrado com sucesso";
+        return "Usuário " + nomeUsu + " " + sobrNomeUsu + " cadastrado com sucesso";
     }
 
     public int posicaoUsuario(String usuario) {
@@ -132,7 +138,11 @@ public class Dados {
         msUsuarios[pos].setPerfil(mUsuario.getPerfil());
         msUsuarios[pos].setSenha(mUsuario.getSenha());
 
-        return "Usuario editado com sucesso";
+        // Pegar nome do usuario
+        String nomeUsu = frmUsuarios.txtNome.getText();
+        String sobrNomeUsu = frmUsuarios.txtsnome.getText();
+        
+        return "Usuario " + nomeUsu + " " + sobrNomeUsu + " editado com sucesso";
     }
 
     public String deletarUsuario(int pos) {
@@ -170,9 +180,12 @@ public class Dados {
             return "Não é possível cadastrar mais produtos (Número Máximo atingido)";
         }
 
+        // Pegar o produto digitado
+        String produtoNome = frmProdutos.txtDescricao.getText();
+        
         msProdutos[conPro] = mProduto;
         conPro++;
-        return "Produto cadastrado com sucesso";
+        return "Produto " + produtoNome + " cadastrado com sucesso";
     }
 
     public String editarProduto(Produto mProduto, int pos) {
@@ -181,7 +194,10 @@ public class Dados {
         msProdutos[pos].setImposto(mProduto.getImposto());
         msProdutos[pos].setAnotacao(mProduto.getAnotacao());
 
-        return "Produto editado com sucesso";
+        // Pegar o produto digitado
+        String produtoNome = frmProdutos.txtDescricao.getText();
+        
+        return "Produto " + produtoNome + " editado com sucesso";
     }
 
     public String deletarProduto(int pos) {
@@ -218,10 +234,14 @@ public class Dados {
         if (conCli == maxCli) {
             return "Não é possível cadastrar mais clientes (Número Máximo atingido)";
         }
-
+        
+        //pegar o nome ddo cliente digitado 
+        String nome = frmClientes.txtNome.getText();
+        String sobreNome = frmClientes.txtSNome.getText();
+        
         msClientes[conCli] = mCliente;
         conCli++;
-        return "Cliente cadastrado com sucesso";
+        return "Cliente " + nome + " " + sobreNome + " cadastrado com sucesso ";
     }
 
     public String editarCliente(Cliente mCliente, int pos) {
@@ -234,8 +254,12 @@ public class Dados {
         msClientes[pos].setEstado(mCliente.getEstado());
         msClientes[pos].setIdcidade(mCliente.getIdcidade());
         msClientes[pos].setData(mCliente.getData());
+        
+        //pegar o nome ddo cliente digitado 
+        String nome = frmClientes.txtNome.getText();
+        String sobreNome = frmClientes.txtSNome.getText();
 
-        return "Cliente editado com sucesso";
+        return "Cliente " + nome + " " + sobreNome + " editado com sucesso";
     }
 
     public String deletarCliente(int pos) {
