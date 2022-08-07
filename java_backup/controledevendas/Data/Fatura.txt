@@ -1,0 +1,18 @@
+1|Numero de fatura: 1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|25/07/2022
+2|ID: 2|Produto: Arroz|Preço: 5.5|Quantidade: 7|Valor Total:38.5
+2|ID: 1|Produto: Feijão|Preço: 9.5|Quantidade: 2|Valor Total:19.0
+2|ID: 1|Produto: Feijão|Preço: 9.5|Quantidade: 3|Valor Total:28.5
+1|Numero de fatura: 1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|25/07/2022
+2|ID: 5|Produto: vps|Preço: 20.0|Quantidade: 2|Valor Total:40.0
+2|ID: 4|Produto: http injector|Preço: 15.0|Quantidade: 1|Valor Total:15.0
+1|Numero de fatura: 1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|25/07/2022
+2|ID: 1|Produto: Feijão|Preço: 9.5|Quantidade: 3|Valor Total:28.5
+1|Numero de fatura: 1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|02/08/2022
+1|Numero de fatura: 1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|02/08/2022
+2|ID: 8|Produto: Velas|Preço: 5.25|Quantidade: 1|Valor Total:5.25
+2|ID: 6|Produto: Notebook ACER 8GB RAM 1TB|Preço: 2450.0|Quantidade: 1|Valor Total:2450.0
+1|Numero de fatura: 1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|02/08/2022
+2|ID: 2|Produto: Arroz|Preço: 5.5|Quantidade: 3|Valor Total:16.5
+1|Numero de fatura: 1|otavioveira32@gmail.com|SELECIONE UM CLIENTE|02/08/2022
+2|ID: 9|Produto: Notebook HP 8GB 500GB|Preço: 2500.0|Quantidade: 1|Valor Total:2500.0
+2|ID: 7|Produto: Cano |Preço: 4.5|Quantidade: 6|Valor Total:27.0

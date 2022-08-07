@@ -1,0 +1,9 @@
+1|Feijão|9.5|0|Feijão preto
+2|Arroz|5.5|0|Arroz branco
+3|Pipoca|2.9|0|
+4|http injector|15.0|0|é u 
+5|vps|20.0|0|
+6|Notebook ACER 8GB 1TB |3550.0|1|Notebook Rapido e competente 
+7|Cano |4.5|0|
+8|Notebook DELL 4GB 250GB |2650.0|0|
+9|Notebook HP 8GB 500GB|2500.0|1|

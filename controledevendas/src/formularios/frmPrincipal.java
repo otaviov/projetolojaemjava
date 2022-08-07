@@ -2,6 +2,7 @@ package formularios;
 
 import classes.Background;
 import classes.Dados;
+import classes.Dados_db;
 import formulariosSobres.frmSobrePrincipal;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -24,9 +25,16 @@ public class frmPrincipal extends javax.swing.JFrame {
     //Saber se é usuario
     private String usuario;
     private Dados msDados;
+    private Dados_db msDados_db;
+    
+    
 
     public void setDados(Dados msDados) {
         this.msDados = msDados;
+    }
+    
+    public void setDados_db(Dados_db msDados_db) {
+        this.msDados_db = msDados_db;
     }
 
     //Metodo para saber o tipo de usuario

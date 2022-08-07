@@ -1,3 +1,3 @@
-1|Otavio|Oliveira|10/05/1997|Condominio Prive das Jaqueiras|81998502797|4|16|3|12/06/2022
-2|Claudio|Jose|09/08/1995||81985785421|0|0|0|12/06/2022
-3|Luiz|Inacio|19/08/1996||0|0|0|0|12/06/2022
+1|Otavio|Oliveira|18/10/0015|Condominio Prive das Jaqueiras|81998502797|4|16|3|06/12/2022
+2|Claudio|Jose|16/01/0015||81985785421|0|0|0|06/12/2022
+3|Luiz|Inacio|16/01/0025||0|0|0|0|06/12/2022

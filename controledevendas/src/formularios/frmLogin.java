@@ -2,6 +2,7 @@ package formularios;
 
 //Importações
 import classes.Dados;
+import classes.Dados_db;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.Icon;
@@ -13,8 +14,15 @@ public class frmLogin extends javax.swing.JFrame {
 
     //private Dados msDados;
     Dados msDados = new Dados();
+    
+    Dados_db msDados_db = new Dados_db();
+    
 
-    public void setDados(Dados msDados) {
+    public void setDados(Dados_db msDados) {
+        this.msDados_db = msDados_db;
+    }
+    
+    public void setDados_db(Dados msDados_db) {
         this.msDados = msDados;
     }
 
@@ -126,7 +134,7 @@ public class frmLogin extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // 1 chamando a classe Dados para verificar usuario:
 
-        if (!msDados.validarUsuario(txtUsuario.getText(),
+        if (!msDados_db.validarUsuario(txtUsuario.getText(),
                 new String(txtSenha.getPassword()))) {
 
             // 2 Adicionando icone no JOPtionPane
@@ -146,13 +154,18 @@ public class frmLogin extends javax.swing.JFrame {
         frmPrincipal mPrincipal = new frmPrincipal();
         this.setVisible(false);
         mPrincipal.setDados(msDados);
-        mPrincipal.setPerfil(msDados.getPerfil(txtUsuario.getText()));
+        //validando login
+        mPrincipal.setDados_db(msDados_db);
+        //Validando tipo de perfil de usuario (adm ou comum)
+        mPrincipal.setPerfil(msDados_db.getPerfil(txtUsuario.getText()));
+        
         mPrincipal.setSenha(new String (txtSenha.getPassword()));
         mPrincipal.setUsuario(txtUsuario.getText());
         //abrindo a tela do frmPrincipal maximizada
         mPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
         mPrincipal.setVisible(true);
 
+        
 
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -217,5 +230,13 @@ public class frmLogin extends javax.swing.JFrame {
     private void setIcon() {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/nix1.png")));
     } //fim
+
+    public void setDados(Dados msDados) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setDados_db(Dados_db msDados_db) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }
