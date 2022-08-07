@@ -4,6 +4,10 @@ import formulariosSobres.frmSobreUsuarios;
 import classes.Dados;
 import classes.Dados_db;
 import classes.Usuario;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -30,6 +34,10 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
     public void setDados(Dados msDados) {
         this.msDados = msDados;
+    }
+    
+    public void setDados_db(Dados_db msDados_db) {
+        this.msDados_db = msDados_db;
     }
 
     public frmUsuarios() {
@@ -703,7 +711,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             return;
         }
         String msg;
-        msg = msDados.deletarUsuario(usuAtual);
+        msg = msDados_db.deletarUsuario(txtIDUsuario.getText());
 
         JOptionPane.showMessageDialog(rootPane, msg,
                 "ATENÇÂO", HEIGHT, figura);
@@ -763,31 +771,37 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
     private void mostrarRegistro() {
         //metodo para mostrar os registros de usuarios na tela
-        txtIDUsuario.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
-        txtNome.setText(msDados.getUsuarios()[usuAtual].getNome());
-        txtsnome.setText(msDados.getUsuarios()[usuAtual].getSnome());
-        txtSenhaUsuario.setText(msDados.getUsuarios()[usuAtual].getSenha());
-        txtConfSenhaUsuario.setText(msDados.getUsuarios()[usuAtual].getSenha());
-        cmbPerfil.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
+//        txtIDUsuario.setText(msDados.getUsuarios()[usuAtual].getIdUsuario());
+//        txtNome.setText(msDados.getUsuarios()[usuAtual].getNome());
+//        txtsnome.setText(msDados.getUsuarios()[usuAtual].getSnome());
+//        txtSenhaUsuario.setText(msDados.getUsuarios()[usuAtual].getSenha());
+//        txtConfSenhaUsuario.setText(msDados.getUsuarios()[usuAtual].getSenha());
+//        cmbPerfil.setSelectedIndex(msDados.getUsuarios()[usuAtual].getPerfil());
     }
 
     private void preencherTabela() {
 
-        String titulos[] = {"Usuário", "Nome", "Sobrenome", "Tipo de Acesso"};
-        String registro[] = new String[4];
-        mTabela = new DefaultTableModel(null, titulos);
-
-        for (int i = 0; i < msDados.numeroUsuarios(); i++) {
-            registro[0] = msDados.getUsuarios()[i].getIdUsuario();
-            registro[1] = msDados.getUsuarios()[i].getNome();
-            registro[2] = msDados.getUsuarios()[i].getSnome();
-            registro[3] = perfil(msDados.getUsuarios()[i].getPerfil());
-
-            mTabela.addRow(registro);
-
+        try {
+            String titulos[] = {"Usuário", "Nome", "Sobrenome", "Tipo de Acesso"};
+            String registro[] = new String[4];
+            mTabela = new DefaultTableModel(null, titulos);
+            ResultSet rs = msDados_db.getUsuarios();
+            
+            while(rs.next()){
+                registro[0] = rs.getString("idUsuario");
+                registro[1] = rs.getString("nome");
+                registro[2] = rs.getString("snome");
+                registro[3] = perfil(rs.getInt("idPerfil"));
+                
+                mTabela.addRow(registro);
+            }
+            
+            tblTabela.setModel(mTabela);
+            
+        } catch (SQLException ex) {
+            
+            Logger.getLogger(frmUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        tblTabela.setModel(mTabela);
 
     }
 
@@ -844,4 +858,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     private javax.swing.JPasswordField txtSenhaUsuario;
     public static javax.swing.JTextField txtsnome;
     // End of variables declaration//GEN-END:variables
+
+   
 }

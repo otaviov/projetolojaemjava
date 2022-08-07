@@ -123,30 +123,70 @@ public class Dados_db {
             return "Não é possivel cadastrar o usuario " + nomeUsu + " " + sobrNomeUsu;
         }
     }
-    
+
     // Editar o usuario no banco de dados local
     public String editarUsuario(Usuario mUsuario) {
-       
+
         // Pegar nome do usuario
-            String nomeUsu = frmUsuarios.txtNome.getText();
-            String sobrNomeUsu = frmUsuarios.txtsnome.getText();
-            
+        String nomeUsu = frmUsuarios.txtNome.getText();
+        String sobrNomeUsu = frmUsuarios.txtsnome.getText();
+
         try {
-            
-            String sql = "update usuario set " 
+
+            String sql = "update usuarios set "
                     + "nome ='" + mUsuario.getNome() + "', "
                     + "snome =' " + mUsuario.getSnome() + "', "
                     + "senha =' " + mUsuario.getSenha() + "', "
                     + "idPerfil = " + mUsuario.getPerfil() + " "
-                    + "where idUsuario = ' " + mUsuario.getIdUsuario() + "'" ;
-                    
+                    + "where idUsuario = ' " + mUsuario.getIdUsuario() + "'";
+
             Statement st = cnn.createStatement();
-            
+            st.executeUpdate(sql);
+
             return "Usuario " + nomeUsu + " " + sobrNomeUsu + " editado com sucesso";
         } catch (SQLException ex) {
-            
+
             Logger.getLogger(Dados_db.class.getName()).log(Level.SEVERE, null, ex);
             return "Não é possivel editar o usuario " + nomeUsu + " " + sobrNomeUsu;
+        }
+    }
+
+    // Deletar o usuario do banco de dados local
+    public String deletarUsuario(String usuario) {
+        
+        // Pegar nome do usuario
+        String nomeUsu = frmUsuarios.txtNome.getText();
+        String sobrNomeUsu = frmUsuarios.txtsnome.getText();
+
+        try {
+            String sql = "delete from usuarios where idUsuario = '" + usuario + "'";
+
+            Statement st = cnn.createStatement();
+            st.executeUpdate(sql);
+
+            return "Usuario " + nomeUsu + " " + sobrNomeUsu + " deletado com sucesso";
+
+        } catch (SQLException ex) {
+
+            Logger.getLogger(Dados_db.class.getName()).log(Level.SEVERE, null, ex);
+            return "Algo deu errado, não foi possivel deletar o usuario " + nomeUsu + " " + sobrNomeUsu;
+        }
+    }
+    
+    // metodo para chamar os usuario e mostrar na tabela
+    public ResultSet getUsuarios() {
+
+        try {
+            String sql = "select * from usuarios";
+
+            Statement st = cnn.createStatement();
+            return st.executeQuery(sql);
+
+
+        } catch (SQLException ex) {
+
+            Logger.getLogger(Dados_db.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
     }
 }

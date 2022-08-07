@@ -15,15 +15,16 @@ public class frmLogin extends javax.swing.JFrame {
     //private Dados msDados;
     Dados msDados = new Dados();
     
+    //Metodo do banco de dados
     Dados_db msDados_db = new Dados_db();
     
 
-    public void setDados(Dados_db msDados) {
-        this.msDados_db = msDados_db;
+    public void setDados(Dados msDados) {
+        this.msDados = msDados;
     }
     
-    public void setDados_db(Dados msDados_db) {
-        this.msDados = msDados;
+    public void setDados_db(Dados_db msDados_db) {
+        this.msDados_db = msDados_db;
     }
 
     public frmLogin() {
@@ -231,13 +232,7 @@ public class frmLogin extends javax.swing.JFrame {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/nix1.png")));
     } //fim
 
-    public void setDados(Dados msDados) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setDados_db(Dados_db msDados_db) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
 
 }
