@@ -26,6 +26,7 @@ public class Dados_db {
 
     }
 
+    // Validadar usuario e senha se est]ao corretas
     public boolean validarUsuario(String usuario, String senha) {
 
         try {
@@ -57,7 +58,7 @@ public class Dados_db {
 
             Statement st = cnn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            
+
             if (rs.next()) {
                 return rs.getInt("idPerfil");
             } else {
@@ -70,4 +71,26 @@ public class Dados_db {
         }
     }
 
+    // Validar se existe usuario na tela de login
+    public boolean existeUsuario(String usuario) {
+        try {
+            String sql = "select (1) from usuarios where idUsuario ='"
+                    + usuario + "'";
+            Statement st = cnn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+            //Se exite o usuario
+            if (rs.next()) {
+                return true;
+            }//se não existe o usuario 
+            else {
+                return false;
+            }
+
+        } catch (Exception ex) {
+
+            Logger.getLogger(Dados_db.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 }

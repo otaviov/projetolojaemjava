@@ -2,6 +2,7 @@ package formularios;
 
 import formulariosSobres.frmSobreUsuarios;
 import classes.Dados;
+import classes.Dados_db;
 import classes.Usuario;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -16,6 +17,8 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
     private Dados msDados;
     //Dados msDados = new Dados();
+    
+    private Dados_db msDados_db;
 
     // para gravar os usuarios
     private int usuAtual = 0;
@@ -554,10 +557,10 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             return;
         }
 
-        // Verificar se o usuário já existe
-        int pos = msDados.posicaoUsuario(txtIDUsuario.getText());
+        // Verificar se o usuário já existe int pos = msDados.posicaoUsuario(txtIDUsuario.getText());
+        
         if (novo) {
-            if (pos != -1) {
+            if (msDados_db.existeUsuario(txtIDUsuario.getText())) {
                 JOptionPane.showMessageDialog(rootPane, "Este usuário já existe",
                         "ATENÇÂO", HEIGHT, figura);
                 txtIDUsuario.requestFocusInWindow();
@@ -574,7 +577,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
         } // Se o usuário não existe
         else {
-            if (pos == -1) {
+            if (msDados_db.existeUsuario(txtIDUsuario.getText())) {
                 JOptionPane.showMessageDialog(rootPane, "Ok",
                         "ATENÇÂO", HEIGHT, figura);
                 txtIDUsuario.requestFocusInWindow();

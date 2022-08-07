@@ -2,7 +2,7 @@
 package classes;
 
 import formularios.frmLogin;
-import classes.Dados;
+
 
 public class JavaVenda {
     
@@ -15,6 +15,7 @@ public class JavaVenda {
         // 2 chamar a tela de login
         
         frmLogin miLogin = new frmLogin();
+        
         miLogin.setDados(msDados);
         
         miLogin.setDados_db(msDados_db);

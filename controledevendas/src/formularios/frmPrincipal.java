@@ -320,6 +320,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         frmUsuarios mUsuarios = new frmUsuarios();
         // 2 chamar o objeto
         mUsuarios.setDados(msDados);//fim 2
+        
+        // Chamando objeto da classe de conexao com o banco de dados
+        mUsuarios.setDados_db(msDados_db);
+        
         dpnDesk.add(mUsuarios);
         mUsuarios.show(); // 1 fim
 
