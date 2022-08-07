@@ -29,7 +29,7 @@ public class Dados {
     private int conPro = 0;
     private int conCli = 0;
 
-    // Salvar vendas
+    // Salvar vendas 
     private int numFatura = 0;
 
     public Dados() {

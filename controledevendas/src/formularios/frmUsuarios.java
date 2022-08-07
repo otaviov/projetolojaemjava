@@ -577,7 +577,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
         } // Se o usuário não existe
         else {
-            if (msDados_db.existeUsuario(txtIDUsuario.getText())) {
+            if (!msDados_db.existeUsuario(txtIDUsuario.getText())) {
                 JOptionPane.showMessageDialog(rootPane, "Ok",
                         "ATENÇÂO", HEIGHT, figura);
                 txtIDUsuario.requestFocusInWindow();
@@ -595,10 +595,10 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         String msg;
 
         if (novo) {
-            msg = msDados.adicionarUsuario(mUsuario);
+            msg = msDados_db.adicionarUsuario(mUsuario);
 
         } else {
-            msg = msDados.editarUsuario(mUsuario, pos);
+            msg = msDados_db.editarUsuario(mUsuario);
 
         }
         JOptionPane.showMessageDialog(rootPane, msg,

@@ -6,6 +6,10 @@ import java.sql.DriverManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import formularios.frmClientes;
+import formularios.frmProdutos;
+import formularios.frmUsuarios;
 
 public class Dados_db {
 
@@ -78,7 +82,7 @@ public class Dados_db {
                     + usuario + "'";
             Statement st = cnn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            
+
             //Se exite o usuario
             if (rs.next()) {
                 return true;
@@ -91,6 +95,58 @@ public class Dados_db {
 
             Logger.getLogger(Dados_db.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+        }
+    }
+
+    // Adicionanr usuario no Banco de dados local
+    public String adicionarUsuario(Usuario mUsuario) {
+        // Pegar nome e sobrenome do usuario
+        String nomeUsu = frmUsuarios.txtNome.getText();
+        String sobrNomeUsu = frmUsuarios.txtsnome.getText();
+
+        try {
+            String sql = "insert into usuarios values ('"
+                    + mUsuario.getIdUsuario() + "','"
+                    + mUsuario.getNome() + "', '"
+                    + mUsuario.getSnome() + "', '"
+                    + mUsuario.getSenha() + "', "
+                    + mUsuario.getPerfil() + " )";
+
+            Statement st = cnn.createStatement();
+            st.executeUpdate(sql);
+
+            return "Usuário " + nomeUsu + " " + sobrNomeUsu + " cadastrado com sucesso";
+
+        } catch (SQLException ex) {
+
+            Logger.getLogger(Dados_db.class.getName()).log(Level.SEVERE, null, ex);
+            return "Não é possivel cadastrar o usuario " + nomeUsu + " " + sobrNomeUsu;
+        }
+    }
+    
+    // Editar o usuario no banco de dados local
+    public String editarUsuario(Usuario mUsuario) {
+       
+        // Pegar nome do usuario
+            String nomeUsu = frmUsuarios.txtNome.getText();
+            String sobrNomeUsu = frmUsuarios.txtsnome.getText();
+            
+        try {
+            
+            String sql = "update usuario set " 
+                    + "nome ='" + mUsuario.getNome() + "', "
+                    + "snome =' " + mUsuario.getSnome() + "', "
+                    + "senha =' " + mUsuario.getSenha() + "', "
+                    + "idPerfil = " + mUsuario.getPerfil() + " "
+                    + "where idUsuario = ' " + mUsuario.getIdUsuario() + "'" ;
+                    
+            Statement st = cnn.createStatement();
+            
+            return "Usuario " + nomeUsu + " " + sobrNomeUsu + " editado com sucesso";
+        } catch (SQLException ex) {
+            
+            Logger.getLogger(Dados_db.class.getName()).log(Level.SEVERE, null, ex);
+            return "Não é possivel editar o usuario " + nomeUsu + " " + sobrNomeUsu;
         }
     }
 }
