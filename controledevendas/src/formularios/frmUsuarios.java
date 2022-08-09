@@ -3,6 +3,7 @@ package formularios;
 import formulariosSobres.frmSobreUsuarios;
 import classes.Dados;
 import classes.Dados_db;
+import classes.Ultilidades;
 import classes.Usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,15 +14,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+
 public class frmUsuarios extends javax.swing.JInternalFrame {
 
-    
-    
+    ResultSet rs;
+
     Icon figura = new ImageIcon(getToolkit().createImage(getClass().getResource("/icones/atencao.png")));
 
     private Dados msDados;
     //Dados msDados = new Dados();
-    
+
     private Dados_db msDados_db;
 
     // para gravar os usuarios
@@ -35,7 +37,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     public void setDados(Dados msDados) {
         this.msDados = msDados;
     }
-    
+
     public void setDados_db(Dados_db msDados_db) {
         this.msDados_db = msDados_db;
     }
@@ -566,7 +568,6 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         }
 
         // Verificar se o usuário já existe int pos = msDados.posicaoUsuario(txtIDUsuario.getText());
-        
         if (novo) {
             if (msDados_db.existeUsuario(txtIDUsuario.getText())) {
                 JOptionPane.showMessageDialog(rootPane, "Este usuário já existe",
@@ -670,32 +671,74 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
     private void btnPrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeiroActionPerformed
         // Chamando o primeiro usuario cadastrado
-        usuAtual = 0;
-        mostrarRegistro();
+//        usuAtual = 0;
+//
+//        mostrarRegistro();
+
+        try {
+            rs = msDados_db.getUsuarios();
+            rs.first();
+            txtIDUsuario.setText(rs.getString("idUsuario"));
+            txtNome.setText(rs.getString("nome"));
+            txtsnome.setText(rs.getString("snome"));
+            cmbPerfil.setSelectedItem(rs.getInt("idPerfil"));
+        } catch (SQLException e) { //trata os erros
+            JOptionPane.showMessageDialog(this, "Primeiro");
+        }
     }//GEN-LAST:event_btnPrimeiroActionPerformed
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
         // Chamando o ultimo usuario cadastrado
-        usuAtual = msDados.numeroUsuarios() - 1;
-        mostrarRegistro();
+//        usuAtual = msDados.numeroUsuarios() - 1;
+//        mostrarRegistro();
+
+        try {
+            rs = msDados_db.getUsuarios();
+            rs.last();
+            txtIDUsuario.setText(rs.getString("idUsuario"));
+            txtNome.setText(rs.getString("nome"));
+            txtsnome.setText(rs.getString("snome"));
+            cmbPerfil.setSelectedItem(rs.getInt("idPerfil"));
+        } catch (SQLException e) { //trata os erros
+            JOptionPane.showMessageDialog(this, "Primeiro");
+        }
     }//GEN-LAST:event_btnUltimoActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
         // Chamando o proximo usuario cadastrado
-        usuAtual++;
-        if (usuAtual == msDados.numeroUsuarios()) {
-            usuAtual = 0;
-        }
-        mostrarRegistro();
+//        usuAtual++;
+//        if (usuAtual == msDados.numeroUsuarios()) {
+//            usuAtual = 0;
+//        }
+//        mostrarRegistro();
+
+        btnProximo();
+
+        
+
     }//GEN-LAST:event_btnProximoActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         // Chamando o usuario anterior cadastrado
-        usuAtual--;
-        if (usuAtual == -1) {
-            usuAtual = msDados.numeroUsuarios() - 1;
+//        usuAtual--;
+//        if (usuAtual == -1) {
+//            usuAtual = msDados.numeroUsuarios() - 1;
+//        }
+//        mostrarRegistro();
+
+        try {
+            rs = msDados_db.getUsuarios();
+            while (rs.previous()) {
+                txtIDUsuario.setText(rs.getString("idUsuario"));
+                txtNome.setText(rs.getString("nome"));
+                txtsnome.setText(rs.getString("snome"));
+                cmbPerfil.setSelectedItem(rs.getInt("idPerfil"));
+            }
+            
+        } catch (SQLException e) { //trata os erros
+            JOptionPane.showMessageDialog(this, "Primeiro");
         }
-        mostrarRegistro();
+
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void txtSenhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaUsuarioActionPerformed
@@ -721,7 +764,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         mostrarRegistro();
         preencherTabela();
         setar_campos();
-        
+
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
@@ -737,15 +780,23 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String usuario = JOptionPane.showInputDialog("Inserir o usuário");
         if (usuario.equals("")) {
-            
-            return ;
+
+            return;
         }
-        int pos = msDados.posicaoUsuario(usuario);
-        if (pos == -1) {
+
+        if (!msDados_db.existeUsuario(usuario)) {
             JOptionPane.showMessageDialog(rootPane, "Este usuário não existe");
             return;
         }
-        usuAtual = pos;
+
+        double num = tblTabela.getRowCount();
+        for (int i = 0; i < num; i++) {
+
+            if (Ultilidades.objectToString(tblTabela.getValueAt(i, 0)).equals(usuario)) {
+                usuAtual = i;
+                break;
+            }
+        }
 
         mostrarRegistro();
 
@@ -760,13 +811,13 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
 
     private void tblTabelaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblTabelaKeyPressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_tblTabelaKeyPressed
 
     private void tblTabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblTabelaKeyReleased
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_tblTabelaKeyReleased
 
     private void mostrarRegistro() {
@@ -786,36 +837,35 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             String registro[] = new String[4];
             mTabela = new DefaultTableModel(null, titulos);
             ResultSet rs = msDados_db.getUsuarios();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 registro[0] = rs.getString("idUsuario");
                 registro[1] = rs.getString("nome");
                 registro[2] = rs.getString("snome");
                 registro[3] = perfil(rs.getInt("idPerfil"));
-                
+
                 mTabela.addRow(registro);
             }
-            
+
             tblTabela.setModel(mTabela);
-            
+
         } catch (SQLException ex) {
-            
-            Logger.getLogger(frmUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+
+            Logger.getLogger(frmUsuarios.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
     // Método para setar os campos do formulário com o conteúdo da tabela
-    public void setar_campos(){
-        
-        
+    public void setar_campos() {
+
         int setar = tblTabela.getSelectedRow();
         txtIDUsuario.setText("" + tblTabela.getModel().getValueAt(setar, 0));
         txtNome.setText(tblTabela.getModel().getValueAt(setar, 1).toString());
         txtsnome.setText("" + tblTabela.getModel().getValueAt(setar, 2));
-        cmbPerfil.setSelectedItem(tblTabela.getModel().getValueAt(setar,3));
-        
-        
+        cmbPerfil.setSelectedItem(tblTabela.getModel().getValueAt(setar, 3));
+
     }
 
     private String perfil(int idPerfil) {
@@ -825,10 +875,7 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
             return "Comum";
         }
     }
-    
-    
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
@@ -859,5 +906,21 @@ public class frmUsuarios extends javax.swing.JInternalFrame {
     public static javax.swing.JTextField txtsnome;
     // End of variables declaration//GEN-END:variables
 
-   
+    public void btnProximo() {
+
+        try {
+            rs = msDados_db.getUsuarios();
+            while (rs.next()) {
+                txtIDUsuario.setText(rs.getString("idUsuario"));
+                txtNome.setText(rs.getString("nome"));
+                txtsnome.setText(rs.getString("snome"));
+                cmbPerfil.setSelectedItem(rs.getInt("idPerfil"));
+
+            }
+
+        } catch (SQLException e) { //trata os erros
+            JOptionPane.showMessageDialog(this, "Primeiro");
+        }
+
+    }
 }

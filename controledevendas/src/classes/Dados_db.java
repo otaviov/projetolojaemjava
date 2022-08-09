@@ -7,13 +7,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import formularios.frmClientes;
-import formularios.frmProdutos;
 import formularios.frmUsuarios;
+
 
 public class Dados_db {
 
-    private Connection cnn;
+    public Connection cnn;
 
     public Dados_db() {
         try {
@@ -134,11 +133,11 @@ public class Dados_db {
         try {
 
             String sql = "update usuarios set "
-                    + "nome ='" + mUsuario.getNome() + "', "
-                    + "snome =' " + mUsuario.getSnome() + "', "
-                    + "senha =' " + mUsuario.getSenha() + "', "
+                    + "nome = '" + mUsuario.getNome() + "', "
+                    + "snome = '" + mUsuario.getSnome() + "', "
+                    + "senha = '" + mUsuario.getSenha() + "', "
                     + "idPerfil = " + mUsuario.getPerfil() + " "
-                    + "where idUsuario = ' " + mUsuario.getIdUsuario() + "'";
+                    + "where idUsuario = '" + mUsuario.getIdUsuario() + "'";
 
             Statement st = cnn.createStatement();
             st.executeUpdate(sql);
@@ -153,7 +152,7 @@ public class Dados_db {
 
     // Deletar o usuario do banco de dados local
     public String deletarUsuario(String usuario) {
-        
+
         // Pegar nome do usuario
         String nomeUsu = frmUsuarios.txtNome.getText();
         String sobrNomeUsu = frmUsuarios.txtsnome.getText();
@@ -172,16 +171,16 @@ public class Dados_db {
             return "Algo deu errado, não foi possivel deletar o usuario " + nomeUsu + " " + sobrNomeUsu;
         }
     }
-    
+
     // metodo para chamar os usuario e mostrar na tabela
     public ResultSet getUsuarios() {
 
         try {
             String sql = "select * from usuarios";
 
-            Statement st = cnn.createStatement();
+            Statement st = cnn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                              ResultSet.CONCUR_UPDATABLE);
             return st.executeQuery(sql);
-
 
         } catch (SQLException ex) {
 
@@ -189,4 +188,7 @@ public class Dados_db {
             return null;
         }
     }
+    
+   
+    
 }
